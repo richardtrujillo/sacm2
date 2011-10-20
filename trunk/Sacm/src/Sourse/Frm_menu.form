@@ -48,11 +48,11 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="buttonTask2" alignment="0" min="-2" pref="173" max="-2" attributes="0"/>
                       <Component id="buttonTask3" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
                       <Component id="buttonTask6" min="-2" pref="173" max="-2" attributes="0"/>
+                      <Component id="buttonTask2" alignment="1" min="-2" pref="225" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -109,7 +109,6 @@
                               </Group>
                           </Group>
                           <Group type="102" attributes="1">
-                              <EmptySpace pref="75" max="32767" attributes="0"/>
                               <Component id="buttonTask3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                           </Group>
@@ -129,7 +128,11 @@
         <Component class="org.edisoncor.gui.button.ButtonTask" name="buttonTask2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Pacientes"/>
+            <Property name="description" type="java.lang.String" value="Catalogo de pacientes"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonTask2ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="org.edisoncor.gui.button.ButtonTask" name="buttonTask3">
           <Properties>

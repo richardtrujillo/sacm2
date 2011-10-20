@@ -136,7 +136,9 @@ public class Frm_log_in extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 private void buttonSeven1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven1ActionPerformed
-// TODO add your handling code here:
+    Frm_menu menu=new Frm_menu();
+    menu.setVisible(true);
+    this.dispose();
 }//GEN-LAST:event_buttonSeven1ActionPerformed
 
     /**
