@@ -10,6 +10,9 @@
  */
 package Sourse;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 /**
  *
  * @author wsdess
@@ -19,6 +22,16 @@ public class Frm_log_in extends javax.swing.JFrame {
     /** Creates new form Frm_log_in */
     public Frm_log_in() {
         initComponents();
+        //algoritmo para centrar el formulario
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension frameSize = this.getSize();
+        if (frameSize.height > screenSize.height) {
+            frameSize.height = screenSize.height;
+        }
+        if (frameSize.width > screenSize.width) {
+            frameSize.width = screenSize.width;
+        }
+        this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
     }
 
     /** This method is called from within the constructor to
@@ -41,12 +54,14 @@ public class Frm_log_in extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        setUndecorated(true);
 
         panel1.setColorPrimario(new java.awt.Color(255, 255, 255));
         panel1.setColorSecundario(new java.awt.Color(0, 153, 153));
 
         buttonSeven1.setBackground(new java.awt.Color(153, 255, 255));
-        buttonSeven1.setText("Aceptar");
+        buttonSeven1.setText("Ingresar");
         buttonSeven1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonSeven1ActionPerformed(evt);
@@ -67,11 +82,11 @@ public class Frm_log_in extends javax.swing.JFrame {
         panelCurves1Layout.setHorizontalGroup(
             panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCurves1Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(buttonSeven1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(buttonSeven1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(buttonSeven2, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                .addGap(77, 77, 77))
+                .addComponent(buttonSeven2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(56, Short.MAX_VALUE))
             .addGroup(panelCurves1Layout.createSequentialGroup()
                 .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelCurves1Layout.createSequentialGroup()
