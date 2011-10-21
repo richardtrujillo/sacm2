@@ -22,6 +22,10 @@ public class Frm_pacientes extends javax.swing.JFrame {
     /** Creates new form Frm_pacientes */
     public Frm_pacientes() {
         initComponents();
+        //medidas oficiales de los catalogos
+        this.setSize(752,393);
+        this.panel1.setSize(752,393);
+        //algoritmo para centrar el formulario
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension frameSize = this.getSize();
         if (frameSize.height > screenSize.height) {
@@ -62,14 +66,14 @@ public class Frm_pacientes extends javax.swing.JFrame {
             .addGroup(panel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Lbl_catalogo_pacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(429, Short.MAX_VALUE))
+                .addContainerGap(483, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Lbl_catalogo_pacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(305, Short.MAX_VALUE))
+                .addContainerGap(339, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -80,7 +84,7 @@ public class Frm_pacientes extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -92,6 +96,8 @@ public class Frm_pacientes extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
+            
+            @Override
             public void run() {
                 new Frm_pacientes().setVisible(true);
             }
