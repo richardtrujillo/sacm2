@@ -25,6 +25,8 @@ public class Frm_doctores extends javax.swing.JFrame {
     /** Creates new form Frm_doctores */
     public Frm_doctores() {
         initComponents();
+        this.setSize(752,393);
+        this.panel1.setSize(752,393);
         //Algoritmo para centrar el formulario
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension frameSize = this.getSize();
@@ -35,6 +37,15 @@ public class Frm_doctores extends javax.swing.JFrame {
             frameSize.width = screenSize.width;
         }
         this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
+        //this.dataSource1.consulta();
+        this.dmtxf_f_nac.setEnabled(false);
+        this.dtxf_apellido_m.setEnabled(false);
+        this.dtxf_apellido_p.setEnabled(false);
+        this.dtxf_direccion.setEnabled(false);
+        this.dtxf_nombre.setEnabled(false);
+        this.dcbx_tipo.setEnabled(false);
+         this.btn_cancelar.setEnabled(false);
+         this.btn_guardar.setEnabled(false);
     }
 
     /** This method is called from within the constructor to
@@ -46,11 +57,33 @@ public class Frm_doctores extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dataSource1 = new FuenteDeDatos.DataSource();
         panel1 = new org.edisoncor.gui.panel.Panel();
-        panelRect1 = new org.edisoncor.gui.panel.PanelRect();
-        jBtnFoto = new javax.swing.JButton();
-        jLblFoto = new javax.swing.JLabel();
-        jBtnSalir = new javax.swing.JButton();
+        dtxf_direccion = new FuenteDeDatos.DataTextField();
+        jLabel5 = new javax.swing.JLabel();
+        tbn_salir = new org.edisoncor.gui.button.ButtonSeven();
+        btn_ultimo = new org.edisoncor.gui.button.ButtonSeven();
+        dtxf_apellido_m = new FuenteDeDatos.DataTextField();
+        btn_siguiente = new org.edisoncor.gui.button.ButtonSeven();
+        dtxf_apellido_p = new FuenteDeDatos.DataTextField();
+        btn_cancelar = new org.edisoncor.gui.button.ButtonSeven();
+        btn_ingresar = new org.edisoncor.gui.button.ButtonSeven();
+        btn_guardar = new org.edisoncor.gui.button.ButtonSeven();
+        dmtxf_f_nac = new FuenteDeDatos.DataMaskedTextField();
+        buttonSeven1 = new org.edisoncor.gui.button.ButtonSeven();
+        btn_primero = new org.edisoncor.gui.button.ButtonSeven();
+        jLblFoto1 = new javax.swing.JLabel();
+        Lbl_catalogo_pacientes = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        dtxf_nombre = new FuenteDeDatos.DataTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        btn_anterior = new org.edisoncor.gui.button.ButtonSeven();
+        btn_eliminar = new org.edisoncor.gui.button.ButtonSeven();
+        btn_permisos = new org.edisoncor.gui.button.ButtonSeven();
+        lbl_tipo = new javax.swing.JLabel();
+        dcbx_tipo = new FuenteDeDatos.DataCombobox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -59,58 +92,184 @@ public class Frm_doctores extends javax.swing.JFrame {
         panel1.setColorPrimario(new java.awt.Color(255, 255, 255));
         panel1.setColorSecundario(new java.awt.Color(0, 153, 153));
 
-        panelRect1.setColorDeBorde(new java.awt.Color(204, 255, 255));
-        panelRect1.setColorPrimario(new java.awt.Color(255, 255, 255));
-        panelRect1.setColorSecundario(new java.awt.Color(0, 153, 153));
+        dtxf_direccion.setCampo("Nombre");
 
-        jBtnFoto.setText("FOTO");
-        jBtnFoto.addActionListener(new java.awt.event.ActionListener() {
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 57, 85));
+        jLabel5.setText("Fecha Nacimiento:");
+
+        tbn_salir.setBackground(new java.awt.Color(255, 0, 0));
+        tbn_salir.setText("X");
+        tbn_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnFotoActionPerformed(evt);
+                tbn_salirActionPerformed(evt);
             }
         });
 
-        org.jdesktop.layout.GroupLayout panelRect1Layout = new org.jdesktop.layout.GroupLayout(panelRect1);
-        panelRect1.setLayout(panelRect1Layout);
-        panelRect1Layout.setHorizontalGroup(
-            panelRect1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, panelRect1Layout.createSequentialGroup()
-                .add(405, 405, 405)
-                .add(jBtnFoto, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                .add(36, 36, 36))
-        );
-        panelRect1Layout.setVerticalGroup(
-            panelRect1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, panelRect1Layout.createSequentialGroup()
-                .addContainerGap(255, Short.MAX_VALUE)
-                .add(jBtnFoto)
-                .add(37, 37, 37))
-        );
-
-        jBtnSalir.setBackground(new java.awt.Color(255, 255, 255));
-        jBtnSalir.setFont(new java.awt.Font("Lucida Sans", 3, 11)); // NOI18N
-        jBtnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/eqsl_exit.png"))); // NOI18N
-        jBtnSalir.setText("Salir    ");
-        jBtnSalir.addActionListener(new java.awt.event.ActionListener() {
+        btn_ultimo.setBackground(new java.awt.Color(0, 57, 85));
+        btn_ultimo.setText(">>");
+        btn_ultimo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnSalirActionPerformed(evt);
+                btn_ultimoActionPerformed(evt);
             }
         });
+
+        dtxf_apellido_m.setCampo("Nombre");
+
+        btn_siguiente.setBackground(new java.awt.Color(0, 57, 85));
+        btn_siguiente.setText(">");
+        btn_siguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_siguienteActionPerformed(evt);
+            }
+        });
+
+        dtxf_apellido_p.setCampo("Nombre");
+
+        btn_cancelar.setBackground(new java.awt.Color(0, 57, 85));
+        btn_cancelar.setText("Cancelar");
+
+        btn_ingresar.setBackground(new java.awt.Color(0, 57, 85));
+        btn_ingresar.setText("Ingresar");
+        btn_ingresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ingresarActionPerformed(evt);
+            }
+        });
+
+        btn_guardar.setBackground(new java.awt.Color(0, 57, 85));
+        btn_guardar.setText("Guardar");
+
+        buttonSeven1.setBackground(new java.awt.Color(0, 57, 85));
+        buttonSeven1.setText("...");
+        buttonSeven1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSeven1ActionPerformed(evt);
+            }
+        });
+
+        btn_primero.setBackground(new java.awt.Color(0, 57, 85));
+        btn_primero.setText("<<");
+        btn_primero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_primeroActionPerformed(evt);
+            }
+        });
+
+        jLblFoto1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        Lbl_catalogo_pacientes.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Lbl_catalogo_pacientes.setForeground(new java.awt.Color(0, 57, 85));
+        Lbl_catalogo_pacientes.setText("Catalogo de Empleados");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 57, 85));
+        jLabel1.setText("Nombre:");
+
+        dtxf_nombre.setCampo("Nombre");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 57, 85));
+        jLabel2.setText("Apellido_P:");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 57, 85));
+        jLabel4.setText("Apellido_M:");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 57, 85));
+        jLabel3.setText("Cedula Prof:");
+
+        btn_anterior.setBackground(new java.awt.Color(0, 57, 85));
+        btn_anterior.setText("<");
+        btn_anterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_anteriorActionPerformed(evt);
+            }
+        });
+
+        btn_eliminar.setBackground(new java.awt.Color(0, 57, 85));
+        btn_eliminar.setText("Eliminar");
+        btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminarActionPerformed(evt);
+            }
+        });
+
+        btn_permisos.setBackground(new java.awt.Color(0, 57, 85));
+        btn_permisos.setText("Permisos");
+        btn_permisos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_permisosActionPerformed(evt);
+            }
+        });
+
+        lbl_tipo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_tipo.setForeground(new java.awt.Color(0, 57, 85));
+        lbl_tipo.setText("Tipo empleado:");
+
+        dcbx_tipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Administrador", "Medico", "Recepcionista" }));
 
         org.jdesktop.layout.GroupLayout panel1Layout = new org.jdesktop.layout.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(panel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(panelRect1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(18, 18, 18)
-                .add(jLblFoto, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 163, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .add(panel1Layout.createSequentialGroup()
-                .add(638, 638, 638)
-                .add(jBtnSalir, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                .add(31, 31, 31))
+                .add(24, 24, 24)
+                .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jLabel1)
+                    .add(jLabel2)
+                    .add(jLabel4)
+                    .add(jLabel5)
+                    .add(jLabel3)
+                    .add(lbl_tipo))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(dcbx_tipo, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(dtxf_direccion, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(dtxf_apellido_p, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(dtxf_apellido_m, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(dmtxf_f_nac, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(dtxf_nombre, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 154, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(panel1Layout.createSequentialGroup()
+                        .add(37, 37, 37)
+                        .add(Lbl_catalogo_pacientes)
+                        .add(28, 28, 28)
+                        .add(tbn_salir, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 19, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(panel1Layout.createSequentialGroup()
+                        .add(18, 18, 18)
+                        .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, panel1Layout.createSequentialGroup()
+                                .add(jLblFoto1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 150, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(buttonSeven1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(31, 31, 31))
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, panel1Layout.createSequentialGroup()
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(btn_eliminar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                .add(btn_permisos, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(51, 51, 51))
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, panel1Layout.createSequentialGroup()
+                                .add(79, 79, 79)
+                                .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                                    .add(btn_primero, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 60, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(btn_ingresar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, panel1Layout.createSequentialGroup()
+                                        .add(btn_guardar, 0, 0, Short.MAX_VALUE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(btn_cancelar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 85, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, panel1Layout.createSequentialGroup()
+                                        .add(btn_anterior, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 44, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(btn_siguiente, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 43, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(btn_ultimo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 62, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .add(19, 19, 19)))))))
+                .addContainerGap())
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -118,13 +277,60 @@ public class Frm_doctores extends javax.swing.JFrame {
                 .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(panel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .add(panelRect1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(Lbl_catalogo_pacientes, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 43, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(panel1Layout.createSequentialGroup()
-                        .add(34, 34, 34)
-                        .add(jLblFoto, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 159, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 91, Short.MAX_VALUE)
-                .add(jBtnSalir)
-                .add(25, 25, 25))
+                        .add(19, 19, 19)
+                        .add(tbn_salir, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 18, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(panel1Layout.createSequentialGroup()
+                        .add(24, 24, 24)
+                        .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(panel1Layout.createSequentialGroup()
+                                .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE, false)
+                                    .add(jLabel1)
+                                    .add(dtxf_nombre, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(18, 18, 18)
+                                .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE, false)
+                                    .add(jLabel2)
+                                    .add(dtxf_apellido_p, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(18, 18, 18)
+                                .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE, false)
+                                    .add(jLabel4)
+                                    .add(dtxf_apellido_m, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(18, 18, 18)
+                                .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(panel1Layout.createSequentialGroup()
+                                        .add(2, 2, 2)
+                                        .add(dmtxf_f_nac, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                    .add(jLabel5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 22, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(18, 18, 18)
+                                .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(jLabel3)
+                                    .add(dtxf_direccion, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                            .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                                .add(lbl_tipo)
+                                .add(dcbx_tipo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                    .add(panel1Layout.createSequentialGroup()
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                        .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                            .add(jLblFoto1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 172, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(buttonSeven1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 18, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(18, 18, 18)
+                        .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(btn_anterior, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(btn_siguiente, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(btn_ultimo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(btn_primero, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(btn_guardar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(btn_cancelar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(btn_ingresar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(btn_eliminar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(btn_permisos, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
@@ -135,21 +341,31 @@ public class Frm_doctores extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(panel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .add(panel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-private void jBtnFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnFotoActionPerformed
-JFileChooser dlg = new JFileChooser();
+    private void tbn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salirActionPerformed
+        Frm_menu menu=new Frm_menu();
+        menu.setVisible(true);
+        this.dispose();
+}//GEN-LAST:event_tbn_salirActionPerformed
+
+    private void btn_primeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_primeroActionPerformed
+        this.dataSource1.primero();
+}//GEN-LAST:event_btn_primeroActionPerformed
+
+    private void buttonSeven1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven1ActionPerformed
+        JFileChooser dlg = new JFileChooser();
         //Abre la ventana de dialogo
         int option = dlg.showOpenDialog(this);
         //Si hace click en el boton abrir del dialogo
         if(option==JFileChooser.APPROVE_OPTION) {
             //Obtiene nombre del archivo seleccionado
             String file = dlg.getSelectedFile().getPath();
-            jLblFoto.setIcon(new ImageIcon(file));
+            this.jLblFoto1.setIcon(new ImageIcon(file));
             //Modificando la imagen
             ImageIcon icon = new ImageIcon(file);
             //Se extrae la imagen del icono
@@ -158,15 +374,42 @@ JFileChooser dlg = new JFileChooser();
             Image newimg = img.getScaledInstance(140,170,java.awt.Image.SCALE_SMOOTH);
             ImageIcon newIcon = new ImageIcon(newimg);
             //Se coloca el nuevo icono modificado
-            jLblFoto.setIcon(newIcon);
+            jLblFoto1.setIcon(newIcon);
             //Se cambia el tamaño de la etiqueta
-            jLblFoto.setSize(256,256);
-        }       
-}//GEN-LAST:event_jBtnFotoActionPerformed
+            jLblFoto1.setSize(256,256);
+        }
+}//GEN-LAST:event_buttonSeven1ActionPerformed
 
-private void jBtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSalirActionPerformed
-setVisible(false);       
-}//GEN-LAST:event_jBtnSalirActionPerformed
+    private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
+        this.dmtxf_f_nac.setEnabled(true);
+        this.dtxf_apellido_m.setEnabled(true);
+        this.dtxf_apellido_p.setEnabled(true);
+        this.dtxf_direccion.setEnabled(true);
+        this.dtxf_nombre.setEnabled(true);
+        this.dcbx_tipo.setEnabled(true);
+        this.btn_guardar.setEnabled(true);
+        this.btn_cancelar.setEnabled(true);
+}//GEN-LAST:event_btn_ingresarActionPerformed
+
+    private void btn_siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_siguienteActionPerformed
+        this.dataSource1.siguiente();
+}//GEN-LAST:event_btn_siguienteActionPerformed
+
+    private void btn_ultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ultimoActionPerformed
+        this.dataSource1.ultimo();
+}//GEN-LAST:event_btn_ultimoActionPerformed
+
+    private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
+        // TODO add your handling code here:
+}//GEN-LAST:event_btn_eliminarActionPerformed
+
+    private void btn_anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_anteriorActionPerformed
+        this.dataSource1.anterior();
+}//GEN-LAST:event_btn_anteriorActionPerformed
+
+    private void btn_permisosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_permisosActionPerformed
+        // TODO add your handling code here:
+}//GEN-LAST:event_btn_permisosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,10 +447,32 @@ setVisible(false);
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBtnFoto;
-    private javax.swing.JButton jBtnSalir;
-    private javax.swing.JLabel jLblFoto;
+    private javax.swing.JLabel Lbl_catalogo_pacientes;
+    private org.edisoncor.gui.button.ButtonSeven btn_anterior;
+    private org.edisoncor.gui.button.ButtonSeven btn_cancelar;
+    private org.edisoncor.gui.button.ButtonSeven btn_eliminar;
+    private org.edisoncor.gui.button.ButtonSeven btn_guardar;
+    private org.edisoncor.gui.button.ButtonSeven btn_ingresar;
+    private org.edisoncor.gui.button.ButtonSeven btn_permisos;
+    private org.edisoncor.gui.button.ButtonSeven btn_primero;
+    private org.edisoncor.gui.button.ButtonSeven btn_siguiente;
+    private org.edisoncor.gui.button.ButtonSeven btn_ultimo;
+    private org.edisoncor.gui.button.ButtonSeven buttonSeven1;
+    private FuenteDeDatos.DataSource dataSource1;
+    private FuenteDeDatos.DataCombobox dcbx_tipo;
+    private FuenteDeDatos.DataMaskedTextField dmtxf_f_nac;
+    private FuenteDeDatos.DataTextField dtxf_apellido_m;
+    private FuenteDeDatos.DataTextField dtxf_apellido_p;
+    private FuenteDeDatos.DataTextField dtxf_direccion;
+    private FuenteDeDatos.DataTextField dtxf_nombre;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLblFoto1;
+    private javax.swing.JLabel lbl_tipo;
     private org.edisoncor.gui.panel.Panel panel1;
-    private org.edisoncor.gui.panel.PanelRect panelRect1;
+    private org.edisoncor.gui.button.ButtonSeven tbn_salir;
     // End of variables declaration//GEN-END:variables
 }
