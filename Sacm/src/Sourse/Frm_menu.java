@@ -20,7 +20,7 @@ import java.awt.Toolkit;
  */
 public class Frm_menu extends javax.swing.JFrame {
     //Pruebas
-    int tipo_usuario=3;
+    int tipo_usuario=1;
     String nombre="iniciando"; 
     /** Creates new form Frm_menu */
     public Frm_menu() {
@@ -268,8 +268,8 @@ public class Frm_menu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonTask6ActionPerformed
 
     private void buttonTask1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask1ActionPerformed
-        Frm_doctores med=new Frm_doctores();
-        med.setVisible(true);
+        Frm_empleados emp=new Frm_empleados();
+        emp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonTask1ActionPerformed
 
