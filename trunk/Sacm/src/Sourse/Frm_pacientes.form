@@ -125,12 +125,40 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="tbn_salir" min="-2" pref="18" max="-2" attributes="0"/>
-                          <EmptySpace pref="7" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="tbn_salir" min="-2" pref="18" max="-2" attributes="0"/>
+                                  <EmptySpace min="315" pref="315" max="315" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="Lbl_catalogo_pacientes" min="-2" pref="43" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jLblFoto" min="-2" pref="172" max="-2" attributes="0"/>
+                                      <Component id="buttonSeven1" min="-2" pref="18" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="btn_anterior" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btn_siguiente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btn_ultimo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btn_primero" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="buttonSeven3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="buttonSeven4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="buttonSeven2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" max="-2" attributes="0">
                               <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="dtxf_nombre" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -178,31 +206,9 @@
                               <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="dtxf_ciudad" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="Lbl_catalogo_pacientes" min="-2" pref="43" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jLblFoto" min="-2" pref="172" max="-2" attributes="0"/>
-                              <Component id="buttonSeven1" min="-2" pref="18" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btn_anterior" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btn_siguiente" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btn_ultimo" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btn_primero" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="buttonSeven3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="buttonSeven4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="buttonSeven2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="43" max="32767" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace pref="39" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
