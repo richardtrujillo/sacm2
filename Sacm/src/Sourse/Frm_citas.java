@@ -12,7 +12,6 @@ package Sourse;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.util.Calendar;
 
 /**
  *
@@ -23,8 +22,8 @@ public class Frm_citas extends javax.swing.JFrame {
     /** Creates new form Frm_citas */
     public Frm_citas() {
         initComponents();
-        this.setSize(600,300);
-        this.panel1.setSize(600,300);
+       // this.setSize(600,300);
+        //this.panel1.setSize(600,300);
         //algoritmo para centrar el formulario
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension frameSize = this.getSize();
