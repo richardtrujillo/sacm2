@@ -19,8 +19,9 @@ import java.awt.Toolkit;
  */
 public class Frm_log_in extends javax.swing.JFrame {
 
-    /** Creates new form Frm_log_in */
+    
     public Frm_log_in() {
+        Frm_menu menu=new Frm_menu();
         initComponents();
         //algoritmo para centrar el formulario
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
