@@ -10,7 +10,9 @@
  */
 package Sourse;
 
+import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 
@@ -23,6 +25,20 @@ public class Frm_empleados extends javax.swing.JFrame {
     /** Creates new form Frm_empleados */
     public Frm_empleados() {
         initComponents();
+        //algoritmo para centrar el formulario
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension frameSize = this.getSize();
+        if (frameSize.height > screenSize.height) {
+            frameSize.height = screenSize.height;
+        }
+        if (frameSize.width > screenSize.width) {
+            frameSize.width = screenSize.width;
+        }
+        this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
+        //this.dataSource1.consulta();
+        this.dtxf_apellido_m.setEnabled(false);
+        this.dtxf_apellido_p.setEnabled(false);
+        this.dtxf_nombre.setEnabled(false);
     }
 
     /** This method is called from within the constructor to
