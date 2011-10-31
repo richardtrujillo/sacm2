@@ -66,6 +66,7 @@ public class Frm_citas extends javax.swing.JFrame {
         tbn_salir = new org.edisoncor.gui.button.ButtonSeven();
         clockDigital1 = new org.edisoncor.gui.varios.ClockDigital();
         jLabel3 = new javax.swing.JLabel();
+        dataCombobox1 = new FuenteDeDatos.DataCombobox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -152,8 +153,14 @@ public class Frm_citas extends javax.swing.JFrame {
         });
 
         dataLabel1.setText("Aqui aparece el No.Cita");
+        dataLabel1.setCampo("id_cita");
+        dataLabel1.setData(dataSource1);
 
-        dataTextField1.setText("dataTextField1");
+        dataTextField1.setCampo("id_paciente");
+        dataTextField1.setData(dataSource1);
+
+        dataTextField2.setCampo("fecha");
+        dataTextField2.setData(dataSource1);
 
         tbn_salir.setBackground(new java.awt.Color(255, 0, 0));
         tbn_salir.setText("X");
@@ -169,6 +176,10 @@ public class Frm_citas extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 57, 85));
         jLabel3.setText("Fecha del dia");
 
+        dataCombobox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00" }));
+        dataCombobox1.setCampo("hora");
+        dataCombobox1.setData(dataSource1);
+
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
@@ -181,13 +192,14 @@ public class Frm_citas extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addGap(29, 29, 29)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dataTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                    .addComponent(dataLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                    .addComponent(buttonSeven6, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                    .addComponent(buttonSeven7, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(dataTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addComponent(dataLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
-                    .addComponent(buttonSeven6, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
-                    .addComponent(dataTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
-                    .addComponent(buttonSeven7, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
+                        .addComponent(dataTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(dataCombobox1, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)))
                 .addGap(88, 88, 88)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -234,7 +246,8 @@ public class Frm_citas extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(dataTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(dataTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dataCombobox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(buttonSeven7, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel1Layout.createSequentialGroup()
@@ -334,6 +347,7 @@ public class Frm_citas extends javax.swing.JFrame {
     private org.edisoncor.gui.button.ButtonSeven buttonSeven6;
     private org.edisoncor.gui.button.ButtonSeven buttonSeven7;
     private org.edisoncor.gui.varios.ClockDigital clockDigital1;
+    private FuenteDeDatos.DataCombobox dataCombobox1;
     private FuenteDeDatos.DataLabel dataLabel1;
     private FuenteDeDatos.DataSource dataSource1;
     private FuenteDeDatos.DataTextField dataTextField1;

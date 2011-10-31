@@ -60,14 +60,15 @@
                   </Group>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="dataTextField1" pref="178" max="32767" attributes="1"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                      <Component id="dataTextField1" pref="203" max="32767" attributes="1"/>
+                      <Component id="dataLabel1" alignment="0" pref="203" max="32767" attributes="0"/>
+                      <Component id="buttonSeven6" alignment="0" pref="203" max="32767" attributes="1"/>
+                      <Component id="buttonSeven7" pref="203" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="dataTextField2" min="-2" pref="106" max="-2" attributes="1"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="dataCombobox1" pref="79" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="dataLabel1" alignment="0" pref="178" max="32767" attributes="0"/>
-                      <Component id="buttonSeven6" alignment="0" pref="178" max="32767" attributes="1"/>
-                      <Component id="dataTextField2" alignment="0" pref="178" max="32767" attributes="1"/>
-                      <Component id="buttonSeven7" pref="178" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
@@ -129,6 +130,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="dataTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="dataCombobox1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="buttonSeven7" min="-2" pref="17" max="-2" attributes="0"/>
@@ -306,14 +308,27 @@
         <Component class="FuenteDeDatos.DataLabel" name="dataLabel1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Aqui aparece el No.Cita"/>
+            <Property name="campo" type="java.lang.String" value="id_cita"/>
+            <Property name="data" type="FuenteDeDatos.DataSource" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="dataSource1"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="FuenteDeDatos.DataTextField" name="dataTextField1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="dataTextField1"/>
+            <Property name="campo" type="java.lang.String" value="id_paciente"/>
+            <Property name="data" type="FuenteDeDatos.DataSource" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="dataSource1"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="FuenteDeDatos.DataTextField" name="dataTextField2">
+          <Properties>
+            <Property name="campo" type="java.lang.String" value="fecha"/>
+            <Property name="data" type="FuenteDeDatos.DataSource" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="dataSource1"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="org.edisoncor.gui.button.ButtonSeven" name="tbn_salir">
           <Properties>
@@ -342,6 +357,25 @@
               <Color blue="55" green="39" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Fecha del dia"/>
+          </Properties>
+        </Component>
+        <Component class="FuenteDeDatos.DataCombobox" name="dataCombobox1">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="7">
+                <StringItem index="0" value="9:00"/>
+                <StringItem index="1" value="10:00"/>
+                <StringItem index="2" value="11:00"/>
+                <StringItem index="3" value="12:00"/>
+                <StringItem index="4" value="13:00"/>
+                <StringItem index="5" value="14:00"/>
+                <StringItem index="6" value="15:00"/>
+              </StringArray>
+            </Property>
+            <Property name="campo" type="java.lang.String" value="hora"/>
+            <Property name="data" type="FuenteDeDatos.DataSource" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="dataSource1"/>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>
