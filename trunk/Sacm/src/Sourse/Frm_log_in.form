@@ -4,7 +4,7 @@
   <NonVisualComponents>
     <Component class="FuenteDeDatos.DataSource" name="dataSource1">
       <Properties>
-        <Property name="codigosql" type="java.lang.String" value=""/>
+        <Property name="codigosql" type="java.lang.String" value="select * from tbl_usuarios"/>
         <Property name="db" type="java.lang.String" value="db_sacm"/>
         <Property name="ip" type="java.lang.String" value="http://localhost/"/>
         <Property name="password" type="java.lang.String" value="3mbl3ma"/>
@@ -190,6 +190,12 @@
               </Properties>
             </Component>
             <Component class="FuenteDeDatos.DataTextField" name="dataTextField1">
+              <Properties>
+                <Property name="campo" type="java.lang.String" value="id_usuario"/>
+                <Property name="data" type="FuenteDeDatos.DataSource" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="dataSource1"/>
+                </Property>
+              </Properties>
             </Component>
             <Component class="javax.swing.JPasswordField" name="jPasswordField1">
             </Component>

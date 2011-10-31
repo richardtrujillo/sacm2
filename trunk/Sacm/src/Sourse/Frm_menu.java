@@ -94,6 +94,7 @@ public class Frm_menu extends javax.swing.JFrame {
     private void initComponents() {
 
         datahabilitador1 = new FuenteDeDatos.Datahabilitador();
+        dataSource1 = new FuenteDeDatos.DataSource();
         panel1 = new org.edisoncor.gui.panel.Panel();
         panelCurves1 = new org.edisoncor.gui.panel.PanelCurves();
         buttonTask1 = new org.edisoncor.gui.button.ButtonTask();
@@ -101,12 +102,18 @@ public class Frm_menu extends javax.swing.JFrame {
         clockDigital1 = new org.edisoncor.gui.varios.ClockDigital();
         buttonTask5 = new org.edisoncor.gui.button.ButtonTask();
         jLabel1 = new javax.swing.JLabel();
-        dlbl_nombre = new FuenteDeDatos.DataLabel();
         buttonTask2 = new org.edisoncor.gui.button.ButtonTask();
         buttonTask3 = new org.edisoncor.gui.button.ButtonTask();
         buttonTask4 = new org.edisoncor.gui.button.ButtonTask();
         buttonTask6 = new org.edisoncor.gui.button.ButtonTask();
         buttonTask7 = new org.edisoncor.gui.button.ButtonTask();
+        dlbl_nombre = new FuenteDeDatos.DataLabel();
+
+        dataSource1.setCodigosql("select * from tbl_medicos");
+        dataSource1.setDb("db_sacm");
+        dataSource1.setIp("http://localhost/");
+        dataSource1.setPassword("3mbl3ma");
+        dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -147,9 +154,6 @@ public class Frm_menu extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24));
         jLabel1.setForeground(new java.awt.Color(0, 57, 85));
         jLabel1.setText("Bienvenido:");
-
-        dlbl_nombre.setForeground(new java.awt.Color(0, 57, 85));
-        dlbl_nombre.setText("Aqui es donde aparece el nombre del empleado");
 
         buttonTask2.setForeground(new java.awt.Color(0, 57, 85));
         buttonTask2.setText("Pacientes");
@@ -193,6 +197,8 @@ public class Frm_menu extends javax.swing.JFrame {
             }
         });
 
+        dlbl_nombre.setText("Aqui aparecera el nombre del empleado logeado");
+
         javax.swing.GroupLayout panelCurves1Layout = new javax.swing.GroupLayout(panelCurves1);
         panelCurves1.setLayout(panelCurves1Layout);
         panelCurves1Layout.setHorizontalGroup(
@@ -200,15 +206,6 @@ public class Frm_menu extends javax.swing.JFrame {
             .addGroup(panelCurves1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelCurves1Layout.createSequentialGroup()
-                        .addComponent(tbn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelCurves1Layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(154, 154, 154)
-                                .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(dlbl_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelCurves1Layout.createSequentialGroup()
                         .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(buttonTask3, 0, 0, Short.MAX_VALUE)
@@ -221,7 +218,16 @@ public class Frm_menu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(buttonTask1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonTask6, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(buttonTask6, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelCurves1Layout.createSequentialGroup()
+                        .addComponent(tbn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dlbl_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelCurves1Layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(154, 154, 154)
+                                .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelCurves1Layout.setVerticalGroup(
@@ -229,13 +235,11 @@ public class Frm_menu extends javax.swing.JFrame {
             .addGroup(panelCurves1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelCurves1Layout.createSequentialGroup()
-                        .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(dlbl_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tbn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addComponent(dlbl_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonTask2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -272,9 +276,7 @@ public class Frm_menu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -338,6 +340,7 @@ public class Frm_menu extends javax.swing.JFrame {
     private org.edisoncor.gui.button.ButtonTask buttonTask6;
     private org.edisoncor.gui.button.ButtonTask buttonTask7;
     private org.edisoncor.gui.varios.ClockDigital clockDigital1;
+    private FuenteDeDatos.DataSource dataSource1;
     private FuenteDeDatos.Datahabilitador datahabilitador1;
     private FuenteDeDatos.DataLabel dlbl_nombre;
     private javax.swing.JLabel jLabel1;

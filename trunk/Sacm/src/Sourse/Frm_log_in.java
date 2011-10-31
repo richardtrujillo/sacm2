@@ -55,7 +55,7 @@ public class Frm_log_in extends javax.swing.JFrame {
         dataTextField1 = new FuenteDeDatos.DataTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
 
-        dataSource1.setCodigosql("");
+        dataSource1.setCodigosql("select * from tbl_usuarios");
         dataSource1.setDb("db_sacm");
         dataSource1.setIp("http://localhost/");
         dataSource1.setPassword("3mbl3ma");
@@ -95,6 +95,9 @@ public class Frm_log_in extends javax.swing.JFrame {
         jLabel2.setText("Contraseña:");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/keys.gif"))); // NOI18N
+
+        dataTextField1.setCampo("id_usuario");
+        dataTextField1.setData(dataSource1);
 
         javax.swing.GroupLayout panelCurves1Layout = new javax.swing.GroupLayout(panelCurves1);
         panelCurves1.setLayout(panelCurves1Layout);

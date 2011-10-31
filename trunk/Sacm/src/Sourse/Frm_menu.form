@@ -4,6 +4,15 @@
   <NonVisualComponents>
     <Component class="FuenteDeDatos.Datahabilitador" name="datahabilitador1">
     </Component>
+    <Component class="FuenteDeDatos.DataSource" name="dataSource1">
+      <Properties>
+        <Property name="codigosql" type="java.lang.String" value="select * from tbl_medicos"/>
+        <Property name="db" type="java.lang.String" value="db_sacm"/>
+        <Property name="ip" type="java.lang.String" value="http://localhost/"/>
+        <Property name="password" type="java.lang.String" value="3mbl3ma"/>
+        <Property name="usuario" type="java.lang.String" value="root"/>
+      </Properties>
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -33,10 +42,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="panel1" min="-2" pref="353" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
+          <Component id="panel1" min="-2" pref="353" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -78,18 +84,6 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="1">
-                              <Component id="tbn_salir" min="-2" pref="19" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel1" min="-2" pref="153" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
-                                      <Component id="clockDigital1" min="-2" pref="107" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="dlbl_nombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="buttonTask3" min="0" pref="0" max="32767" attributes="1"/>
@@ -107,6 +101,18 @@
                                   <Component id="buttonTask6" min="-2" pref="215" max="-2" attributes="1"/>
                               </Group>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="tbn_salir" min="-2" pref="19" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="dlbl_nombre" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel1" min="-2" pref="153" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
+                                      <Component id="clockDigital1" min="-2" pref="107" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -117,16 +123,12 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="clockDigital1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel1" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="dlbl_nombre" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="clockDigital1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
                           <Component id="tbn_salir" min="-2" pref="18" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <Component id="dlbl_nombre" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="buttonTask2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -200,14 +202,6 @@
                 <Property name="text" type="java.lang.String" value="Bienvenido:"/>
               </Properties>
             </Component>
-            <Component class="FuenteDeDatos.DataLabel" name="dlbl_nombre">
-              <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="55" green="39" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Aqui es donde aparece el nombre del empleado"/>
-              </Properties>
-            </Component>
             <Component class="org.edisoncor.gui.button.ButtonTask" name="buttonTask2">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -266,6 +260,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonTask7ActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="FuenteDeDatos.DataLabel" name="dlbl_nombre">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Aqui aparecera el nombre del empleado logeado"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
