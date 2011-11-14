@@ -20,13 +20,12 @@ import java.awt.Toolkit;
  */
 public class Frm_menu extends javax.swing.JFrame {
     //Pruebas
-    private int tipo_usuario=1;
+    private int tipo_usuario=3;
     private String nombre="iniciando"; 
     /** Creates new form Frm_menu */
     public Frm_menu() {
         initComponents();
    
-        
         switch(tipo_usuario){
             case 1:
                         //Caso administrador
