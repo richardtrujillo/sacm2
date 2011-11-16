@@ -416,7 +416,7 @@ public class Frm_empleados extends javax.swing.JFrame {
             //Se extrae la imagen del icono
             Image img = icon.getImage();
             //Se modifica su tamaño
-            Image newimg = img.getScaledInstance(140,170,java.awt.Image.SCALE_SMOOTH);
+            Image newimg = img.getScaledInstance(146,176,java.awt.Image.SCALE_SMOOTH);
             ImageIcon newIcon = new ImageIcon(newimg);
             //Se coloca el nuevo icono modificado
             jLblFoto.setIcon(newIcon);

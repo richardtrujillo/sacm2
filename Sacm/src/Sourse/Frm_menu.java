@@ -120,8 +120,9 @@ public class Frm_menu extends javax.swing.JFrame {
         panel1.setPreferredSize(new java.awt.Dimension(752, 393));
 
         buttonTask1.setForeground(new java.awt.Color(0, 57, 85));
-        buttonTask1.setText("Medicos");
-        buttonTask1.setDescription("Catalogo Medicos");
+        buttonTask1.setText("Empleados");
+        buttonTask1.setActionCommand("Empleados");
+        buttonTask1.setDescription("Catalogo Empleados");
         buttonTask1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonTask1ActionPerformed(evt);
@@ -200,24 +201,9 @@ public class Frm_menu extends javax.swing.JFrame {
         panelCurves1Layout.setHorizontalGroup(
             panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCurves1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCurves1Layout.createSequentialGroup()
-                        .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(buttonTask3, 0, 0, Short.MAX_VALUE)
-                            .addComponent(buttonTask2, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(buttonTask5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonTask4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonTask7, javax.swing.GroupLayout.Alignment.LEADING, 0, 0, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(buttonTask1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonTask6, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelCurves1Layout.createSequentialGroup()
-                        .addComponent(tbn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addContainerGap()
                         .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelCurves1Layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -231,7 +217,6 @@ public class Frm_menu extends javax.swing.JFrame {
         panelCurves1Layout.setVerticalGroup(
             panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCurves1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCurves1Layout.createSequentialGroup()
                         .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

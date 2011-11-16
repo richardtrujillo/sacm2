@@ -81,28 +81,9 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="buttonTask3" min="0" pref="0" max="32767" attributes="1"/>
-                                  <Component id="buttonTask2" alignment="0" pref="225" max="32767" attributes="1"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="buttonTask5" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="buttonTask4" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="buttonTask7" alignment="0" min="0" pref="0" max="32767" attributes="1"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="buttonTask1" min="-2" pref="211" max="-2" attributes="1"/>
-                                  <Component id="buttonTask6" min="-2" pref="215" max="-2" attributes="1"/>
-                              </Group>
-                          </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="tbn_salir" min="-2" pref="19" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
@@ -116,15 +97,15 @@
                                   </Group>
                               </Group>
                           </Group>
+                          <Component id="tbn_salir" alignment="0" min="-2" pref="19" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -161,8 +142,9 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="55" green="39" red="0" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Medicos"/>
-                <Property name="description" type="java.lang.String" value="Catalogo Medicos"/>
+                <Property name="text" type="java.lang.String" value="Empleados"/>
+                <Property name="actionCommand" type="java.lang.String" value="Empleados"/>
+                <Property name="description" type="java.lang.String" value="Catalogo Empleados"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonTask1ActionPerformed"/>
