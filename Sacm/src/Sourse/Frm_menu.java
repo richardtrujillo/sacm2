@@ -20,7 +20,7 @@ import java.awt.Toolkit;
  */
 public class Frm_menu extends javax.swing.JFrame {
     //Pruebas
-    private int tipo_usuario=3;
+    private int tipo_usuario=0;
     private String nombre="iniciando"; 
     /** Creates new form Frm_menu */
     public Frm_menu() {
@@ -30,12 +30,10 @@ public class Frm_menu extends javax.swing.JFrame {
             case 1:
                         //Caso administrador
                         this.setSize(714, 353);
-                        nombre="Administrador";
                         this.datahabilitador1.habilitaredison(panel1, this.buttonTask1);
                 break;
             case 2:
                         //Caso recepcion
-                        nombre="Recepcion";
                         this.setSize(500, 353);
                         this.tbn_salir.setLocation(480, 350);
                         this.buttonTask1.setVisible(false);
@@ -48,7 +46,6 @@ public class Frm_menu extends javax.swing.JFrame {
                         break;
             case 3:
                         //Caso medico
-                        nombre="Medico";
                         this.setSize(500, 353);
                         this.tbn_salir.setLocation(480, 350);
                         this.buttonTask1.setVisible(false);
@@ -222,11 +219,13 @@ public class Frm_menu extends javax.swing.JFrame {
                         .addComponent(tbn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dlbl_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panelCurves1Layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(154, 154, 154)
-                                .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 411, Short.MAX_VALUE)
+                                .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelCurves1Layout.createSequentialGroup()
+                                .addComponent(dlbl_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 430, Short.MAX_VALUE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelCurves1Layout.setVerticalGroup(
@@ -234,11 +233,13 @@ public class Frm_menu extends javax.swing.JFrame {
             .addGroup(panelCurves1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tbn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addComponent(dlbl_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelCurves1Layout.createSequentialGroup()
+                        .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tbn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addComponent(dlbl_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonTask2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -358,8 +359,8 @@ public class Frm_menu extends javax.swing.JFrame {
     /**
      * @param tipo_usuario the tipo_usuario to set
      */
-    public void setTipo_usuario(int tipo_usuario) {
-        this.tipo_usuario = tipo_usuario;
+    public void setTipo_usuario(int tipo_u) {
+        this.tipo_usuario = tipo_u;
     }
 
     /**
@@ -372,7 +373,7 @@ public class Frm_menu extends javax.swing.JFrame {
     /**
      * @param nombre the nombre to set
      */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String nom) {
+        this.nombre = nom;
     }
 }

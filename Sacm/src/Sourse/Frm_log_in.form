@@ -89,8 +89,8 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="dataTextField1" alignment="0" pref="199" max="32767" attributes="0"/>
-                                  <Component id="jPasswordField1" alignment="0" pref="199" max="32767" attributes="0"/>
+                                  <Component id="dataTextField1" alignment="0" pref="202" max="32767" attributes="0"/>
+                                  <Component id="jPasswordField1" alignment="0" pref="202" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>

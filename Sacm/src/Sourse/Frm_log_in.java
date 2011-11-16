@@ -12,6 +12,9 @@ package Sourse;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+//import java.sql.SQLException;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
 
 /**
  *
@@ -23,7 +26,9 @@ public class Frm_log_in extends javax.swing.JFrame {
     public Frm_log_in() {
         Frm_menu menu=new Frm_menu();
         initComponents();
-        //algoritmo para centrar el formulario
+        String Resultado_consulta_nom="nombre";
+        int resultado_consulta_tip=1;
+        //algoritmoara centrar el formulario
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension frameSize = this.getSize();
         if (frameSize.height > screenSize.height) {
@@ -33,6 +38,10 @@ public class Frm_log_in extends javax.swing.JFrame {
             frameSize.width = screenSize.width;
         }
         this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
+        menu.setNombre(Resultado_consulta_nom);
+        menu.setTipo_usuario(resultado_consulta_tip);
+        //this.dataSource1.consulta();
+        
     }
 
     /** This method is called from within the constructor to
@@ -183,6 +192,13 @@ public class Frm_log_in extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 private void buttonSeven1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven1ActionPerformed
+//        try {
+//            if(this.dataSource1.rs.getString("empleado_id").equals(this.dataTextField1.getText())&&this.dataSource1.rs.getString("password").equals(this.jPasswordField1.getPassword())){
+//            
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Frm_log_in.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     Frm_menu menu=new Frm_menu();
     menu.setVisible(true);
     this.dispose();
