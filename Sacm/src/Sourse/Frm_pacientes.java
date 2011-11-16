@@ -40,7 +40,7 @@ public class Frm_pacientes extends javax.swing.JFrame {
         this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
         //this.dataSource1.consulta();
         this.dcbx_sexo.setEnabled(false);
-        this.dmtxf_f_nac.setEnabled(false);
+        this.JTxtFechaPacientes.setEnabled(false);
         this.dmtxf_telefono.setEnabled(false);
         this.dtx_email.setEnabled(false);
         this.dtxf_apellido_m.setEnabled(false);
@@ -74,7 +74,7 @@ public class Frm_pacientes extends javax.swing.JFrame {
         dtxf_apellido_m = new FuenteDeDatos.DataTextField();
         dtxf_apellido_p = new FuenteDeDatos.DataTextField();
         dcbx_sexo = new FuenteDeDatos.DataCombobox();
-        dmtxf_f_nac = new FuenteDeDatos.DataMaskedTextField();
+        JTxtFechaPacientes = new FuenteDeDatos.DataMaskedTextField();
         dmtxf_telefono = new FuenteDeDatos.DataMaskedTextField();
         jLabel8 = new javax.swing.JLabel();
         dtx_email = new FuenteDeDatos.DataTextField();
@@ -90,11 +90,12 @@ public class Frm_pacientes extends javax.swing.JFrame {
         buttonSeven3 = new org.edisoncor.gui.button.ButtonSeven();
         buttonSeven4 = new org.edisoncor.gui.button.ButtonSeven();
         tbn_salir = new org.edisoncor.gui.button.ButtonSeven();
+        JDtChFecha = new datechooser.beans.DateChooserCombo();
 
         dataSource1.setCodigosql("select * from tbl_pacientes");
-        dataSource1.setDb("db_sacm");
+        dataSource1.setDb("sacm");
         dataSource1.setIp("http://localhost/");
-        dataSource1.setPassword("3mbl3ma");
+        dataSource1.setPassword("");
         dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -114,6 +115,7 @@ public class Frm_pacientes extends javax.swing.JFrame {
         jLabel1.setText("Nombre:");
 
         dtxf_nombre.setCampo("Nombre");
+        dtxf_nombre.setData(dataSource1);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel2.setForeground(new java.awt.Color(0, 57, 85));
@@ -139,14 +141,24 @@ public class Frm_pacientes extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 57, 85));
         jLabel7.setText("Telefono:");
 
-        dtxf_direccion.setCampo("Nombre");
+        dtxf_direccion.setCampo("Direccion");
+        dtxf_direccion.setData(dataSource1);
 
-        dtxf_apellido_m.setCampo("Nombre");
+        dtxf_apellido_m.setCampo("Apellido_M");
 
-        dtxf_apellido_p.setCampo("Nombre");
+        dtxf_apellido_p.setCampo("Apellido_P");
+        dtxf_apellido_p.setData(dataSource1);
 
         dcbx_sexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "M", "F" }));
+        dcbx_sexo.setCampo("Sexo");
+        dcbx_sexo.setData(dataSource1);
 
+        JTxtFechaPacientes.setCampo("F_nac");
+        JTxtFechaPacientes.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        JTxtFechaPacientes.setData(dataSource1);
+
+        dmtxf_telefono.setCampo("Telefono");
+        dmtxf_telefono.setData(dataSource1);
         dmtxf_telefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dmtxf_telefonoActionPerformed(evt);
@@ -157,13 +169,15 @@ public class Frm_pacientes extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(0, 57, 85));
         jLabel8.setText("E-mail:");
 
-        dtx_email.setCampo("Nombre");
+        dtx_email.setCampo("Email");
+        dtx_email.setData(dataSource1);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel9.setForeground(new java.awt.Color(0, 57, 85));
         jLabel9.setText("Ciudad:");
 
-        dtxf_ciudad.setCampo("Nombre");
+        dtxf_ciudad.setCampo("Ciudad");
+        dtxf_ciudad.setData(dataSource1);
 
         jLblFoto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -229,6 +243,12 @@ public class Frm_pacientes extends javax.swing.JFrame {
             }
         });
 
+        JDtChFecha.addCommitListener(new datechooser.events.CommitListener() {
+            public void onCommit(datechooser.events.CommitEvent evt) {
+                JDtChFechaOnCommit(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
@@ -250,12 +270,15 @@ public class Frm_pacientes extends javax.swing.JFrame {
                     .addComponent(dtxf_nombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(dtxf_apellido_p, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(dtxf_apellido_m, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(dmtxf_f_nac, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(dcbx_sexo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(dtxf_direccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(dmtxf_telefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(dtx_email, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(dtxf_ciudad, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dtxf_ciudad, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel1Layout.createSequentialGroup()
+                        .addComponent(JTxtFechaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JDtChFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(61, 61, 61)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -328,10 +351,12 @@ public class Frm_pacientes extends javax.swing.JFrame {
                             .addComponent(dtxf_apellido_m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
-                                .addComponent(dmtxf_f_nac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JTxtFechaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(JDtChFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
                             .addComponent(jLabel6)
@@ -414,7 +439,7 @@ public class Frm_pacientes extends javax.swing.JFrame {
 
     private void buttonSeven2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven2ActionPerformed
         this.dcbx_sexo.setEnabled(true);
-        this.dmtxf_f_nac.setEnabled(true);
+        this.JTxtFechaPacientes.setEnabled(true);
         this.dmtxf_telefono.setEnabled(true);
         this.dtx_email.setEnabled(true);
         this.dtxf_apellido_m.setEnabled(true);
@@ -429,9 +454,26 @@ public class Frm_pacientes extends javax.swing.JFrame {
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_tbn_salirActionPerformed
+        //Campo fecha
+private void JDtChFechaOnCommit(datechooser.events.CommitEvent evt) {//GEN-FIRST:event_JDtChFechaOnCommit
+        
+        String []datos=JDtChFecha.getText().split("/");
+
+        String Dia, Mes, Ano;
+        //El campo DATE en la base de datos solo admite en ese orden
+        Ano="";
+        Mes="";
+        Dia="";
+
+        Ano=datos[0];
+        Mes=datos[1];
+        Dia=datos[2];
+        //Caja de texto donde va la fecha extraida
+        JTxtFechaPacientes.setText(Dia+"-" + Mes + "-"+ Ano); 
+}//GEN-LAST:event_JDtChFechaOnCommit
     public void limpiarcampos(){
         this.dcbx_sexo.setSelectedIndex(0);
-        this.dmtxf_f_nac.setText(" ");
+        this.JTxtFechaPacientes.setText(" ");
         this.dmtxf_telefono.setText(" ");
         this.dtx_email.setText(" ");
         this.dtxf_apellido_m.setText(" ");
@@ -454,6 +496,8 @@ public class Frm_pacientes extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private datechooser.beans.DateChooserCombo JDtChFecha;
+    private FuenteDeDatos.DataMaskedTextField JTxtFechaPacientes;
     private javax.swing.JLabel Lbl_catalogo_pacientes;
     private org.edisoncor.gui.button.ButtonSeven btn_anterior;
     private org.edisoncor.gui.button.ButtonSeven btn_primero;
@@ -465,7 +509,6 @@ public class Frm_pacientes extends javax.swing.JFrame {
     private org.edisoncor.gui.button.ButtonSeven buttonSeven4;
     private FuenteDeDatos.DataSource dataSource1;
     private FuenteDeDatos.DataCombobox dcbx_sexo;
-    private FuenteDeDatos.DataMaskedTextField dmtxf_f_nac;
     private FuenteDeDatos.DataMaskedTextField dmtxf_telefono;
     private FuenteDeDatos.DataTextField dtx_email;
     private FuenteDeDatos.DataTextField dtxf_apellido_m;
