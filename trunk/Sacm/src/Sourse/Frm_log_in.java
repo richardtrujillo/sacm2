@@ -58,7 +58,7 @@ public class Frm_log_in extends javax.swing.JFrame {
         dataSource1.setCodigosql("select * from tbl_usuarios");
         dataSource1.setDb("db_sacm");
         dataSource1.setIp("http://localhost/");
-        dataSource1.setPassword("3mbl3ma");
+        dataSource1.setPassword("");
         dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -98,6 +98,17 @@ public class Frm_log_in extends javax.swing.JFrame {
 
         dataTextField1.setCampo("id_usuario");
         dataTextField1.setData(dataSource1);
+        dataTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataTextField1ActionPerformed(evt);
+            }
+        });
+
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelCurves1Layout = new javax.swing.GroupLayout(panelCurves1);
         panelCurves1.setLayout(panelCurves1Layout);
@@ -106,7 +117,7 @@ public class Frm_log_in extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCurves1Layout.createSequentialGroup()
                 .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelCurves1Layout.createSequentialGroup()
-                        .addContainerGap(102, Short.MAX_VALUE)
+                        .addContainerGap(105, Short.MAX_VALUE)
                         .addComponent(buttonSeven1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(buttonSeven2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -180,6 +191,14 @@ private void buttonSeven1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 private void buttonSeven2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven2ActionPerformed
     this.dispose();
 }//GEN-LAST:event_buttonSeven2ActionPerformed
+
+private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jPasswordField1ActionPerformed
+
+private void dataTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataTextField1ActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_dataTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
