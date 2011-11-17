@@ -108,9 +108,9 @@ public class Frm_menu extends javax.swing.JFrame {
         buttonTask8 = new org.edisoncor.gui.button.ButtonTask();
 
         dataSource1.setCodigosql("select * from tbl_medicos");
-        dataSource1.setDb("db_sacm");
+        dataSource1.setDb("sacm");
         dataSource1.setIp("http://localhost/");
-        dataSource1.setPassword("3mbl3ma");
+        dataSource1.setPassword("");
         dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);

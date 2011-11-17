@@ -7,9 +7,9 @@
     <Component class="FuenteDeDatos.DataSource" name="dataSource1">
       <Properties>
         <Property name="codigosql" type="java.lang.String" value="select * from tbl_medicos"/>
-        <Property name="db" type="java.lang.String" value="db_sacm"/>
+        <Property name="db" type="java.lang.String" value="sacm"/>
         <Property name="ip" type="java.lang.String" value="http://localhost/"/>
-        <Property name="password" type="java.lang.String" value="3mbl3ma"/>
+        <Property name="password" type="java.lang.String" value=""/>
         <Property name="usuario" type="java.lang.String" value="root"/>
       </Properties>
     </Component>

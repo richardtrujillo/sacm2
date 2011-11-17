@@ -66,7 +66,7 @@ public class Frm_log_in extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
 
         dataSource1.setCodigosql("select * from tbl_usuarios");
-        dataSource1.setDb("db_sacm");
+        dataSource1.setDb("sacm");
         dataSource1.setIp("http://localhost/");
         dataSource1.setPassword("");
         dataSource1.setUsuario("root");
@@ -128,7 +128,7 @@ public class Frm_log_in extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCurves1Layout.createSequentialGroup()
                 .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelCurves1Layout.createSequentialGroup()
-                        .addContainerGap(105, Short.MAX_VALUE)
+                        .addContainerGap(108, Short.MAX_VALUE)
                         .addComponent(buttonSeven1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(buttonSeven2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
