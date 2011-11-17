@@ -133,7 +133,7 @@ public class Frm_menu extends javax.swing.JFrame {
             }
         });
         panelCurves1.add(buttonTask1);
-        buttonTask1.setBounds(490, 220, 242, 64);
+        buttonTask1.setBounds(490, 220, 210, 64);
 
         tbn_salir.setBackground(new java.awt.Color(255, 0, 0));
         tbn_salir.setText("X");
@@ -204,7 +204,7 @@ public class Frm_menu extends javax.swing.JFrame {
             }
         });
         panelCurves1.add(buttonTask6);
-        buttonTask6.setBounds(490, 140, 242, 64);
+        buttonTask6.setBounds(490, 140, 210, 64);
 
         buttonTask7.setForeground(new java.awt.Color(0, 57, 85));
         buttonTask7.setText("Diagnostico");
@@ -282,8 +282,9 @@ public class Frm_menu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonTask6ActionPerformed
 
     private void buttonTask1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask1ActionPerformed
-        Frm_empleados emp=new Frm_empleados();
-        emp.setVisible(true);
+        System.out.println("Aqui tiene que ir a mostrar el Frm_empleados");
+        Frm_empleados Em=new Frm_empleados();
+        Em.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonTask1ActionPerformed
 
