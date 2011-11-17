@@ -55,7 +55,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -85,82 +85,87 @@
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="dtxf_apellido_m1" pref="207" max="32767" attributes="1"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="dataCheckBox1" min="-2" pref="109" max="-2" attributes="0"/>
+                          <EmptySpace pref="226" max="32767" attributes="0"/>
+                          <Component id="buttonSeven6" min="-2" pref="80" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="buttonSeven5" min="-2" pref="80" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="dtxf_apellido_m" pref="207" max="32767" attributes="1"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="dtxf_apellido_p" pref="207" max="32767" attributes="1"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="dtxf_nombre" pref="207" max="32767" attributes="1"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="dtxf_nombre1" pref="203" max="32767" attributes="1"/>
-                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="dtxf_id_usuario" pref="207" max="32767" attributes="1"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="dtxf_apellido_m" pref="207" max="32767" attributes="1"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="dtxf_apellido_p" pref="207" max="32767" attributes="1"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="dtxf_nombre" pref="207" max="32767" attributes="1"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="dtxf_id_empleado" pref="203" max="32767" attributes="1"/>
+                                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="dcbx_tipo_" alignment="0" pref="200" max="32767" attributes="1"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="JTxtFecha" min="-2" pref="157" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="JDtChFechaDel" min="-2" pref="25" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jpssf_contraseña" alignment="0" pref="200" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="dataCombobox1" alignment="0" pref="200" max="32767" attributes="1"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="JTxtFecha" min="-2" pref="157" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="JDtChFechaDel" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="Lbl_catalogo_pacientes" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="tbn_salir" min="-2" pref="19" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jPasswordField1" alignment="0" pref="200" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="buttonSeven2" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="buttonSeven3" min="-2" pref="81" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="buttonSeven4" min="-2" pref="85" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="jLblFoto" min="-2" pref="150" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="buttonSeven1" min="-2" pref="29" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                          <Component id="btn_primero" min="-2" pref="60" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="btn_anterior" min="-2" pref="44" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="btn_siguiente" min="-2" pref="43" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="btn_ultimo" min="-2" pref="62" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="Lbl_catalogo_pacientes" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="tbn_salir" min="-2" pref="19" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="buttonSeven2" min="-2" pref="80" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="buttonSeven3" min="-2" pref="81" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="buttonSeven4" min="-2" pref="85" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLblFoto" min="-2" pref="150" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="buttonSeven1" min="-2" pref="29" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                  <Component id="btn_primero" min="-2" pref="60" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btn_anterior" min="-2" pref="44" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btn_siguiente" min="-2" pref="43" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btn_ultimo" min="-2" pref="62" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="501" max="32767" attributes="0"/>
-                  <Component id="buttonSeven6" min="-2" pref="80" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="buttonSeven5" min="-2" pref="80" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -174,7 +179,7 @@
                           <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="dtxf_nombre1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="dtxf_id_empleado" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -194,7 +199,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="dtxf_apellido_m1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="dtxf_id_usuario" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -207,12 +212,12 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="dataCombobox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="dcbx_tipo_" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jPasswordField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jpssf_contraseña" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="1">
@@ -241,6 +246,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="buttonSeven5" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="buttonSeven6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dataCheckBox1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
               </Group>
@@ -454,7 +460,7 @@
             <Property name="text" type="java.lang.String" value="Tipo de empleado:"/>
           </Properties>
         </Component>
-        <Component class="FuenteDeDatos.DataCombobox" name="dataCombobox1">
+        <Component class="FuenteDeDatos.DataCombobox" name="dcbx_tipo_">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
@@ -513,7 +519,7 @@
             <Property name="text" type="java.lang.String" value="Id_Usuario:"/>
           </Properties>
         </Component>
-        <Component class="FuenteDeDatos.DataTextField" name="dtxf_apellido_m1">
+        <Component class="FuenteDeDatos.DataTextField" name="dtxf_id_usuario">
           <Properties>
             <Property name="campo" type="java.lang.String" value="Apellido_M"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -524,7 +530,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="FuenteDeDatos.DataTextField" name="dtxf_nombre1">
+        <Component class="FuenteDeDatos.DataTextField" name="dtxf_id_empleado">
           <Properties>
             <Property name="campo" type="java.lang.String" value="Nombre"/>
             <Property name="data" type="FuenteDeDatos.DataSource" editor="org.netbeans.modules.form.ComponentChooserEditor">
@@ -543,7 +549,18 @@
             <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+        <Component class="javax.swing.JPasswordField" name="jpssf_contrase&#xf1;a">
+        </Component>
+        <Component class="FuenteDeDatos.DataCheckBox" name="dataCheckBox1">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="55" green="39" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Estatus"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="15" style="1"/>
+            </Property>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
