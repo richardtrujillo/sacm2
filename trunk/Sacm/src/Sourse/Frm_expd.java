@@ -10,6 +10,9 @@
  */
 package Sourse;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author wsdess
@@ -39,6 +42,7 @@ public class Frm_expd extends javax.swing.JFrame {
         dataTextField1 = new FuenteDeDatos.DataTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
 
         panel1.setForeground(new java.awt.Color(0, 57, 85));
         panel1.setColorPrimario(new java.awt.Color(255, 255, 255));
@@ -133,6 +137,15 @@ public class Frm_expd extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+        @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("images/icono.png"));
+
+
+        return retValue;
+    }
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
 

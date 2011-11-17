@@ -11,6 +11,7 @@
 package Sourse;
 
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.Toolkit;
 
 
@@ -104,6 +105,7 @@ public class Frm_menu extends javax.swing.JFrame {
         buttonTask6 = new org.edisoncor.gui.button.ButtonTask();
         buttonTask7 = new org.edisoncor.gui.button.ButtonTask();
         dlbl_nombre = new FuenteDeDatos.DataLabel();
+        buttonTask8 = new org.edisoncor.gui.button.ButtonTask();
 
         dataSource1.setCodigosql("select * from tbl_medicos");
         dataSource1.setDb("db_sacm");
@@ -112,6 +114,7 @@ public class Frm_menu extends javax.swing.JFrame {
         dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         setResizable(false);
         setUndecorated(true);
 
@@ -204,20 +207,32 @@ public class Frm_menu extends javax.swing.JFrame {
         buttonTask6.setBounds(490, 140, 242, 64);
 
         buttonTask7.setForeground(new java.awt.Color(0, 57, 85));
-        buttonTask7.setText("Agenda");
+        buttonTask7.setText("Diagnostico");
         buttonTask7.setDefaultCapable(false);
-        buttonTask7.setDescription("Agenda del medico");
+        buttonTask7.setDescription("Realizar Cita");
         buttonTask7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonTask7ActionPerformed(evt);
             }
         });
         panelCurves1.add(buttonTask7);
-        buttonTask7.setBounds(250, 70, 242, 64);
+        buttonTask7.setBounds(340, 70, 242, 64);
 
         dlbl_nombre.setText("Aqui aparecera el nombre del empleado logeado");
         panelCurves1.add(dlbl_nombre);
-        dlbl_nombre.setBounds(10, 40, 230, 50);
+        dlbl_nombre.setBounds(220, 20, 230, 50);
+
+        buttonTask8.setForeground(new java.awt.Color(0, 57, 85));
+        buttonTask8.setText("Agenda");
+        buttonTask8.setDefaultCapable(false);
+        buttonTask8.setDescription("Agenda del medico");
+        buttonTask8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTask8ActionPerformed(evt);
+            }
+        });
+        panelCurves1.add(buttonTask8);
+        buttonTask8.setBounds(110, 70, 242, 64);
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -282,9 +297,22 @@ public class Frm_menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonTask7ActionPerformed
 
+    private void buttonTask8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonTask8ActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("images/icono.png"));
+
+
+        return retValue;
+    }
+    
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
@@ -301,6 +329,7 @@ public class Frm_menu extends javax.swing.JFrame {
     private org.edisoncor.gui.button.ButtonTask buttonTask5;
     private org.edisoncor.gui.button.ButtonTask buttonTask6;
     private org.edisoncor.gui.button.ButtonTask buttonTask7;
+    private org.edisoncor.gui.button.ButtonTask buttonTask8;
     private org.edisoncor.gui.varios.ClockDigital clockDigital1;
     private FuenteDeDatos.DataSource dataSource1;
     private FuenteDeDatos.Datahabilitador datahabilitador1;
