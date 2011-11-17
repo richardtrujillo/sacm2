@@ -10,6 +10,7 @@
  */
 package Sourse;
 
+import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -22,6 +23,15 @@ public class Frm_expd extends javax.swing.JFrame {
     /** Creates new form Frm_expd */
     public Frm_expd() {
         initComponents();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension frameSize = this.getSize();
+        if (frameSize.height > screenSize.height) {
+            frameSize.height = screenSize.height;
+        }
+        if (frameSize.width > screenSize.width) {
+            frameSize.width = screenSize.width;
+        }
+        this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
     }
 
     /** This method is called from within the constructor to
@@ -43,6 +53,8 @@ public class Frm_expd extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(getIconImage());
+        setResizable(false);
+        setUndecorated(true);
 
         panel1.setForeground(new java.awt.Color(0, 57, 85));
         panel1.setColorPrimario(new java.awt.Color(255, 255, 255));
@@ -79,7 +91,7 @@ public class Frm_expd extends javax.swing.JFrame {
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                 .addContainerGap(20, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -107,7 +119,7 @@ public class Frm_expd extends javax.swing.JFrame {
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(Lbl_expedientes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(300, Short.MAX_VALUE))
+                .addContainerGap(251, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
