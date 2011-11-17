@@ -196,6 +196,8 @@ public class Frm_empleados_adv extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salirActionPerformed
+//        Frm_empleados emp = new Frm_empleados();
+//        emp.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_tbn_salirActionPerformed
 

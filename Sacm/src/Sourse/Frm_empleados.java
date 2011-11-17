@@ -93,7 +93,6 @@ public class Frm_empleados extends javax.swing.JFrame {
         setIconImage(getIconImage());
         setResizable(false);
         setUndecorated(true);
-        getContentPane().setLayout(null);
 
         panel1.setColorPrimario(new java.awt.Color(255, 255, 255));
         panel1.setColorSecundario(new java.awt.Color(0, 153, 153));
@@ -359,8 +358,16 @@ public class Frm_empleados extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        getContentPane().add(panel1);
-        panel1.setBounds(0, 0, 732, 390);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -413,7 +420,6 @@ public class Frm_empleados extends javax.swing.JFrame {
     private void buttonSeven2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven2ActionPerformed
         Frm_empleados_adv empa=new Frm_empleados_adv();
         empa.setVisible(true);
-        this.setEnabled(false);
         this.JDtChFechaDel.setEnabled(true);
         this.JTxtFecha.setEnabled(true);
         this.dtxf_id_usuario.setEnabled(true);
@@ -468,6 +474,7 @@ private void JTxtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
+            @Override
             public void run() {
                 new Frm_empleados().setVisible(true);
             }
