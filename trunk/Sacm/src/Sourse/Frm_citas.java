@@ -28,7 +28,7 @@ public class Frm_citas extends javax.swing.JFrame {
          Calendar cal=Calendar.getInstance(); 
          String fecha=cal.get(cal.DATE)+"/"+cal.get(cal.MONTH)+"/"+cal.get(cal.YEAR);
          this.F_cita.setText(fecha);
-       // this.setSize(600,300);
+        // this.setSize(600,300);
         //this.panel1.setSize(600,300);
         //algoritmo para centrar el formulario
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -160,7 +160,7 @@ public class Frm_citas extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 57, 85));
         jLabel1.setText("Numero de cita:");
         panel1.add(jLabel1);
-        jLabel1.setBounds(10, 11, 110, 17);
+        jLabel1.setBounds(10, 11, 140, 17);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel2.setForeground(new java.awt.Color(0, 57, 85));
@@ -183,7 +183,7 @@ public class Frm_citas extends javax.swing.JFrame {
         dataLabel1.setCampo("id_cita");
         dataLabel1.setData(dataSource1);
         panel1.add(dataLabel1);
-        dataLabel1.setBounds(126, 14, 280, 14);
+        dataLabel1.setBounds(160, 20, 280, 14);
 
         dataTextField1.setCampo("id_paciente");
         dataTextField1.setData(dataSource1);
@@ -207,13 +207,13 @@ public class Frm_citas extends javax.swing.JFrame {
 
         clockDigital1.setForeground(new java.awt.Color(0, 102, 102));
         panel1.add(clockDigital1);
-        clockDigital1.setBounds(521, 42, 107, 49);
+        clockDigital1.setBounds(490, 40, 107, 49);
 
         F_cita.setFont(new java.awt.Font("Tahoma", 1, 14));
         F_cita.setForeground(new java.awt.Color(0, 57, 85));
         F_cita.setText("00/00/00");
         panel1.add(F_cita);
-        F_cita.setBounds(433, 58, 70, 17);
+        F_cita.setBounds(510, 70, 110, 17);
 
         dataCombobox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00" }));
         dataCombobox1.setCampo("hora");
