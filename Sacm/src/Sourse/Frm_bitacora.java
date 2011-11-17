@@ -12,6 +12,7 @@ package Sourse;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.Image;
 
 /**
  *
@@ -57,6 +58,7 @@ public class Frm_bitacora extends javax.swing.JFrame {
         buttonSeven1 = new org.edisoncor.gui.button.ButtonSeven();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         setResizable(false);
         setUndecorated(true);
 
@@ -180,6 +182,15 @@ public class Frm_bitacora extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("images/icono.png"));
+
+
+        return retValue;
+    }
+    
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
 

@@ -11,6 +11,7 @@
 package Sourse;
 
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.Toolkit;
 //import java.sql.SQLException;
 //import java.util.logging.Level;
@@ -71,6 +72,7 @@ public class Frm_log_in extends javax.swing.JFrame {
         dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         setResizable(false);
         setUndecorated(true);
 
@@ -137,8 +139,8 @@ public class Frm_log_in extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dataTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE))))
+                            .addComponent(dataTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                            .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE))))
                 .addGap(36, 36, 36)
                 .addComponent(jLabel3)
                 .addContainerGap())
@@ -216,9 +218,15 @@ private void dataTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GE
 // TODO add your handling code here:
 }//GEN-LAST:event_dataTextField1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("images/icono.png"));
+
+
+        return retValue;
+    }
+    
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
