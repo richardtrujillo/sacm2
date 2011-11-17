@@ -5,7 +5,7 @@
     <Component class="FuenteDeDatos.DataSource" name="dataSource1">
       <Properties>
         <Property name="codigosql" type="java.lang.String" value="select * from tbl_usuarios"/>
-        <Property name="db" type="java.lang.String" value="db_sacm"/>
+        <Property name="db" type="java.lang.String" value="sacm"/>
         <Property name="ip" type="java.lang.String" value="http://localhost/"/>
         <Property name="password" type="java.lang.String" value=""/>
         <Property name="usuario" type="java.lang.String" value="root"/>
@@ -79,7 +79,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="105" max="32767" attributes="0"/>
+                              <EmptySpace pref="108" max="32767" attributes="0"/>
                               <Component id="buttonSeven1" min="-2" pref="103" max="-2" attributes="1"/>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="buttonSeven2" min="-2" pref="103" max="-2" attributes="1"/>
