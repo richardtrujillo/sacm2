@@ -21,7 +21,7 @@ import java.awt.Toolkit;
  */
 public class Frm_menu extends javax.swing.JFrame {
     //Pruebas
-    private int tipo_usuario=0;
+    private int tipo_usuario=2;
     private String nombre="iniciando"; 
     /** Creates new form Frm_menu */
     public Frm_menu() {
@@ -29,33 +29,35 @@ public class Frm_menu extends javax.swing.JFrame {
    
         switch(tipo_usuario){
             case 1:
-                        //Caso administrador
-                        this.setSize(714, 353);
+                        //Caso Jefe clinico
+                        this.setSize(760, 360);
                         this.datahabilitador1.habilitaredison(panel1, this.buttonTask1);
                 break;
             case 2:
-                        //Caso recepcion
-                        this.setSize(500, 353);
-                        this.tbn_salir.setLocation(480, 350);
+                        //Caso Recepcion
+                        this.setSize(350, 360);
+                        this.tbn_salir.setLocation(200, 250);
                         this.buttonTask1.setVisible(false);
-                        this.buttonTask2.setVisible(false);
+                        this.buttonTask2.setVisible(true);
                         this.buttonTask3.setVisible(false);
                         this.buttonTask4.setVisible(true);
-                        this.buttonTask5.setVisible(true);
+                        this.buttonTask5.setVisible(false);
                         this.buttonTask6.setVisible(false);
                         this.buttonTask7.setVisible(false);
+                        this.buttonTask8.setVisible(true);
                         break;
             case 3:
-                        //Caso medico
-                        this.setSize(500, 353);
+                        //Caso Medico
+                        this.setSize(660, 360);
                         this.tbn_salir.setLocation(480, 350);
                         this.buttonTask1.setVisible(false);
                         this.buttonTask2.setVisible(true);
                         this.buttonTask3.setVisible(true);
                         this.buttonTask4.setVisible(true);
-                        this.buttonTask5.setVisible(true);
+                        this.buttonTask5.setVisible(false);
                         this.buttonTask6.setVisible(false);
                         this.buttonTask7.setVisible(true);
+                        this.buttonTask8.setVisible(true);
                         
                 break;
             default:
@@ -66,6 +68,7 @@ public class Frm_menu extends javax.swing.JFrame {
                         this.buttonTask5.setVisible(true);
                         this.buttonTask6.setVisible(true);
                         this.buttonTask7.setVisible(true);
+                        this.buttonTask8.setVisible(true);
                 break;
         }
         this.dlbl_nombre.setText(" "+nombre);
@@ -122,8 +125,6 @@ public class Frm_menu extends javax.swing.JFrame {
         panel1.setColorSecundario(new java.awt.Color(0, 153, 153));
         panel1.setPreferredSize(new java.awt.Dimension(752, 393));
 
-        panelCurves1.setLayout(null);
-
         buttonTask1.setForeground(new java.awt.Color(0, 57, 85));
         buttonTask1.setText("Empleados");
         buttonTask1.setDescription("Catalogo Empleados");
@@ -142,12 +143,9 @@ public class Frm_menu extends javax.swing.JFrame {
                 tbn_salirActionPerformed(evt);
             }
         });
-        panelCurves1.add(tbn_salir);
-        tbn_salir.setBounds(680, 10, 20, 20);
 
-        clockDigital1.setForeground(new java.awt.Color(0, 102, 102));
-        panelCurves1.add(clockDigital1);
-        clockDigital1.setBounds(480, 30, 150, 49);
+        clockDigital1.setForeground(new java.awt.Color(0, 51, 51));
+        clockDigital1.setFont(new java.awt.Font("Tahoma", 1, 14));
 
         buttonTask5.setForeground(new java.awt.Color(0, 57, 85));
         buttonTask5.setText("Reportes");
@@ -157,14 +155,10 @@ public class Frm_menu extends javax.swing.JFrame {
                 buttonTask5ActionPerformed(evt);
             }
         });
-        panelCurves1.add(buttonTask5);
-        buttonTask5.setBounds(250, 220, 242, 64);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24));
         jLabel1.setForeground(new java.awt.Color(0, 57, 85));
         jLabel1.setText("Bienvenido:");
-        panelCurves1.add(jLabel1);
-        jLabel1.setBounds(30, 20, 141, 29);
 
         buttonTask2.setForeground(new java.awt.Color(0, 57, 85));
         buttonTask2.setText("Pacientes");
@@ -174,14 +168,10 @@ public class Frm_menu extends javax.swing.JFrame {
                 buttonTask2ActionPerformed(evt);
             }
         });
-        panelCurves1.add(buttonTask2);
-        buttonTask2.setBounds(10, 220, 242, 64);
 
         buttonTask3.setForeground(new java.awt.Color(0, 57, 85));
         buttonTask3.setText("Expedientes");
         buttonTask3.setDescription("Consulta de expedientes");
-        panelCurves1.add(buttonTask3);
-        buttonTask3.setBounds(10, 140, 242, 64);
 
         buttonTask4.setForeground(new java.awt.Color(0, 57, 85));
         buttonTask4.setText("Citas");
@@ -192,8 +182,6 @@ public class Frm_menu extends javax.swing.JFrame {
                 buttonTask4ActionPerformed(evt);
             }
         });
-        panelCurves1.add(buttonTask4);
-        buttonTask4.setBounds(250, 140, 242, 64);
 
         buttonTask6.setForeground(new java.awt.Color(0, 57, 85));
         buttonTask6.setText("Bitacora");
@@ -215,12 +203,8 @@ public class Frm_menu extends javax.swing.JFrame {
                 buttonTask7ActionPerformed(evt);
             }
         });
-        panelCurves1.add(buttonTask7);
-        buttonTask7.setBounds(340, 70, 242, 64);
 
         dlbl_nombre.setText("Aqui aparecera el nombre del empleado logeado");
-        panelCurves1.add(dlbl_nombre);
-        dlbl_nombre.setBounds(220, 20, 230, 50);
 
         buttonTask8.setForeground(new java.awt.Color(0, 57, 85));
         buttonTask8.setText("Agenda");
@@ -231,29 +215,94 @@ public class Frm_menu extends javax.swing.JFrame {
                 buttonTask8ActionPerformed(evt);
             }
         });
-        panelCurves1.add(buttonTask8);
-        buttonTask8.setBounds(110, 70, 242, 64);
+
+        javax.swing.GroupLayout panelCurves1Layout = new javax.swing.GroupLayout(panelCurves1);
+        panelCurves1.setLayout(panelCurves1Layout);
+        panelCurves1Layout.setHorizontalGroup(
+            panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelCurves1Layout.createSequentialGroup()
+                    .addGap(37, 37, 37)
+                    .addComponent(jLabel1))
+                .addComponent(tbn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCurves1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCurves1Layout.createSequentialGroup()
+                            .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(buttonTask4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(buttonTask8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(buttonTask2, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(buttonTask3, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(buttonTask5, javax.swing.GroupLayout.Alignment.LEADING, 0, 0, Short.MAX_VALUE)
+                                    .addComponent(buttonTask7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(buttonTask6, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(buttonTask1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(panelCurves1Layout.createSequentialGroup()
+                            .addComponent(dlbl_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap()))))
+            .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        panelCurves1Layout.setVerticalGroup(
+            panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCurves1Layout.createSequentialGroup()
+                .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tbn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelCurves1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)))
+                .addGap(18, 18, 18)
+                .addComponent(dlbl_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonTask7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCurves1Layout.createSequentialGroup()
+                        .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelCurves1Layout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addComponent(buttonTask6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(buttonTask3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(buttonTask1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(panelCurves1Layout.createSequentialGroup()
+                                .addComponent(buttonTask4, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(buttonTask8, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(buttonTask5, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buttonTask2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(31, 31, 31)
+                        .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+        );
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelCurves1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 714, Short.MAX_VALUE)
+            .addComponent(panelCurves1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelCurves1, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+            .addComponent(panelCurves1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, 737, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
         );
 
         pack();
