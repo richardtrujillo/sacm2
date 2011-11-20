@@ -21,7 +21,7 @@ import java.awt.Toolkit;
  */
 public class Frm_menu extends javax.swing.JFrame {
     //Pruebas
-    private int tipo_usuario=2;
+    private int tipo_usuario=1;
     private String nombre="iniciando"; 
     /** Creates new form Frm_menu */
     public Frm_menu() {

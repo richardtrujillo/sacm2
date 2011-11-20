@@ -32,7 +32,7 @@ public class Frm_Diagnostico extends javax.swing.JFrame {
 
         panel1 = new org.edisoncor.gui.panel.Panel();
         Lbl_expedientes = new javax.swing.JLabel();
-        tbn_salir = new org.edisoncor.gui.button.ButtonSeven();
+        tbn_salir1 = new org.edisoncor.gui.button.ButtonSeven();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,11 +43,11 @@ public class Frm_Diagnostico extends javax.swing.JFrame {
         Lbl_expedientes.setForeground(new java.awt.Color(0, 57, 85));
         Lbl_expedientes.setText("Diagnosticar paciente");
 
-        tbn_salir.setBackground(new java.awt.Color(255, 0, 0));
-        tbn_salir.setText("X");
-        tbn_salir.addActionListener(new java.awt.event.ActionListener() {
+        tbn_salir1.setBackground(new java.awt.Color(255, 0, 0));
+        tbn_salir1.setText("X");
+        tbn_salir1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbn_salirActionPerformed(evt);
+                tbn_salir1ActionPerformed(evt);
             }
         });
 
@@ -56,21 +56,24 @@ public class Frm_Diagnostico extends javax.swing.JFrame {
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addContainerGap(376, Short.MAX_VALUE)
-                .addComponent(Lbl_expedientes)
-                .addGap(18, 18, 18)
-                .addComponent(tbn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addContainerGap(376, Short.MAX_VALUE)
+                        .addComponent(Lbl_expedientes)
+                        .addGap(18, 18, 18))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addComponent(tbn_salir1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGap(36, 36, 36))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
+                        .addGap(26, 26, 26)
                         .addComponent(Lbl_expedientes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(tbn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tbn_salir1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(333, Short.MAX_VALUE))
         );
 
@@ -88,11 +91,11 @@ public class Frm_Diagnostico extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tbn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salirActionPerformed
-        Frm_menu menu=new Frm_menu();
-        menu.setVisible(true);
+private void tbn_salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salir1ActionPerformed
+        Frm_log_in log=new Frm_log_in();
+        log.setVisible(true);
         this.dispose();
-}//GEN-LAST:event_tbn_salirActionPerformed
+}//GEN-LAST:event_tbn_salir1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,6 +111,6 @@ public class Frm_Diagnostico extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Lbl_expedientes;
     private org.edisoncor.gui.panel.Panel panel1;
-    private org.edisoncor.gui.button.ButtonSeven tbn_salir;
+    private org.edisoncor.gui.button.ButtonSeven tbn_salir1;
     // End of variables declaration//GEN-END:variables
 }

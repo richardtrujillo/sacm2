@@ -52,6 +52,7 @@ public class Frm_citas extends javax.swing.JFrame {
     private void initComponents() {
 
         dataSource1 = new FuenteDeDatos.DataSource();
+        tbn_salir1 = new org.edisoncor.gui.button.ButtonSeven();
         panel1 = new org.edisoncor.gui.panel.Panel();
         btn_siguiente = new org.edisoncor.gui.button.ButtonSeven();
         btn_anterior = new org.edisoncor.gui.button.ButtonSeven();
@@ -77,6 +78,14 @@ public class Frm_citas extends javax.swing.JFrame {
         dataTextField2 = new FuenteDeDatos.DataTextField();
         jLabel6 = new javax.swing.JLabel();
 
+        tbn_salir1.setBackground(new java.awt.Color(255, 0, 0));
+        tbn_salir1.setText("X");
+        tbn_salir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbn_salir1ActionPerformed(evt);
+            }
+        });
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(getIconImage());
         setResizable(false);
@@ -94,7 +103,7 @@ public class Frm_citas extends javax.swing.JFrame {
             }
         });
         panel1.add(btn_siguiente);
-        btn_siguiente.setBounds(500, 160, 43, 35);
+        btn_siguiente.setBounds(510, 150, 43, 35);
 
         btn_anterior.setBackground(new java.awt.Color(0, 57, 85));
         btn_anterior.setText("<");
@@ -104,7 +113,7 @@ public class Frm_citas extends javax.swing.JFrame {
             }
         });
         panel1.add(btn_anterior);
-        btn_anterior.setBounds(450, 160, 44, 35);
+        btn_anterior.setBounds(460, 150, 44, 35);
 
         btn_ultimo.setBackground(new java.awt.Color(0, 57, 85));
         btn_ultimo.setText(">>");
@@ -114,7 +123,7 @@ public class Frm_citas extends javax.swing.JFrame {
             }
         });
         panel1.add(btn_ultimo);
-        btn_ultimo.setBounds(550, 160, 62, 35);
+        btn_ultimo.setBounds(560, 150, 62, 35);
 
         buttonSeven5.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven5.setText("Eliminar");
@@ -124,17 +133,17 @@ public class Frm_citas extends javax.swing.JFrame {
             }
         });
         panel1.add(buttonSeven5);
-        buttonSeven5.setBounds(400, 250, 94, 35);
+        buttonSeven5.setBounds(410, 230, 94, 35);
 
         buttonSeven4.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven4.setText("Cancelar");
         panel1.add(buttonSeven4);
-        buttonSeven4.setBounds(500, 210, 95, 35);
+        buttonSeven4.setBounds(510, 190, 95, 35);
 
         buttonSeven3.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven3.setText("Guardar");
         panel1.add(buttonSeven3);
-        buttonSeven3.setBounds(500, 250, 94, 35);
+        buttonSeven3.setBounds(510, 230, 94, 35);
 
         buttonSeven2.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven2.setText("Ingresar");
@@ -144,7 +153,7 @@ public class Frm_citas extends javax.swing.JFrame {
             }
         });
         panel1.add(buttonSeven2);
-        buttonSeven2.setBounds(400, 210, 94, 35);
+        buttonSeven2.setBounds(410, 190, 94, 35);
 
         btn_primero.setBackground(new java.awt.Color(0, 57, 85));
         btn_primero.setText("<<");
@@ -154,46 +163,46 @@ public class Frm_citas extends javax.swing.JFrame {
             }
         });
         panel1.add(btn_primero);
-        btn_primero.setBounds(390, 160, 60, 35);
+        btn_primero.setBounds(390, 150, 60, 35);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 17));
         jLabel1.setForeground(new java.awt.Color(0, 57, 85));
         jLabel1.setText("Numero de cita:");
         panel1.add(jLabel1);
-        jLabel1.setBounds(10, 11, 140, 17);
+        jLabel1.setBounds(10, 30, 140, 21);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel2.setForeground(new java.awt.Color(0, 57, 85));
         jLabel2.setText("Paciente:");
         panel1.add(jLabel2);
-        jLabel2.setBounds(10, 65, 63, 17);
+        jLabel2.setBounds(30, 90, 64, 17);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel4.setForeground(new java.awt.Color(0, 57, 85));
         jLabel4.setText("Descripcion:");
         panel1.add(jLabel4);
-        jLabel4.setBounds(10, 200, 90, 17);
+        jLabel4.setBounds(10, 230, 90, 17);
 
         buttonSeven6.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven6.setText("Buscar");
         panel1.add(buttonSeven6);
-        buttonSeven6.setBounds(110, 110, 198, 17);
+        buttonSeven6.setBounds(110, 127, 198, 30);
 
         dataLabel1.setText("Aqui aparece el No.Cita");
         dataLabel1.setCampo("id_cita");
         dataLabel1.setData(dataSource1);
         panel1.add(dataLabel1);
-        dataLabel1.setBounds(160, 20, 280, 14);
+        dataLabel1.setBounds(160, 40, 280, 16);
 
         dataTextField1.setCampo("id_paciente");
         dataTextField1.setData(dataSource1);
         panel1.add(dataTextField1);
-        dataTextField1.setBounds(77, 65, 260, 20);
+        dataTextField1.setBounds(100, 90, 230, 28);
 
         JTxtFechaCitas.setCampo("fecha");
         JTxtFechaCitas.setData(dataSource1);
         panel1.add(JTxtFechaCitas);
-        JTxtFechaCitas.setBounds(77, 143, 148, 20);
+        JTxtFechaCitas.setBounds(100, 180, 148, 28);
 
         tbn_salir.setBackground(new java.awt.Color(255, 0, 0));
         tbn_salir.setText("X");
@@ -203,7 +212,7 @@ public class Frm_citas extends javax.swing.JFrame {
             }
         });
         panel1.add(tbn_salir);
-        tbn_salir.setBounds(609, 0, 19, 18);
+        tbn_salir.setBounds(0, 0, 30, 20);
 
         clockDigital1.setForeground(new java.awt.Color(0, 102, 102));
         panel1.add(clockDigital1);
@@ -219,7 +228,7 @@ public class Frm_citas extends javax.swing.JFrame {
         dataCombobox1.setCampo("hora");
         dataCombobox1.setData(dataSource1);
         panel1.add(dataCombobox1);
-        dataCombobox1.setBounds(261, 143, 83, 20);
+        dataCombobox1.setBounds(290, 180, 83, 27);
 
         JDtChFecha.addCommitListener(new datechooser.events.CommitListener() {
             public void onCommit(datechooser.events.CommitEvent evt) {
@@ -227,7 +236,7 @@ public class Frm_citas extends javax.swing.JFrame {
             }
         });
         panel1.add(JDtChFecha);
-        JDtChFecha.setBounds(231, 143, 24, 20);
+        JDtChFecha.setBounds(260, 180, 24, 28);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 3, 24));
         jLabel5.setForeground(new java.awt.Color(0, 57, 85));
@@ -235,13 +244,13 @@ public class Frm_citas extends javax.swing.JFrame {
         panel1.add(jLabel5);
         jLabel5.setBounds(524, 11, 67, 29);
         panel1.add(dataTextField2);
-        dataTextField2.setBounds(100, 200, 230, 20);
+        dataTextField2.setBounds(100, 230, 230, 28);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel6.setForeground(new java.awt.Color(0, 57, 85));
         jLabel6.setText("Fecha:");
         panel1.add(jLabel6);
-        jLabel6.setBounds(10, 140, 45, 17);
+        jLabel6.setBounds(50, 180, 45, 17);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -305,6 +314,12 @@ private void JDtChFechaOnCommit(datechooser.events.CommitEvent evt) {//GEN-FIRST
         JTxtFechaCitas.setText(Dia+"-" + Mes + "-"+ Ano);
 }//GEN-LAST:event_JDtChFechaOnCommit
 
+private void tbn_salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salir1ActionPerformed
+        Frm_log_in log=new Frm_log_in();
+        log.setVisible(true);
+        this.dispose();
+}//GEN-LAST:event_tbn_salir1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -351,5 +366,6 @@ private void JDtChFechaOnCommit(datechooser.events.CommitEvent evt) {//GEN-FIRST
     private javax.swing.JLabel jLabel6;
     private org.edisoncor.gui.panel.Panel panel1;
     private org.edisoncor.gui.button.ButtonSeven tbn_salir;
+    private org.edisoncor.gui.button.ButtonSeven tbn_salir1;
     // End of variables declaration//GEN-END:variables
 }
