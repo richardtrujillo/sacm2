@@ -46,10 +46,10 @@ public class Frm_expd extends javax.swing.JFrame {
         dataSource1 = new FuenteDeDatos.DataSource();
         panel1 = new org.edisoncor.gui.panel.Panel();
         Lbl_expedientes = new javax.swing.JLabel();
-        tbn_salir = new org.edisoncor.gui.button.ButtonSeven();
         jLabel1 = new javax.swing.JLabel();
         buttonSeven1 = new org.edisoncor.gui.button.ButtonSeven();
         dataTextField1 = new FuenteDeDatos.DataTextField();
+        tbn_salir1 = new org.edisoncor.gui.button.ButtonSeven();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(getIconImage());
@@ -63,14 +63,6 @@ public class Frm_expd extends javax.swing.JFrame {
         Lbl_expedientes.setFont(new java.awt.Font("Tahoma", 1, 24));
         Lbl_expedientes.setForeground(new java.awt.Color(0, 57, 85));
         Lbl_expedientes.setText("Expedientes");
-
-        tbn_salir.setBackground(new java.awt.Color(255, 0, 0));
-        tbn_salir.setText("X");
-        tbn_salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbn_salirActionPerformed(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel1.setForeground(new java.awt.Color(0, 57, 85));
@@ -87,6 +79,14 @@ public class Frm_expd extends javax.swing.JFrame {
         dataTextField1.setCampo("id_paciente");
         dataTextField1.setData(dataSource1);
 
+        tbn_salir1.setBackground(new java.awt.Color(255, 0, 0));
+        tbn_salir1.setText("X");
+        tbn_salir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbn_salir1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
@@ -98,28 +98,28 @@ public class Frm_expd extends javax.swing.JFrame {
                 .addComponent(dataTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(74, 74, 74)
                 .addComponent(buttonSeven1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addGap(254, 254, 254))
+            .addGroup(panel1Layout.createSequentialGroup()
+                .addComponent(tbn_salir1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 499, Short.MAX_VALUE)
                 .addComponent(Lbl_expedientes)
-                .addGap(18, 18, 18)
-                .addComponent(tbn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(34, 34, 34))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(tbn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
+                        .addComponent(tbn_salir1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(dataTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(buttonSeven1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
+                        .addGap(8, 8, 8)
                         .addComponent(Lbl_expedientes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(251, Short.MAX_VALUE))
+                .addContainerGap(248, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -136,15 +136,15 @@ public class Frm_expd extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tbn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salirActionPerformed
-        Frm_menu menu=new Frm_menu();
-        menu.setVisible(true);
-        this.dispose();
-}//GEN-LAST:event_tbn_salirActionPerformed
-
     private void buttonSeven1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven1ActionPerformed
         
 }//GEN-LAST:event_buttonSeven1ActionPerformed
+
+private void tbn_salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salir1ActionPerformed
+        Frm_log_in log=new Frm_log_in();
+        log.setVisible(true);
+        this.dispose();
+}//GEN-LAST:event_tbn_salir1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,6 +173,6 @@ public class Frm_expd extends javax.swing.JFrame {
     private FuenteDeDatos.DataTextField dataTextField1;
     private javax.swing.JLabel jLabel1;
     private org.edisoncor.gui.panel.Panel panel1;
-    private org.edisoncor.gui.button.ButtonSeven tbn_salir;
+    private org.edisoncor.gui.button.ButtonSeven tbn_salir1;
     // End of variables declaration//GEN-END:variables
 }

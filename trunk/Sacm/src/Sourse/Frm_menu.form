@@ -178,11 +178,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonTask1ActionPerformed"/>
               </Events>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="490" y="220" width="210" height="-1"/>
-                </Constraint>
-              </Constraints>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonSeven" name="tbn_salir">
               <Properties>
@@ -273,11 +268,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonTask6ActionPerformed"/>
               </Events>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="490" y="140" width="210" height="-1"/>
-                </Constraint>
-              </Constraints>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonTask" name="buttonTask7">
               <Properties>
