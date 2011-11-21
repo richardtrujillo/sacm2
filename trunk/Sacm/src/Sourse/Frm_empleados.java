@@ -471,8 +471,8 @@ private void JTxtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
 }//GEN-LAST:event_JTxtFechaActionPerformed
 
 private void tbn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salirActionPerformed
-        Frm_log_in log=new Frm_log_in();
-        log.setVisible(true);
+        Frm_menu menu=new Frm_menu(null,0);
+        menu.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_tbn_salirActionPerformed
 

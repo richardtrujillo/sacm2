@@ -19,15 +19,14 @@ import java.awt.Toolkit;
  *
  * @author wsdess
  */
-public class Frm_menu extends javax.swing.JFrame {
+public final class Frm_menu extends javax.swing.JFrame {
     //Pruebas
-    private int tipo_usuario=1;
-    private String nombre="iniciando"; 
+    private int tipo_usuario=3;
     /** Creates new form Frm_menu */
-    public Frm_menu() {
+    public Frm_menu(final String nombre,int tipo) {
         initComponents();
-   
-        switch(tipo_usuario){
+        //dataSource1.consulta();
+        switch(tipo){
             case 1:
                         //Caso Jefe clinico
                         this.setSize(760, 360);
@@ -356,18 +355,16 @@ public class Frm_menu extends javax.swing.JFrame {
      */
     @Override
     public Image getIconImage() {
-        Image retValue = Toolkit.getDefaultToolkit().
-                getImage(ClassLoader.getSystemResource("images/icono.png"));
-
-
-        return retValue;
+       Image retValue = Toolkit.getDefaultToolkit().
+       getImage(ClassLoader.getSystemResource("images/icono.png"));
+       return retValue;
     }
     
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                new Frm_menu().setVisible(true);
+                new Frm_menu("",0).setVisible(true);
             }
         });
     }
@@ -402,19 +399,5 @@ public class Frm_menu extends javax.swing.JFrame {
      */
     public void setTipo_usuario(int tipo_u) {
         this.tipo_usuario = tipo_u;
-    }
-
-    /**
-     * @return the nombre
-     */
-    public String getNombre() {
-        return nombre;
-    }
-
-    /**
-     * @param nombre the nombre to set
-     */
-    public void setNombre(String nom) {
-        this.nombre = nom;
     }
 }

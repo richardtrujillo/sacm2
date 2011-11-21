@@ -291,7 +291,7 @@ public class Frm_citas extends javax.swing.JFrame {
 }//GEN-LAST:event_btn_primeroActionPerformed
 
     private void tbn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salirActionPerformed
-        Frm_menu men=new Frm_menu();
+        Frm_menu men=new Frm_menu("",0);
         men.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_tbn_salirActionPerformed
