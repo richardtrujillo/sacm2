@@ -110,7 +110,7 @@
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <Component id="tbn_salir" min="-2" pref="20" max="-2" attributes="0"/>
-                  <EmptySpace pref="39" max="32767" attributes="0"/>
+                  <EmptySpace pref="53" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="dcbx_tipo_" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -138,7 +138,7 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <Component id="Lbl_catalogo_pacientes" min="-2" pref="43" max="-2" attributes="0"/>
-                  <EmptySpace pref="242" max="32767" attributes="0"/>
+                  <EmptySpace pref="244" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

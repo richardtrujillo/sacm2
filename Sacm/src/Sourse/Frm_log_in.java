@@ -13,6 +13,7 @@ package Sourse;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 //import java.sql.SQLException;
 //import java.util.logging.Level;
 //import java.util.logging.Logger;
@@ -23,12 +24,12 @@ import java.awt.Toolkit;
  */
 public class Frm_log_in extends javax.swing.JFrame {
 
-    
+    String rc_nom="nombre";
+    int rc_tip=1;
+    int ban=0;
+    String pass="";
     public Frm_log_in() {
-        Frm_menu menu=new Frm_menu();
         initComponents();
-        String Resultado_consulta_nom="nombre";
-        int resultado_consulta_tip=1;
         //algoritmoara centrar el formulario
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension frameSize = this.getSize();
@@ -39,8 +40,7 @@ public class Frm_log_in extends javax.swing.JFrame {
             frameSize.width = screenSize.width;
         }
         this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
-        menu.setNombre(Resultado_consulta_nom);
-        menu.setTipo_usuario(resultado_consulta_tip);
+        
         //this.dataSource1.consulta();
         
     }
@@ -66,7 +66,7 @@ public class Frm_log_in extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
 
         dataSource1.setCodigosql("select * from tbl_usuarios");
-        dataSource1.setDb("sacm");
+        dataSource1.setDb("SACM");
         dataSource1.setIp("http://localhost/");
         dataSource1.setPassword("");
         dataSource1.setUsuario("root");
@@ -139,8 +139,8 @@ public class Frm_log_in extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dataTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE))))
+                            .addComponent(dataTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                            .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE))))
                 .addGap(36, 36, 36)
                 .addComponent(jLabel3)
                 .addContainerGap())
@@ -194,6 +194,16 @@ public class Frm_log_in extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 private void buttonSeven1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven1ActionPerformed
+    pass=new String(this.jPasswordField1.getPassword());
+    rc_nom=dataTextField1.getText();
+    if(rc_nom.equals("")){
+        JOptionPane.showMessageDialog(this,"Campo de usuario vacio","Validacion Campos",JOptionPane.ERROR_MESSAGE);}
+    if(pass.equals("")){
+        JOptionPane.showMessageDialog(this,"Campo contraseña vacio","Validacion Campos",JOptionPane.ERROR_MESSAGE);
+   }
+    else{
+//        rc=nom=dataSource1.rs.getString("nombre");
+//        rc_tip=dataSourse.rs.getString("tipo_usuario");
 //        try {
 //            if(this.dataSource1.rs.getString("empleado_id").equals(this.dataTextField1.getText())&&this.dataSource1.rs.getString("password").equals(this.jPasswordField1.getPassword())){
 //            
@@ -201,9 +211,11 @@ private void buttonSeven1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 //        } catch (SQLException ex) {
 //            Logger.getLogger(Frm_log_in.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-    Frm_menu menu=new Frm_menu();
-    menu.setVisible(true);
-    this.dispose();
+            Frm_menu menu=new Frm_menu(rc_nom,1);
+            menu.setVisible(true);
+            this.dispose();
+            
+    } 
 }//GEN-LAST:event_buttonSeven1ActionPerformed
 
 private void buttonSeven2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven2ActionPerformed
@@ -230,6 +242,7 @@ private void dataTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GE
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
+            @Override
             public void run() {
                 new Frm_log_in().setVisible(true);
             }

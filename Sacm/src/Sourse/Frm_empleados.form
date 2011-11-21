@@ -77,16 +77,16 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="dtxf_id_usuario" pref="207" max="32767" attributes="1"/>
+                      <Component id="dtxf_id_usuario" pref="219" max="32767" attributes="1"/>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="JTxtFecha" min="-2" pref="176" max="-2" attributes="1"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="22" max="32767" attributes="0"/>
                           <Component id="JDtChFechaDel" min="-2" pref="21" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="dtxf_apellido_p" alignment="0" pref="207" max="32767" attributes="1"/>
-                      <Component id="dtxf_apellido_m" alignment="0" pref="207" max="32767" attributes="1"/>
-                      <Component id="dtxf_id_empleado" alignment="0" pref="207" max="32767" attributes="1"/>
-                      <Component id="dtxf_nombre" alignment="0" pref="207" max="32767" attributes="1"/>
+                      <Component id="dtxf_apellido_p" alignment="0" pref="219" max="32767" attributes="1"/>
+                      <Component id="dtxf_apellido_m" alignment="0" pref="219" max="32767" attributes="1"/>
+                      <Component id="dtxf_id_empleado" alignment="0" pref="219" max="32767" attributes="1"/>
+                      <Component id="dtxf_nombre" alignment="0" pref="219" max="32767" attributes="1"/>
                   </Group>
                   <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
