@@ -343,7 +343,9 @@ public final class Frm_menu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonTask4ActionPerformed
 
     private void buttonTask7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask7ActionPerformed
-        // TODO add your handling code here:
+       Frm_Diagnostico dia=new Frm_Diagnostico();
+       dia.setVisible(true);
+       this.dispose();
     }//GEN-LAST:event_buttonTask7ActionPerformed
 
     private void buttonTask8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask8ActionPerformed

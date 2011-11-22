@@ -33,6 +33,16 @@ public class Frm_Diagnostico extends javax.swing.JFrame {
         panel1 = new org.edisoncor.gui.panel.Panel();
         Lbl_expedientes = new javax.swing.JLabel();
         tbn_salir1 = new org.edisoncor.gui.button.ButtonSeven();
+        dataTextField1 = new FuenteDeDatos.DataTextField();
+        dataTextField3 = new FuenteDeDatos.DataTextField();
+        dataTextField4 = new FuenteDeDatos.DataTextField();
+        buttonSeven2 = new org.edisoncor.gui.button.ButtonSeven();
+        buttonSeven3 = new org.edisoncor.gui.button.ButtonSeven();
+        buttonSeven4 = new org.edisoncor.gui.button.ButtonSeven();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,41 +61,116 @@ public class Frm_Diagnostico extends javax.swing.JFrame {
             }
         });
 
+        buttonSeven2.setBackground(new java.awt.Color(0, 57, 85));
+        buttonSeven2.setText("Ingresar");
+        buttonSeven2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSeven2ActionPerformed(evt);
+            }
+        });
+
+        buttonSeven3.setBackground(new java.awt.Color(0, 57, 85));
+        buttonSeven3.setText("Guardar");
+
+        buttonSeven4.setBackground(new java.awt.Color(0, 57, 85));
+        buttonSeven4.setText("Cancelar");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SACM_SPLASH.png"))); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel11.setForeground(new java.awt.Color(0, 57, 85));
+        jLabel11.setText("ID_Paciente:");
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel12.setForeground(new java.awt.Color(0, 57, 85));
+        jLabel12.setText("Medicacion:");
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel13.setForeground(new java.awt.Color(0, 57, 85));
+        jLabel13.setText("Descripcion:");
+
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addContainerGap(376, Short.MAX_VALUE)
-                        .addComponent(Lbl_expedientes)
-                        .addGap(18, 18, 18))
+            .addGroup(panel1Layout.createSequentialGroup()
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addComponent(tbn_salir1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGap(36, 36, 36))
+                        .addGap(110, 110, 110))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel11))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(270, 270, 270)
+                        .addComponent(Lbl_expedientes))
+                    .addComponent(dataTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(450, 450, 450)
+                        .addComponent(buttonSeven4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(240, 240, 240)
+                        .addComponent(buttonSeven2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(340, 340, 340)
+                        .addComponent(buttonSeven3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(dataTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dataTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1))))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tbn_salir1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(panel1Layout.createSequentialGroup()
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(10, 10, 10)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(Lbl_expedientes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(tbn_salir1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(333, Short.MAX_VALUE))
+                        .addGap(320, 320, 320)
+                        .addComponent(buttonSeven2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(320, 320, 320)
+                        .addComponent(buttonSeven3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel1))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addComponent(Lbl_expedientes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dataTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dataTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dataTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12))
+                        .addGap(110, 110, 110)
+                        .addComponent(buttonSeven4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
         );
 
         pack();
@@ -96,6 +181,10 @@ private void tbn_salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         log.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_tbn_salir1ActionPerformed
+
+private void buttonSeven2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven2ActionPerformed
+
+}//GEN-LAST:event_buttonSeven2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -110,6 +199,16 @@ private void tbn_salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Lbl_expedientes;
+    private org.edisoncor.gui.button.ButtonSeven buttonSeven2;
+    private org.edisoncor.gui.button.ButtonSeven buttonSeven3;
+    private org.edisoncor.gui.button.ButtonSeven buttonSeven4;
+    private FuenteDeDatos.DataTextField dataTextField1;
+    private FuenteDeDatos.DataTextField dataTextField3;
+    private FuenteDeDatos.DataTextField dataTextField4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private org.edisoncor.gui.panel.Panel panel1;
     private org.edisoncor.gui.button.ButtonSeven tbn_salir1;
     // End of variables declaration//GEN-END:variables
