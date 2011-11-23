@@ -39,6 +39,10 @@ public class Frm_pacientes extends javax.swing.JFrame {
         }
         this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
         //this.dataSource1.consulta();
+        this.dtxf_nombre.setDocument(new DataTextFieldLimit(20));
+        this.dtxf_apellido_p.setDocument(new DataTextFieldLimit(20));
+        this.dtxf_apellido_m.setDocument(new DataTextFieldLimit(20));
+        this.dmtxf_telefono.setDocument(new DataTextFieldLimit(10));
         this.dcbx_sexo.setEnabled(false);
         this.JTxtFechaPacientes.setEnabled(false);
         this.dmtxf_telefono.setEnabled(false);
@@ -360,7 +364,7 @@ public class Frm_pacientes extends javax.swing.JFrame {
                                             .addComponent(dtxf_apellido_m, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
                                             .addGroup(panel1Layout.createSequentialGroup()
                                                 .addComponent(JTxtFechaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGap(18, 18, 18)
                                                 .addComponent(JDtChFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(dcbx_sexo, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)))
                                     .addComponent(dtxf_direccion, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
@@ -429,10 +433,10 @@ public class Frm_pacientes extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JDtChFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
                             .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(JTxtFechaPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(JDtChFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(dcbx_sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -578,8 +582,7 @@ private void tbn_salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 
 private void dtxf_nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dtxf_nombreKeyTyped
    
-   
-      char letra=  evt.getKeyChar();
+   char letra=  evt.getKeyChar();
 if(letra>='0' && letra<='9'||letra>='a' && letra<='Z' )
       {
           evt.consume();
@@ -590,7 +593,6 @@ if(letra==10)
       }
       if(letra==10)
       {
-          
       
           
         
@@ -620,7 +622,7 @@ private void dtxf_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 private void dtxf_apellido_pKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dtxf_apellido_pKeyTyped
    
       char letra=  evt.getKeyChar();
-if(letra>='0' && letra<='9'||letra>='a' && letra<='Z' )
+if(letra>='0' && letra<='9'|| (letra>='a' && letra<='Z') )
       {
           evt.consume();
       }
@@ -652,18 +654,17 @@ if(letra==10)
 }//GEN-LAST:event_dtxf_apellido_pKeyTyped
 
 private void dtxf_apellido_mKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dtxf_apellido_mKeyTyped
- char letra=  evt.getKeyChar();
-      if(letra>='0' && letra<='9'||letra>='a' && letra<='Z' )
+   char letra=  evt.getKeyChar();
+if(letra>='0' && letra<='9'||letra>='a' && letra<='Z' )
+      {
+          evt.consume();
+      }
+if(letra==10)
       {
           evt.consume();
       }
       if(letra==10)
       {
-          evt.consume();
-      }
-      if(letra==10)
-      {
-          
       
           
         
