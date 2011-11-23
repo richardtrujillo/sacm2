@@ -48,10 +48,12 @@ public class Frm_Diagnostico extends javax.swing.JFrame {
 
         panel1.setColorPrimario(new java.awt.Color(255, 255, 255));
         panel1.setColorSecundario(new java.awt.Color(0, 153, 153));
+        panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Lbl_expedientes.setFont(new java.awt.Font("Tahoma", 1, 24));
         Lbl_expedientes.setForeground(new java.awt.Color(0, 57, 85));
         Lbl_expedientes.setText("Diagnosticar paciente");
+        panel1.add(Lbl_expedientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, 43));
 
         tbn_salir1.setBackground(new java.awt.Color(255, 0, 0));
         tbn_salir1.setText("X");
@@ -60,6 +62,10 @@ public class Frm_Diagnostico extends javax.swing.JFrame {
                 tbn_salir1ActionPerformed(evt);
             }
         });
+        panel1.add(tbn_salir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 20));
+        panel1.add(dataTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 124, 203, -1));
+        panel1.add(dataTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 162, 203, -1));
+        panel1.add(dataTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 203, -1));
 
         buttonSeven2.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven2.setText("Ingresar");
@@ -68,99 +74,33 @@ public class Frm_Diagnostico extends javax.swing.JFrame {
                 buttonSeven2ActionPerformed(evt);
             }
         });
+        panel1.add(buttonSeven2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, 90, -1));
 
         buttonSeven3.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven3.setText("Guardar");
+        panel1.add(buttonSeven3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, 100, -1));
 
         buttonSeven4.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven4.setText("Cancelar");
+        panel1.add(buttonSeven4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, 93, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SACM_SPLASH.png"))); // NOI18N
+        panel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 50, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel11.setForeground(new java.awt.Color(0, 57, 85));
         jLabel11.setText("ID_Paciente:");
+        panel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 124, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel12.setForeground(new java.awt.Color(0, 57, 85));
         jLabel12.setText("Medicacion:");
+        panel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel13.setForeground(new java.awt.Color(0, 57, 85));
         jLabel13.setText("Descripcion:");
-
-        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
-        panel1.setLayout(panel1Layout);
-        panel1Layout.setHorizontalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(tbn_salir1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(110, 110, 110))
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(270, 270, 270)
-                        .addComponent(Lbl_expedientes))
-                    .addComponent(dataTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(450, 450, 450)
-                        .addComponent(buttonSeven4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(240, 240, 240)
-                        .addComponent(buttonSeven2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(340, 340, 340)
-                        .addComponent(buttonSeven3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(dataTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dataTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1))))
-        );
-        panel1Layout.setVerticalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tbn_salir1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(320, 320, 320)
-                        .addComponent(buttonSeven2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(320, 320, 320)
-                        .addComponent(buttonSeven3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel1))
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(Lbl_expedientes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(dataTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11))
-                        .addGap(18, 18, 18)
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(dataTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13))
-                        .addGap(18, 18, 18)
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(dataTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12))
-                        .addGap(110, 110, 110)
-                        .addComponent(buttonSeven4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
+        panel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 162, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

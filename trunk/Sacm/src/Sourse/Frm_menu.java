@@ -349,7 +349,9 @@ public final class Frm_menu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonTask7ActionPerformed
 
     private void buttonTask8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask8ActionPerformed
-        // TODO add your handling code here:
+        Frm_Agenda age=new Frm_Agenda();
+        age.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_buttonTask8ActionPerformed
 
     /**
