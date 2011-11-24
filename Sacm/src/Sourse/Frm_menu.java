@@ -132,8 +132,6 @@ public final class Frm_menu extends javax.swing.JFrame {
                 buttonTask1ActionPerformed(evt);
             }
         });
-        panelCurves1.add(buttonTask1);
-        buttonTask1.setBounds(490, 220, 210, 64);
 
         tbn_salir.setBackground(new java.awt.Color(255, 0, 0));
         tbn_salir.setText("X");
@@ -171,6 +169,11 @@ public final class Frm_menu extends javax.swing.JFrame {
         buttonTask3.setForeground(new java.awt.Color(0, 57, 85));
         buttonTask3.setText("Expedientes");
         buttonTask3.setDescription("Consulta de expedientes");
+        buttonTask3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTask3ActionPerformed(evt);
+            }
+        });
 
         buttonTask4.setForeground(new java.awt.Color(0, 57, 85));
         buttonTask4.setText("Citas");
@@ -190,8 +193,6 @@ public final class Frm_menu extends javax.swing.JFrame {
                 buttonTask6ActionPerformed(evt);
             }
         });
-        panelCurves1.add(buttonTask6);
-        buttonTask6.setBounds(490, 140, 210, 64);
 
         buttonTask7.setForeground(new java.awt.Color(0, 57, 85));
         buttonTask7.setText("Diagnostico");
@@ -314,7 +315,9 @@ public final class Frm_menu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonTask2ActionPerformed
 
     private void buttonTask5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask5ActionPerformed
-        // TODO add your handling code here:
+        Frm_reportes rep= new Frm_reportes();
+        rep.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_buttonTask5ActionPerformed
 
     private void tbn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salirActionPerformed
@@ -353,6 +356,12 @@ public final class Frm_menu extends javax.swing.JFrame {
         age.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonTask8ActionPerformed
+
+private void buttonTask3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask3ActionPerformed
+Frm_expd ex=new Frm_expd();
+ex.setVisible(true);
+this.dispose();
+}//GEN-LAST:event_buttonTask3ActionPerformed
 
     /**
      * @param args the command line arguments

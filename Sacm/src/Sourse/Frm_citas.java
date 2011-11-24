@@ -24,6 +24,7 @@ public class Frm_citas extends javax.swing.JFrame {
     /** Creates new form Frm_citas */
     public Frm_citas() {
         initComponents();
+        this.JTxtFechaCitas.setEnabled(false);
         //Con este aparece la fecha 
          Calendar cal=Calendar.getInstance(); 
          String fecha=cal.get(cal.DATE)+"/"+cal.get(cal.MONTH)+"/"+cal.get(cal.YEAR);
@@ -185,6 +186,11 @@ public class Frm_citas extends javax.swing.JFrame {
 
         buttonSeven6.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven6.setText("Buscar");
+        buttonSeven6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSeven6ActionPerformed(evt);
+            }
+        });
         panel1.add(buttonSeven6);
         buttonSeven6.setBounds(110, 127, 198, 30);
 
@@ -196,6 +202,16 @@ public class Frm_citas extends javax.swing.JFrame {
 
         dataTextField1.setCampo("id_paciente");
         dataTextField1.setData(dataSource1);
+        dataTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataTextField1ActionPerformed(evt);
+            }
+        });
+        dataTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                dataTextField1KeyTyped(evt);
+            }
+        });
         panel1.add(dataTextField1);
         dataTextField1.setBounds(100, 90, 230, 28);
 
@@ -319,6 +335,23 @@ private void tbn_salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         log.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_tbn_salir1ActionPerformed
+
+private void dataTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataTextField1ActionPerformed
+
+    
+}//GEN-LAST:event_dataTextField1ActionPerformed
+
+private void dataTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dataTextField1KeyTyped
+char letra=  evt.getKeyChar();
+if(letra>='0' && letra<='9'||letra>='a' && letra<='Z' )
+      {
+          evt.consume();
+      }
+}//GEN-LAST:event_dataTextField1KeyTyped
+
+private void buttonSeven6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven6ActionPerformed
+
+}//GEN-LAST:event_buttonSeven6ActionPerformed
 
     /**
      * @param args the command line arguments

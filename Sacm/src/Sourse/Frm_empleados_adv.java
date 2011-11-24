@@ -103,6 +103,11 @@ public class Frm_empleados_adv extends javax.swing.JFrame {
 
         dtxf_id_usuario.setCampo("Apellido_M");
         dtxf_id_usuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        dtxf_id_usuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                dtxf_id_usuarioKeyTyped(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel8.setForeground(new java.awt.Color(0, 57, 85));
@@ -157,10 +162,10 @@ public class Frm_empleados_adv extends javax.swing.JFrame {
                     .addComponent(buttonSeven4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonSeven6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                 .addComponent(tbn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(dcbx_tipo_, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -181,7 +186,7 @@ public class Frm_empleados_adv extends javax.swing.JFrame {
                 .addGap(54, 54, 54))
             .addGroup(panel1Layout.createSequentialGroup()
                 .addComponent(Lbl_catalogo_pacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(242, Short.MAX_VALUE))
+                .addContainerGap(256, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -199,12 +204,22 @@ public class Frm_empleados_adv extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salirActionPerformed
+        Frm_menu log=new Frm_menu("",0);
+        log.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_tbn_salirActionPerformed
 
     private void buttonSeven6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven6ActionPerformed
         // TODO add your handling code here:
 }//GEN-LAST:event_buttonSeven6ActionPerformed
+
+private void dtxf_id_usuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dtxf_id_usuarioKeyTyped
+char letra=  evt.getKeyChar();
+if(letra>='0' && letra<='9'||letra>='a' && letra<='Z' )
+      {
+          evt.consume();
+      }
+}//GEN-LAST:event_dtxf_id_usuarioKeyTyped
 
     /**
      * @param args the command line arguments

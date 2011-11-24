@@ -23,6 +23,7 @@ public class Frm_expd extends javax.swing.JFrame {
     /** Creates new form Frm_expd */
     public Frm_expd() {
         initComponents();
+        this.JTxtFechaPacientes.setEnabled(false);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension frameSize = this.getSize();
         if (frameSize.height > screenSize.height) {
@@ -95,6 +96,11 @@ public class Frm_expd extends javax.swing.JFrame {
 
         dataTextField1.setCampo("id_paciente");
         dataTextField1.setData(dataSource1);
+        dataTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                dataTextField1KeyTyped(evt);
+            }
+        });
         panel1.add(dataTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 88, 207, -1));
 
         tbn_salir1.setBackground(new java.awt.Color(255, 0, 0));
@@ -122,6 +128,12 @@ public class Frm_expd extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(0, 57, 85));
         jLabel12.setText("Medicacion:");
         panel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 238, -1, -1));
+
+        dataTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                dataTextField2KeyTyped(evt);
+            }
+        });
         panel1.add(dataTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 162, 203, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SACM_SPLASH.png"))); // NOI18N
@@ -179,7 +191,7 @@ public class Frm_expd extends javax.swing.JFrame {
 }//GEN-LAST:event_buttonSeven1ActionPerformed
 
 private void tbn_salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salir1ActionPerformed
-        Frm_log_in log=new Frm_log_in();
+        Frm_menu log=new Frm_menu("",0);
         log.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_tbn_salir1ActionPerformed
@@ -204,6 +216,22 @@ private void JDtChFechaOnCommit(datechooser.events.CommitEvent evt) {//GEN-FIRST
         //Caja de texto donde va la fecha extraida
         JTxtFechaPacientes.setText(Dia+"-" + Mes + "-"+ Ano); 
 }//GEN-LAST:event_JDtChFechaOnCommit
+
+private void dataTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dataTextField1KeyTyped
+char letra=  evt.getKeyChar();
+if(letra>='0' && letra<='9'||letra>='a' && letra<='Z' )
+      {
+          evt.consume();
+      }
+}//GEN-LAST:event_dataTextField1KeyTyped
+
+private void dataTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dataTextField2KeyTyped
+ char numero=  evt.getKeyChar();
+      if(!(numero>='0' && numero<='9'))
+      {
+          evt.consume();
+      }
+}//GEN-LAST:event_dataTextField2KeyTyped
 
     /**
      * @param args the command line arguments

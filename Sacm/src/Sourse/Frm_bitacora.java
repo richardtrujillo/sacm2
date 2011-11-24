@@ -13,7 +13,6 @@ package Sourse;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.Image;
-import FuenteDeDatos.DataTable;
 import java.io.File;
 import javax.swing.JOptionPane;
 
@@ -194,7 +193,7 @@ public class Frm_bitacora extends javax.swing.JFrame {
 }//GEN-LAST:event_buttonSeven1ActionPerformed
 
 private void tbn_salir5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salir5ActionPerformed
-        Frm_log_in log=new Frm_log_in();
+        Frm_menu log=new Frm_menu("",0);
         log.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_tbn_salir5ActionPerformed

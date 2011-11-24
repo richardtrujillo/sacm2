@@ -66,7 +66,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="panelCurves1" alignment="0" pref="737" max="32767" attributes="0"/>
+              <Component id="panelCurves1" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -132,7 +132,7 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="dlbl_nombre" min="-2" pref="31" max="-2" attributes="0"/>
-                      <EmptySpace pref="29" max="32767" attributes="0"/>
+                      <EmptySpace pref="22" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="buttonTask7" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
@@ -243,6 +243,9 @@
                 <Property name="text" type="java.lang.String" value="Expedientes"/>
                 <Property name="description" type="java.lang.String" value="Consulta de expedientes"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonTask3ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonTask" name="buttonTask4">
               <Properties>
