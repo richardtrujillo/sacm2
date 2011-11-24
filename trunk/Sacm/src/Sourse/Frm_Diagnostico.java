@@ -10,6 +10,9 @@
  */
 package Sourse;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 /**
  *
  * @author wsdess
@@ -19,6 +22,16 @@ public class Frm_Diagnostico extends javax.swing.JFrame {
     /** Creates new form Frm_Diagnostico */
     public Frm_Diagnostico() {
         initComponents();
+        //algoritmoara centrar el formulario
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension frameSize = this.getSize();
+        if (frameSize.height > screenSize.height) {
+            frameSize.height = screenSize.height;
+        }
+        if (frameSize.width > screenSize.width) {
+            frameSize.width = screenSize.width;
+        }
+        this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
     }
 
     /** This method is called from within the constructor to
@@ -30,6 +43,7 @@ public class Frm_Diagnostico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dataSource1 = new FuenteDeDatos.DataSource();
         panel1 = new org.edisoncor.gui.panel.Panel();
         Lbl_expedientes = new javax.swing.JLabel();
         tbn_salir1 = new org.edisoncor.gui.button.ButtonSeven();
@@ -44,7 +58,15 @@ public class Frm_Diagnostico extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
 
+        dataSource1.setCodigosql("select * from tbl_empleados");
+        dataSource1.setDb("sacm");
+        dataSource1.setIp("http://localhost/");
+        dataSource1.setPassword("");
+        dataSource1.setUsuario("root");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        setUndecorated(true);
 
         panel1.setColorPrimario(new java.awt.Color(255, 255, 255));
         panel1.setColorSecundario(new java.awt.Color(0, 153, 153));
@@ -63,6 +85,17 @@ public class Frm_Diagnostico extends javax.swing.JFrame {
             }
         });
         panel1.add(tbn_salir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 20));
+
+        dataTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataTextField1ActionPerformed(evt);
+            }
+        });
+        dataTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                dataTextField1KeyTyped(evt);
+            }
+        });
         panel1.add(dataTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 124, 203, -1));
         panel1.add(dataTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 162, 203, -1));
         panel1.add(dataTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 203, -1));
@@ -117,7 +150,7 @@ public class Frm_Diagnostico extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 private void tbn_salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salir1ActionPerformed
-        Frm_log_in log=new Frm_log_in();
+        Frm_menu log=new Frm_menu("",0);
         log.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_tbn_salir1ActionPerformed
@@ -125,6 +158,18 @@ private void tbn_salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 private void buttonSeven2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven2ActionPerformed
 
 }//GEN-LAST:event_buttonSeven2ActionPerformed
+
+private void dataTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataTextField1ActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_dataTextField1ActionPerformed
+
+private void dataTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dataTextField1KeyTyped
+ char numero=  evt.getKeyChar();
+      if(!(numero>='0' && numero<='9'))
+      {
+          evt.consume();
+      }
+}//GEN-LAST:event_dataTextField1KeyTyped
 
     /**
      * @param args the command line arguments
@@ -142,6 +187,7 @@ private void buttonSeven2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private org.edisoncor.gui.button.ButtonSeven buttonSeven2;
     private org.edisoncor.gui.button.ButtonSeven buttonSeven3;
     private org.edisoncor.gui.button.ButtonSeven buttonSeven4;
+    private FuenteDeDatos.DataSource dataSource1;
     private FuenteDeDatos.DataTextField dataTextField1;
     private FuenteDeDatos.DataTextField dataTextField3;
     private FuenteDeDatos.DataTextField dataTextField4;
