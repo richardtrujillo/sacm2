@@ -187,7 +187,7 @@ public class Frm_expd extends javax.swing.JFrame {
                 buttonSeven2ActionPerformed(evt);
             }
         });
-        panel1.add(buttonSeven2, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 114, 132, 30));
+        panel1.add(buttonSeven2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 132, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

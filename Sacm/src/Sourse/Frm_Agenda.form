@@ -4,10 +4,10 @@
   <NonVisualComponents>
     <Component class="FuenteDeDatos.DataSource" name="dataSource1">
       <Properties>
-        <Property name="codigosql" type="java.lang.String" value="select * from tbl_empleados"/>
+        <Property name="codigosql" type="java.lang.String" value="select * from vw_agenda_medico"/>
         <Property name="db" type="java.lang.String" value="sacm"/>
-        <Property name="ip" type="java.lang.String" value="http://localhost/"/>
-        <Property name="password" type="java.lang.String" value=""/>
+        <Property name="ip" type="java.lang.String" value="localhost"/>
+        <Property name="password" type="java.lang.String" value="3mbl3ma"/>
         <Property name="usuario" type="java.lang.String" value="root"/>
       </Properties>
     </Component>
@@ -40,7 +40,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="panel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="panel1" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -63,32 +63,34 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="1" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Lbl_catalogo_pacientes" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                                      <Component id="buttonSeven1" min="-2" pref="80" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jtxf_busqueda" min="-2" pref="141" max="-2" attributes="1"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="JDtChFechaDel" min="-2" pref="29" max="-2" attributes="0"/>
-                                  </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="Lbl_catalogo_pacientes" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" pref="529" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                                          <Component id="buttonSeven1" min="-2" pref="80" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jtxf_busqueda" min="-2" pref="141" max="-2" attributes="1"/>
+                                          <EmptySpace pref="16" max="32767" attributes="0"/>
+                                          <Component id="JDtChFechaDel" min="-2" pref="29" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane1" min="-2" pref="452" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
                       <Component id="tbn_salir5" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
@@ -98,18 +100,11 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
+                          <Component id="tbn_salir5" min="-2" pref="20" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="Lbl_catalogo_pacientes" min="-2" pref="43" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="tbn_salir5" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="324" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -120,6 +115,12 @@
                                   <Component id="buttonSeven1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="Lbl_catalogo_pacientes" min="-2" pref="43" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" pref="314" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -139,29 +140,6 @@
             <Property name="text" type="java.lang.String" value="Agenda medico:"/>
           </Properties>
         </Component>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="FuenteDeDatos.DataTable" name="tbl_bit">
-              <Properties>
-                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="6" rowCount="18">
-                    <Column editable="true" title="Fecha" type="java.lang.Object"/>
-                    <Column editable="true" title="Hora" type="java.lang.Object"/>
-                    <Column editable="true" title="Id_paciente" type="java.lang.Object"/>
-                    <Column editable="true" title="Nombre" type="java.lang.Object"/>
-                    <Column editable="true" title="Apellido_p" type="java.lang.Object"/>
-                    <Column editable="true" title="Apellido_m" type="java.lang.Object"/>
-                  </Table>
-                </Property>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
         <Component class="javax.swing.JTextField" name="jtxf_busqueda">
         </Component>
         <Component class="org.edisoncor.gui.button.ButtonSeven" name="buttonSeven1">
@@ -202,6 +180,27 @@
             <EventHandler event="onCommit" listener="datechooser.events.CommitListener" parameters="datechooser.events.CommitEvent" handler="JDtChFechaDelOnCommit"/>
           </Events>
         </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTable" name="jTable1">
+              <Properties>
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                  <Table columnCount="4" rowCount="4">
+                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                  </Table>
+                </Property>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>

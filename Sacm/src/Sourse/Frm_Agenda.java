@@ -12,6 +12,10 @@ package Sourse;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,7 +23,8 @@ import java.awt.Toolkit;
  */
 public class Frm_Agenda extends javax.swing.JFrame {
 
-    /** Creates new form Frm_Agenda */
+    DefaultTableModel modelo = new DefaultTableModel();
+        
     public Frm_Agenda() {
         initComponents();
         this.jtxf_busqueda.setEnabled(false);
@@ -32,7 +37,30 @@ public class Frm_Agenda extends javax.swing.JFrame {
             frameSize.width = screenSize.width;
         }
         this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
-    }
+        try{
+            this.dataSource1.consulta();
+        }catch(Exception e){
+           System.out.println("no me conecte");
+        }
+        try {
+            modelo.addColumn("fecha");
+            modelo.addColumn("hora");
+            modelo.addColumn("id_paciente");
+            modelo.addColumn("nombre");
+            modelo.addColumn("apellido_p");
+            modelo.addColumn("apellido_m");
+        while (this.dataSource1.rs.next())
+        {                
+               Object [] fila = new Object[6];
+               for (int i=0;i<3;i++)
+               fila[i] =this.dataSource1.rs.getObject(i+1); 
+               modelo.addRow(fila);    
+            } 
+        }catch (SQLException ex) {
+                System.out.println("no se porque no llene la tabla");
+        }
+        jTable1.setModel(modelo); 
+}
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -46,18 +74,18 @@ public class Frm_Agenda extends javax.swing.JFrame {
         dataSource1 = new FuenteDeDatos.DataSource();
         panel1 = new org.edisoncor.gui.panel.Panel();
         Lbl_catalogo_pacientes = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbl_bit = new FuenteDeDatos.DataTable();
         jtxf_busqueda = new javax.swing.JTextField();
         buttonSeven1 = new org.edisoncor.gui.button.ButtonSeven();
         tbn_salir5 = new org.edisoncor.gui.button.ButtonSeven();
         jLabel1 = new javax.swing.JLabel();
         JDtChFechaDel = new datechooser.beans.DateChooserCombo();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
-        dataSource1.setCodigosql("select * from tbl_empleados");
+        dataSource1.setCodigosql("select * from vw_agenda_medico");
         dataSource1.setDb("sacm");
-        dataSource1.setIp("http://localhost/");
-        dataSource1.setPassword("");
+        dataSource1.setIp("localhost");
+        dataSource1.setPassword("3mbl3ma");
         dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,36 +96,9 @@ public class Frm_Agenda extends javax.swing.JFrame {
         panel1.setColorPrimario(new java.awt.Color(255, 255, 255));
         panel1.setColorSecundario(new java.awt.Color(0, 153, 153));
 
-        Lbl_catalogo_pacientes.setFont(new java.awt.Font("Tahoma", 1, 24));
+        Lbl_catalogo_pacientes.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         Lbl_catalogo_pacientes.setForeground(new java.awt.Color(0, 57, 85));
         Lbl_catalogo_pacientes.setText("Agenda medico:");
-
-        tbl_bit.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Fecha", "Hora", "Id_paciente", "Nombre", "Apellido_p", "Apellido_m"
-            }
-        ));
-        jScrollPane1.setViewportView(tbl_bit);
 
         buttonSeven1.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven1.setText("Buscar");
@@ -125,32 +126,46 @@ public class Frm_Agenda extends javax.swing.JFrame {
             }
         });
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(panel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(Lbl_catalogo_pacientes)
-                            .addGap(28, 28, 28))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel1Layout.createSequentialGroup()
-                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(panel1Layout.createSequentialGroup()
-                                    .addGap(31, 31, 31)
-                                    .addComponent(jLabel1))
-                                .addGroup(panel1Layout.createSequentialGroup()
-                                    .addGap(52, 52, 52)
-                                    .addComponent(buttonSeven1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(panel1Layout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(jtxf_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(JDtChFechaDel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(18, 18, 18)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(Lbl_catalogo_pacientes))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel1Layout.createSequentialGroup()
+                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panel1Layout.createSequentialGroup()
+                                        .addGap(31, 31, 31)
+                                        .addComponent(jLabel1))
+                                    .addGroup(panel1Layout.createSequentialGroup()
+                                        .addGap(52, 52, 52)
+                                        .addComponent(buttonSeven1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panel1Layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(jtxf_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                                        .addComponent(JDtChFechaDel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(67, 67, 67)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(28, 28, 28))
                     .addComponent(tbn_salir5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -159,13 +174,8 @@ public class Frm_Agenda extends javax.swing.JFrame {
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Lbl_catalogo_pacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(tbn_salir5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addComponent(tbn_salir5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,7 +183,12 @@ public class Frm_Agenda extends javax.swing.JFrame {
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addComponent(jtxf_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buttonSeven1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(buttonSeven1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Lbl_catalogo_pacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -185,7 +200,7 @@ public class Frm_Agenda extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -236,9 +251,9 @@ private void JDtChFechaDelOnCommit(datechooser.events.CommitEvent evt) {//GEN-FI
     private FuenteDeDatos.DataSource dataSource1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jtxf_busqueda;
     private org.edisoncor.gui.panel.Panel panel1;
-    private FuenteDeDatos.DataTable tbl_bit;
     private org.edisoncor.gui.button.ButtonSeven tbn_salir5;
     // End of variables declaration//GEN-END:variables
 }
