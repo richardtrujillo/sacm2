@@ -64,12 +64,13 @@ public class Frm_expd extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         dataTextField2 = new FuenteDeDatos.DataTextField();
         jLabel2 = new javax.swing.JLabel();
-        buttonSeven2 = new org.edisoncor.gui.button.ButtonSeven();
         buttonSeven3 = new org.edisoncor.gui.button.ButtonSeven();
         buttonSeven4 = new org.edisoncor.gui.button.ButtonSeven();
         JDtChFecha = new datechooser.beans.DateChooserCombo();
         JTxtFechaPacientes = new FuenteDeDatos.DataMaskedTextField();
         jLabel5 = new javax.swing.JLabel();
+        buttonSeven5 = new org.edisoncor.gui.button.ButtonSeven();
+        buttonSeven2 = new org.edisoncor.gui.button.ButtonSeven();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(getIconImage());
@@ -92,13 +93,13 @@ public class Frm_expd extends javax.swing.JFrame {
         panel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 88, -1, -1));
 
         buttonSeven1.setBackground(new java.awt.Color(0, 57, 85));
-        buttonSeven1.setText("Buscar");
+        buttonSeven1.setText("Ver historial completo");
         buttonSeven1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonSeven1ActionPerformed(evt);
             }
         });
-        panel1.add(buttonSeven1, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 114, 132, 30));
+        panel1.add(buttonSeven1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 190, 30));
 
         dataTextField1.setCampo("id_paciente");
         dataTextField1.setData(dataSource1);
@@ -145,15 +146,6 @@ public class Frm_expd extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SACM_SPLASH.png"))); // NOI18N
         panel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, -1, -1));
 
-        buttonSeven2.setBackground(new java.awt.Color(0, 57, 85));
-        buttonSeven2.setText("Ingresar");
-        buttonSeven2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSeven2ActionPerformed(evt);
-            }
-        });
-        panel1.add(buttonSeven2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, 90, -1));
-
         buttonSeven3.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven3.setText("Guardar");
         panel1.add(buttonSeven3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 330, 100, -1));
@@ -178,6 +170,24 @@ public class Frm_expd extends javax.swing.JFrame {
         jLabel5.setText("Fecha Nacimiento:");
         panel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 276, -1, 22));
 
+        buttonSeven5.setBackground(new java.awt.Color(0, 57, 85));
+        buttonSeven5.setText("Ingresar");
+        buttonSeven5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSeven5ActionPerformed(evt);
+            }
+        });
+        panel1.add(buttonSeven5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, 90, -1));
+
+        buttonSeven2.setBackground(new java.awt.Color(0, 57, 85));
+        buttonSeven2.setText("Buscar");
+        buttonSeven2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSeven2ActionPerformed(evt);
+            }
+        });
+        panel1.add(buttonSeven2, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 114, 132, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -201,10 +211,6 @@ private void tbn_salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         log.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_tbn_salir1ActionPerformed
-
-private void buttonSeven2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven2ActionPerformed
-
-}//GEN-LAST:event_buttonSeven2ActionPerformed
 
 private void JDtChFechaOnCommit(datechooser.events.CommitEvent evt) {//GEN-FIRST:event_JDtChFechaOnCommit
         
@@ -239,6 +245,14 @@ private void dataTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:ev
       }
 }//GEN-LAST:event_dataTextField2KeyTyped
 
+private void buttonSeven5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven5ActionPerformed
+    // TODO add your handling code here:
+}//GEN-LAST:event_buttonSeven5ActionPerformed
+
+private void buttonSeven2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven2ActionPerformed
+    // TODO add your handling code here:
+}//GEN-LAST:event_buttonSeven2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -267,6 +281,7 @@ private void dataTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:ev
     private org.edisoncor.gui.button.ButtonSeven buttonSeven2;
     private org.edisoncor.gui.button.ButtonSeven buttonSeven3;
     private org.edisoncor.gui.button.ButtonSeven buttonSeven4;
+    private org.edisoncor.gui.button.ButtonSeven buttonSeven5;
     private FuenteDeDatos.DataSource dataSource1;
     private FuenteDeDatos.DataTextField dataTextField1;
     private FuenteDeDatos.DataTextField dataTextField2;

@@ -35,12 +35,6 @@ public class Frm_empleados extends javax.swing.JFrame {
             frameSize.width = screenSize.width;
         }
         this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
-        try{
-            this.dataSource1.consulta();
-            this.dataSource1.primero();
-        }catch(Exception e){
-            System.out.println("No me conecte");
-        }
         this.JDtChFechaDel.setEnabled(false);
         this.JTxtFecha.setEnabled(false);
         this.dtxf_id_usuario.setEnabled(false);
@@ -48,6 +42,12 @@ public class Frm_empleados extends javax.swing.JFrame {
         this.dtxf_apellido_p.setEnabled(false);
         this.dtxf_nombre.setEnabled(false);
         this.dtxf_id_empleado.setEnabled(true);
+        try{
+            this.dataSource1.consulta();
+            this.dataSource1.primero();
+        }catch(Exception e){
+            System.out.println("No me conecte"+e);
+        }
     }
 
     /** This method is called from within the constructor to
@@ -224,6 +224,8 @@ public class Frm_empleados extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 57, 85));
         jLabel3.setText("Feha de Nacimiento:");
 
+        JTxtFecha.setCampo("f_nac");
+        JTxtFecha.setData(dataSource1);
         JTxtFecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JTxtFechaActionPerformed(evt);
@@ -244,11 +246,11 @@ public class Frm_empleados extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 57, 85));
         jLabel7.setText("Id_Usuario:");
 
-        dtxf_id_usuario.setCampo("Apellido_M");
+        dtxf_id_usuario.setCampo("id_usuario");
         dtxf_id_usuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         dtxf_id_usuario.setData(dataSource1);
 
-        dtxf_id_empleado.setCampo("Nombre");
+        dtxf_id_empleado.setCampo("id_empleado");
         dtxf_id_empleado.setData(dataSource1);
         dtxf_id_empleado.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -282,15 +284,15 @@ public class Frm_empleados extends javax.swing.JFrame {
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dtxf_id_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                    .addComponent(dtxf_id_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                         .addComponent(JTxtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                         .addComponent(JDtChFechaDel, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(dtxf_apellido_p, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                    .addComponent(dtxf_apellido_m, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                    .addComponent(dtxf_id_empleado, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                    .addComponent(dtxf_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))
+                    .addComponent(dtxf_apellido_p, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                    .addComponent(dtxf_apellido_m, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                    .addComponent(dtxf_id_empleado, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                    .addComponent(dtxf_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))
                 .addGap(73, 73, 73)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()

@@ -95,13 +95,14 @@ public class Frm_empleados_adv extends javax.swing.JFrame {
         jLabel5.setText("Tipo de empleado:");
 
         dcbx_tipo_.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Administrador", "Recepcionista", "Medico" }));
-        dcbx_tipo_.setCampo("Estatus");
+        dcbx_tipo_.setCampo("");
+        dcbx_tipo_.setData(dataSource1);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel7.setForeground(new java.awt.Color(0, 57, 85));
         jLabel7.setText("Id_Usuario:");
 
-        dtxf_id_usuario.setCampo("Apellido_M");
+        dtxf_id_usuario.setCampo("");
         dtxf_id_usuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         dtxf_id_usuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -165,7 +166,7 @@ public class Frm_empleados_adv extends javax.swing.JFrame {
                 .addContainerGap(86, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                 .addComponent(tbn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(dcbx_tipo_, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -186,7 +187,7 @@ public class Frm_empleados_adv extends javax.swing.JFrame {
                 .addGap(54, 54, 54))
             .addGroup(panel1Layout.createSequentialGroup()
                 .addComponent(Lbl_catalogo_pacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(256, Short.MAX_VALUE))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
