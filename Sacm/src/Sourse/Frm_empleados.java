@@ -35,7 +35,12 @@ public class Frm_empleados extends javax.swing.JFrame {
             frameSize.width = screenSize.width;
         }
         this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
-        //this.dataSource1.consulta();
+        try{
+            this.dataSource1.consulta();
+            this.dataSource1.primero();
+        }catch(Exception e){
+            System.out.println("No me conecte");
+        }
         this.JDtChFechaDel.setEnabled(false);
         this.JTxtFecha.setEnabled(false);
         this.dtxf_id_usuario.setEnabled(false);
