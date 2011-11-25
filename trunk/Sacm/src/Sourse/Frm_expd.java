@@ -33,6 +33,12 @@ public class Frm_expd extends javax.swing.JFrame {
             frameSize.width = screenSize.width;
         }
         this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
+        try{
+            this.dataSource1.consulta();
+            this.dataSource1.primero();
+        }catch(Exception e){
+            System.out.println("No me conecte");
+        }
     }
 
     /** This method is called from within the constructor to
