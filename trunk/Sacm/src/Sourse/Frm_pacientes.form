@@ -106,18 +106,13 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="dataCheckBox1" min="-2" pref="88" max="-2" attributes="0"/>
-                                  <EmptySpace pref="105" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="dcbx_sexo" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="dtxf_direccion" alignment="0" max="32767" attributes="3"/>
-                                  <Component id="dmtxf_telefono" alignment="0" max="32767" attributes="3"/>
-                                  <Component id="dtx_email" alignment="0" max="32767" attributes="3"/>
-                                  <Component id="dtxf_ciudad" alignment="0" pref="193" max="32767" attributes="3"/>
-                              </Group>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="dcbx_sexo" alignment="0" max="32767" attributes="1"/>
+                              <Component id="dtxf_direccion" alignment="0" max="32767" attributes="3"/>
+                              <Component id="dmtxf_telefono" alignment="0" max="32767" attributes="3"/>
+                              <Component id="dtx_email" alignment="0" max="32767" attributes="3"/>
+                              <Component id="dtxf_ciudad" alignment="0" pref="193" max="32767" attributes="3"/>
+                              <Component id="dataCheckBox1" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -218,10 +213,10 @@
                                   <Component id="dtx_email" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="dtxf_ciudad" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="dataCheckBox1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="dataCheckBox1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
@@ -549,6 +544,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Guardar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSeven3ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="org.edisoncor.gui.button.ButtonSeven" name="buttonSeven4">
           <Properties>

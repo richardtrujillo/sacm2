@@ -39,6 +39,8 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
         Lbl_catalogo_pacientes = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        setUndecorated(true);
 
         panel1.setForeground(new java.awt.Color(0, 57, 85));
         panel1.setColorPrimario(new java.awt.Color(255, 255, 255));

@@ -13,7 +13,10 @@ package Sourse;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.SQLException;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -84,6 +87,7 @@ public class Frm_citas extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         dataTextField2 = new FuenteDeDatos.DataTextField();
         jLabel6 = new javax.swing.JLabel();
+        dataLabel2 = new FuenteDeDatos.DataLabel();
 
         tbn_salir1.setBackground(new java.awt.Color(255, 0, 0));
         tbn_salir1.setText("X");
@@ -182,7 +186,7 @@ public class Frm_citas extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 57, 85));
         jLabel2.setText("Paciente:");
         panel1.add(jLabel2);
-        jLabel2.setBounds(30, 90, 64, 17);
+        jLabel2.setBounds(30, 90, 63, 17);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel4.setForeground(new java.awt.Color(0, 57, 85));
@@ -198,13 +202,13 @@ public class Frm_citas extends javax.swing.JFrame {
             }
         });
         panel1.add(buttonSeven6);
-        buttonSeven6.setBounds(110, 127, 198, 30);
+        buttonSeven6.setBounds(100, 120, 160, 30);
 
         dataLabel1.setText("Aqui aparece el No.Cita");
         dataLabel1.setCampo("id_cita");
         dataLabel1.setData(dataSource1);
         panel1.add(dataLabel1);
-        dataLabel1.setBounds(160, 40, 280, 16);
+        dataLabel1.setBounds(160, 40, 280, 14);
 
         dataTextField1.setCampo("id_paciente");
         dataTextField1.setData(dataSource1);
@@ -219,12 +223,12 @@ public class Frm_citas extends javax.swing.JFrame {
             }
         });
         panel1.add(dataTextField1);
-        dataTextField1.setBounds(100, 90, 230, 28);
+        dataTextField1.setBounds(100, 90, 230, 20);
 
         JTxtFechaCitas.setCampo("fecha");
         JTxtFechaCitas.setData(dataSource1);
         panel1.add(JTxtFechaCitas);
-        JTxtFechaCitas.setBounds(100, 180, 148, 28);
+        JTxtFechaCitas.setBounds(100, 180, 148, 20);
 
         tbn_salir.setBackground(new java.awt.Color(255, 0, 0));
         tbn_salir.setText("X");
@@ -250,7 +254,7 @@ public class Frm_citas extends javax.swing.JFrame {
         dataCombobox1.setCampo("hora");
         dataCombobox1.setData(dataSource1);
         panel1.add(dataCombobox1);
-        dataCombobox1.setBounds(290, 180, 83, 27);
+        dataCombobox1.setBounds(290, 180, 83, 20);
 
         JDtChFecha.addCommitListener(new datechooser.events.CommitListener() {
             public void onCommit(datechooser.events.CommitEvent evt) {
@@ -258,7 +262,7 @@ public class Frm_citas extends javax.swing.JFrame {
             }
         });
         panel1.add(JDtChFecha);
-        JDtChFecha.setBounds(260, 180, 24, 28);
+        JDtChFecha.setBounds(260, 180, 24, 20);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 3, 24));
         jLabel5.setForeground(new java.awt.Color(0, 57, 85));
@@ -266,13 +270,19 @@ public class Frm_citas extends javax.swing.JFrame {
         panel1.add(jLabel5);
         jLabel5.setBounds(524, 11, 67, 29);
         panel1.add(dataTextField2);
-        dataTextField2.setBounds(100, 230, 230, 28);
+        dataTextField2.setBounds(100, 230, 230, 20);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel6.setForeground(new java.awt.Color(0, 57, 85));
         jLabel6.setText("Fecha:");
         panel1.add(jLabel6);
         jLabel6.setBounds(50, 180, 45, 17);
+
+        dataLabel2.setForeground(new java.awt.Color(0, 57, 85));
+        dataLabel2.setCampo("id_paciente");
+        dataLabel2.setFont(new java.awt.Font("Tahoma", 1, 14));
+        panel1.add(dataLabel2);
+        dataLabel2.setBounds(270, 120, 60, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -356,7 +366,12 @@ if(letra>='0' && letra<='9'||letra>='a' && letra<='Z' )
 }//GEN-LAST:event_dataTextField1KeyTyped
 
 private void buttonSeven6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven6ActionPerformed
-
+        try {
+            this.dataSource1.consulta("select id_paciente from tbl_pacientes where nombre='"+this.dataTextField1.getText()+"'");
+            System.out.println(""+this.dataSource1.rs.getString(1));
+        } catch (SQLException ex) {
+            Logger.getLogger(Frm_citas.class.getName()).log(Level.SEVERE, null, ex);
+        }
 }//GEN-LAST:event_buttonSeven6ActionPerformed
 
     /**
@@ -395,6 +410,7 @@ private void buttonSeven6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private org.edisoncor.gui.varios.ClockDigital clockDigital1;
     private FuenteDeDatos.DataCombobox dataCombobox1;
     private FuenteDeDatos.DataLabel dataLabel1;
+    private FuenteDeDatos.DataLabel dataLabel2;
     private FuenteDeDatos.DataSource dataSource1;
     private FuenteDeDatos.DataTextField dataTextField1;
     private FuenteDeDatos.DataTextField dataTextField2;

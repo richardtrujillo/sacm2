@@ -42,6 +42,7 @@ public class Frm_pacientes extends javax.swing.JFrame {
         this.dtxf_apellido_p.setDocument(new DataTextFieldLimit(20));
         this.dtxf_apellido_m.setDocument(new DataTextFieldLimit(20));
         this.dmtxf_telefono.setDocument(new DataTextFieldLimit(10));
+        this.buttonSeven3.setEnabled(false);
         this.dcbx_sexo.setEnabled(false);
         this.JTxtFechaPacientes.setEnabled(false);
         this.dmtxf_telefono.setEnabled(false);
@@ -287,6 +288,11 @@ public class Frm_pacientes extends javax.swing.JFrame {
 
         buttonSeven3.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven3.setText("Guardar");
+        buttonSeven3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSeven3ActionPerformed(evt);
+            }
+        });
 
         buttonSeven4.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven4.setText("Cancelar");
@@ -363,16 +369,13 @@ public class Frm_pacientes extends javax.swing.JFrame {
                         .addGap(45, 45, 45))
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addComponent(dataCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(dcbx_sexo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(dtxf_direccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(dmtxf_telefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(dtx_email, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(dtxf_ciudad, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)))
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(dcbx_sexo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dtxf_direccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dmtxf_telefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dtx_email, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dtxf_ciudad, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                            .addComponent(dataCheckBox1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -451,9 +454,9 @@ public class Frm_pacientes extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(dtx_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(dtxf_ciudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(dataCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(dtxf_ciudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(dataCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addComponent(Lbl_catalogo_pacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -533,17 +536,11 @@ public class Frm_pacientes extends javax.swing.JFrame {
 }//GEN-LAST:event_btn_primeroActionPerformed
 
     private void buttonSeven2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven2ActionPerformed
-        this.dcbx_sexo.setEnabled(false);
-        this.JTxtFechaPacientes.setEnabled(false);
-        this.dmtxf_telefono.setEnabled(false);
-        this.dtx_email.setEnabled(false);
-        this.dtxf_apellido_m.setEnabled(false);
-        this.dtxf_apellido_p.setEnabled(false);
-        this.dtxf_ciudad.setEnabled(false);
-        this.dtxf_direccion.setEnabled(false);
+        desactivar();
         this.dtxf_nombre.setEnabled(true);
-        this.JTxtFechaPacientes.setEnabled(false);
         this.dtxf_nombre.requestFocus();
+        limpiarcampos();
+        this.buttonSeven3.setEnabled(true);
     }//GEN-LAST:event_buttonSeven2ActionPerformed
         //Campo fecha
 private void JDtChFechaOnCommit(datechooser.events.CommitEvent evt) {//GEN-FIRST:event_JDtChFechaOnCommit
@@ -564,7 +561,7 @@ private void JDtChFechaOnCommit(datechooser.events.CommitEvent evt) {//GEN-FIRST
 }//GEN-LAST:event_JDtChFechaOnCommit
 
 private void dataCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataCheckBox1ActionPerformed
-// TODO add your handling code here:
+
 }//GEN-LAST:event_dataCheckBox1ActionPerformed
 
 private void tbn_salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salir1ActionPerformed
@@ -586,30 +583,15 @@ if(letra==10)
       }
       if(letra==10)
       {
-      
-          
-        
-        this.dcbx_sexo.setEnabled(false);
-        this.JTxtFechaPacientes.setEnabled(false);
-        this.dmtxf_telefono.setEnabled(false);
-        this.dtx_email.setEnabled(false);
-        this.dtxf_apellido_m.setEnabled(false);
+        desactivar();
         this.dtxf_apellido_p.setEnabled(true);
-        this.dtxf_ciudad.setEnabled(false);
-        this.dtxf_direccion.setEnabled(false);
         this.dtxf_nombre.setEnabled(true);
-        this.JTxtFechaPacientes.setEnabled(false);
-        this.JDtChFecha.setEnabled(false);
-        this.dtxf_apellido_p.requestFocus();
-          
-          
-        
-      }// TODO add your handling code here:
+        this.dtxf_nombre.requestFocus();
+      }
 }//GEN-LAST:event_dtxf_nombreKeyTyped
 
 private void dtxf_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dtxf_nombreActionPerformed
-        
-
+       
 }//GEN-LAST:event_dtxf_nombreActionPerformed
 
 private void dtxf_apellido_pKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dtxf_apellido_pKeyTyped
@@ -625,24 +607,13 @@ if(letra==10)
       }
       if(letra==10)
       {
-          
-      
-          
-        
+        desactivar();
         this.dcbx_sexo.setEnabled(true);
-        this.JTxtFechaPacientes.setEnabled(false);
-        this.dmtxf_telefono.setEnabled(false);
-        this.dtx_email.setEnabled(false);
         this.dtxf_apellido_m.setEnabled(true);
         this.dtxf_apellido_p.setEnabled(true);
-        this.dtxf_ciudad.setEnabled(false);
-        this.dtxf_direccion.setEnabled(false);
-        this.dtxf_nombre.setEnabled(true);
-        this.JDtChFecha.setEnabled(false);
-        this.dtxf_apellido_m.requestFocus();
-          
-          evt.consume();
-        
+        this.dtxf_nombre.setEnabled(true); 
+        this.dtxf_nombre.requestFocus();
+        evt.consume();    
       }
 }//GEN-LAST:event_dtxf_apellido_pKeyTyped
 
@@ -658,20 +629,8 @@ if(letra==10)
       }
       if(letra==10)
       {
-      
-          
-        
-        this.dcbx_sexo.setEnabled(true);
+        activar();
         this.JTxtFechaPacientes.setEnabled(false);
-        this.dmtxf_telefono.setEnabled(true);
-        this.dtx_email.setEnabled(true);
-        this.dtxf_apellido_m.setEnabled(true);
-        this.dtxf_apellido_p.setEnabled(true);
-        this.dtxf_ciudad.setEnabled(true);
-        this.dtxf_direccion.setEnabled(true);
-        this.dtxf_nombre.setEnabled(true);
-        this.JDtChFecha.setEnabled(true);
-        this.JDtChFecha.requestFocus();
       }
 }//GEN-LAST:event_dtxf_apellido_mKeyTyped
 
@@ -715,17 +674,7 @@ char letra=  evt.getKeyChar();
       
           
         
-        this.dcbx_sexo.setEnabled(true);
-        this.JTxtFechaPacientes.setEnabled(false);
-        this.dmtxf_telefono.setEnabled(true);
-        this.dtx_email.setEnabled(true);
-        this.dtxf_apellido_m.setEnabled(true);
-        this.dtxf_apellido_p.setEnabled(true);
-        this.dtxf_ciudad.setEnabled(true);
-        this.dtxf_direccion.setEnabled(true);
-        this.dtxf_nombre.setEnabled(true);
-        this.JDtChFecha.setEnabled(true);
-        this.dtxf_ciudad.requestFocus();
+        
       }
 }//GEN-LAST:event_dtxf_ciudadKeyTyped
 
@@ -741,6 +690,10 @@ if(letra==10)
     }
 }//GEN-LAST:event_dtx_emailKeyTyped
 
+private void buttonSeven3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven3ActionPerformed
+    System.out.println(this.dcbx_sexo.getSelectedItem());
+}//GEN-LAST:event_buttonSeven3ActionPerformed
+
 
     public void limpiarcampos(){
         this.dcbx_sexo.setSelectedIndex(0);
@@ -752,6 +705,32 @@ if(letra==10)
         this.dtxf_ciudad.setText(" ");
         this.dtxf_direccion.setText(" ");
         this.dtxf_nombre.setText(" ");
+    }
+    public void activar(){
+         this.dcbx_sexo.setEnabled(true);
+        this.JTxtFechaPacientes.setEnabled(true);
+        this.dmtxf_telefono.setEnabled(true);
+        this.dtx_email.setEnabled(true);
+        this.dtxf_apellido_m.setEnabled(true);
+        this.dtxf_apellido_p.setEnabled(true);
+        this.dtxf_ciudad.setEnabled(true);
+        this.dtxf_direccion.setEnabled(true);
+        this.dtxf_nombre.setEnabled(true);
+        this.JDtChFecha.setEnabled(true);
+        this.JDtChFecha.requestFocus();
+    }
+    public void desactivar(){
+        this.dcbx_sexo.setEnabled(false);
+        this.JTxtFechaPacientes.setEnabled(false);
+        this.dmtxf_telefono.setEnabled(false);
+        this.dtx_email.setEnabled(false);
+        this.dtxf_apellido_m.setEnabled(false);
+        this.dtxf_apellido_p.setEnabled(false);
+        this.dtxf_ciudad.setEnabled(false);
+        this.dtxf_direccion.setEnabled(false);
+        this.dtxf_nombre.setEnabled(false);
+        this.JDtChFecha.setEnabled(false);
+        this.dtxf_apellido_m.requestFocus();
     }
     /**
      * @param args the command line arguments
