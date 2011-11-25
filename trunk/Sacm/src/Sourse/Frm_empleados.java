@@ -46,7 +46,7 @@ public class Frm_empleados extends javax.swing.JFrame {
             this.dataSource1.consulta();
             this.dataSource1.primero();
         }catch(Exception e){
-            System.out.println("No me conecte"+e);
+            System.out.println("No me conecte por "+e);
         }
     }
 
@@ -90,8 +90,8 @@ public class Frm_empleados extends javax.swing.JFrame {
 
         dataSource1.setCodigosql("select * from tbl_empleados");
         dataSource1.setDb("sacm");
-        dataSource1.setIp("http://localhost/");
-        dataSource1.setPassword("");
+        dataSource1.setIp("localhost");
+        dataSource1.setPassword("3mbl3ma");
         dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);

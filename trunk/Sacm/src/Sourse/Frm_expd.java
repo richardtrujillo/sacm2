@@ -21,6 +21,7 @@ import java.awt.Toolkit;
 public class Frm_expd extends javax.swing.JFrame {
 
     /** Creates new form Frm_expd */
+    int id=0;
     public Frm_expd() {
         initComponents();
         this.JTxtFechaPacientes.setEnabled(false);
@@ -203,7 +204,10 @@ public class Frm_expd extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSeven1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven1ActionPerformed
-        
+        id=5;
+        //TODO cuando este conectada la base de datos obtener el id apartir del nombre
+        Frm_historial_paciente hist=new Frm_historial_paciente(id);
+        hist.setVisible(true);
 }//GEN-LAST:event_buttonSeven1ActionPerformed
 
 private void tbn_salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salir1ActionPerformed
