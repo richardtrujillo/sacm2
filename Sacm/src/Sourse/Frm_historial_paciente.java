@@ -10,19 +10,47 @@
  */
 package Sourse;
 
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author wsdess
  */
 public class Frm_historial_paciente extends javax.swing.JFrame {
 
-    /** Creates new form Frm_historial_paciente */
+    DefaultTableModel modelo = new DefaultTableModel();
     public Frm_historial_paciente(int id_pac) {
-        
         initComponents();
+        jTable1.setModel(modelo);
+        String consulta=this.dataSource1.consulta()+"where id_paciente="+id_pac;
+        System.out.println(""+consulta);
+        try{this.dataSource1.consulta("select * from tbl_expedientes where id_paciente="+id_pac);}
+        catch(Exception e){
+            System.out.println("no conecte");
+        }
+        modelo.addColumn("id_paciente");
+        modelo.addColumn("fecha");
+        modelo.addColumn("descripcion");
+        modelo.addColumn("medicacion");
+        try {
+        while (this.dataSource1.rs.next())
+        {          
+               // Se crea un array que será una de las filas de la tabla.
+               Object [] fila = new Object[4]; // Hay tres columnas en la tabla
+               // Se rellena cada posición del array con una de las columnas de la tabla en base de datos.
+               for (int i=0;i<4;i++)
+               fila[i] =this.dataSource1.rs.getObject(i+1); // El primer indice en rs es el 1, no el cero, por eso se suma 1.
+               // Se añade al modelo la fila completa.
+               modelo.addRow(fila);    
+            } 
+        }catch (SQLException ex) {
+                System.out.println("no se porque no llene la tabla");
+        }
+        jTable1.setModel(modelo); 
         this.Lbl_catalogo_pacientes.setText(""+id_pac);
-    }
-
+        }
+        
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -32,11 +60,18 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dataSource1 = new FuenteDeDatos.DataSource();
         panel1 = new org.edisoncor.gui.panel.Panel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbl_bit = new FuenteDeDatos.DataTable();
         tbn_salir5 = new org.edisoncor.gui.button.ButtonSeven();
         Lbl_catalogo_pacientes = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+
+        dataSource1.setCodigosql("select * from tbl_expedientes");
+        dataSource1.setDb("sacm");
+        dataSource1.setIp("localhost");
+        dataSource1.setPassword("3mbl3ma");
+        dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -45,33 +80,6 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
         panel1.setForeground(new java.awt.Color(0, 57, 85));
         panel1.setColorPrimario(new java.awt.Color(255, 255, 255));
         panel1.setColorSecundario(new java.awt.Color(0, 153, 153));
-
-        tbl_bit.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Fecha", "Descripcion", "Medicacion"
-            }
-        ));
-        jScrollPane1.setViewportView(tbl_bit);
 
         tbn_salir5.setBackground(new java.awt.Color(255, 0, 0));
         tbn_salir5.setText("X");
@@ -85,6 +93,19 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
         Lbl_catalogo_pacientes.setForeground(new java.awt.Color(0, 57, 85));
         Lbl_catalogo_pacientes.setText("Aqui aparece el id del paciente");
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
@@ -95,7 +116,7 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                    .addGroup(panel1Layout.createSequentialGroup()
                         .addComponent(tbn_salir5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
                         .addComponent(Lbl_catalogo_pacientes)
@@ -109,7 +130,7 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
                     .addComponent(Lbl_catalogo_pacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tbn_salir5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -128,8 +149,6 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbn_salir5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salir5ActionPerformed
-        Frm_expd exp=new Frm_expd();
-        exp.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_tbn_salir5ActionPerformed
 
@@ -146,9 +165,10 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Lbl_catalogo_pacientes;
+    private FuenteDeDatos.DataSource dataSource1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private org.edisoncor.gui.panel.Panel panel1;
-    private FuenteDeDatos.DataTable tbl_bit;
     private org.edisoncor.gui.button.ButtonSeven tbn_salir5;
     // End of variables declaration//GEN-END:variables
 }
