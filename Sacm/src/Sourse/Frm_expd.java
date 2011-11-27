@@ -72,6 +72,16 @@ public class Frm_expd extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         buttonSeven5 = new org.edisoncor.gui.button.ButtonSeven();
         buttonSeven2 = new org.edisoncor.gui.button.ButtonSeven();
+        btn_primero = new org.edisoncor.gui.button.ButtonSeven();
+        btn_anterior = new org.edisoncor.gui.button.ButtonSeven();
+        btn_siguiente = new org.edisoncor.gui.button.ButtonSeven();
+        btn_ultimo = new org.edisoncor.gui.button.ButtonSeven();
+
+        dataSource1.setCodigosql("select * from tbl_expedientes");
+        dataSource1.setDb("sacm");
+        dataSource1.setIp("localhost");
+        dataSource1.setPassword("");
+        dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(getIconImage());
@@ -81,17 +91,19 @@ public class Frm_expd extends javax.swing.JFrame {
         panel1.setForeground(new java.awt.Color(0, 57, 85));
         panel1.setColorPrimario(new java.awt.Color(255, 255, 255));
         panel1.setColorSecundario(new java.awt.Color(0, 153, 153));
-        panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel1.setLayout(null);
 
         Lbl_expedientes.setFont(new java.awt.Font("Tahoma", 1, 24));
         Lbl_expedientes.setForeground(new java.awt.Color(0, 57, 85));
         Lbl_expedientes.setText("Expedientes");
-        panel1.add(Lbl_expedientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, 43));
+        panel1.add(Lbl_expedientes);
+        Lbl_expedientes.setBounds(520, 10, 146, 43);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel1.setForeground(new java.awt.Color(0, 57, 85));
         jLabel1.setText("Paciente:");
-        panel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 88, -1, -1));
+        panel1.add(jLabel1);
+        jLabel1.setBounds(58, 88, 64, 17);
 
         buttonSeven1.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven1.setText("Ver historial completo");
@@ -100,7 +112,8 @@ public class Frm_expd extends javax.swing.JFrame {
                 buttonSeven1ActionPerformed(evt);
             }
         });
-        panel1.add(buttonSeven1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 190, 30));
+        panel1.add(buttonSeven1);
+        buttonSeven1.setBounds(150, 320, 190, 30);
 
         dataTextField1.setCampo("id_paciente");
         dataTextField1.setData(dataSource1);
@@ -109,7 +122,8 @@ public class Frm_expd extends javax.swing.JFrame {
                 dataTextField1KeyTyped(evt);
             }
         });
-        panel1.add(dataTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 88, 207, -1));
+        panel1.add(dataTextField1);
+        dataTextField1.setBounds(139, 88, 207, 28);
 
         tbn_salir1.setBackground(new java.awt.Color(255, 0, 0));
         tbn_salir1.setText("X");
@@ -118,58 +132,71 @@ public class Frm_expd extends javax.swing.JFrame {
                 tbn_salir1ActionPerformed(evt);
             }
         });
-        panel1.add(tbn_salir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 20));
-        panel1.add(dataTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 200, 203, -1));
+        panel1.add(tbn_salir1);
+        tbn_salir1.setBounds(0, 0, 30, 20);
+        panel1.add(dataTextField3);
+        dataTextField3.setBounds(141, 200, 203, 28);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel13.setForeground(new java.awt.Color(0, 57, 85));
         jLabel13.setText("Descripcion:");
-        panel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 200, -1, -1));
+        panel1.add(jLabel13);
+        jLabel13.setBounds(43, 200, 86, 17);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel11.setForeground(new java.awt.Color(0, 57, 85));
         jLabel11.setText("ID_Paciente:");
-        panel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 162, -1, -1));
-        panel1.add(dataTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 238, 203, -1));
+        panel1.add(jLabel11);
+        jLabel11.setBounds(37, 162, 91, 17);
+        panel1.add(dataTextField4);
+        dataTextField4.setBounds(140, 238, 203, 28);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel12.setForeground(new java.awt.Color(0, 57, 85));
         jLabel12.setText("Medicacion:");
-        panel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 238, -1, -1));
+        panel1.add(jLabel12);
+        jLabel12.setBounds(46, 238, 83, 17);
 
         dataTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 dataTextField2KeyTyped(evt);
             }
         });
-        panel1.add(dataTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 162, 203, -1));
+        panel1.add(dataTextField2);
+        dataTextField2.setBounds(141, 162, 203, 28);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SACM_SPLASH.png"))); // NOI18N
-        panel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, -1, -1));
+        panel1.add(jLabel2);
+        jLabel2.setBounds(400, 40, 400, 300);
 
         buttonSeven3.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven3.setText("Guardar");
-        panel1.add(buttonSeven3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 330, 100, -1));
+        panel1.add(buttonSeven3);
+        buttonSeven3.setBounds(560, 360, 90, 35);
 
         buttonSeven4.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven4.setText("Cancelar");
-        panel1.add(buttonSeven4, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, 93, -1));
+        panel1.add(buttonSeven4);
+        buttonSeven4.setBounds(660, 360, 100, 35);
 
         JDtChFecha.addCommitListener(new datechooser.events.CommitListener() {
             public void onCommit(datechooser.events.CommitEvent evt) {
                 JDtChFechaOnCommit(evt);
             }
         });
-        panel1.add(JDtChFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 276, 29, 25));
+        panel1.add(JDtChFecha);
+        JDtChFecha.setBounds(309, 276, 29, 25);
 
         JTxtFechaPacientes.setCampo("F_nac");
         JTxtFechaPacientes.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        panel1.add(JTxtFechaPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 276, 160, 25));
+        panel1.add(JTxtFechaPacientes);
+        JTxtFechaPacientes.setBounds(143, 276, 160, 25);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel5.setForeground(new java.awt.Color(0, 57, 85));
         jLabel5.setText("Fecha Nacimiento:");
-        panel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 276, -1, 22));
+        panel1.add(jLabel5);
+        jLabel5.setBounds(10, 276, 128, 22);
 
         buttonSeven5.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven5.setText("Ingresar");
@@ -178,7 +205,8 @@ public class Frm_expd extends javax.swing.JFrame {
                 buttonSeven5ActionPerformed(evt);
             }
         });
-        panel1.add(buttonSeven5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, 90, -1));
+        panel1.add(buttonSeven5);
+        buttonSeven5.setBounds(460, 360, 90, 35);
 
         buttonSeven2.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven2.setText("Buscar");
@@ -187,7 +215,48 @@ public class Frm_expd extends javax.swing.JFrame {
                 buttonSeven2ActionPerformed(evt);
             }
         });
-        panel1.add(buttonSeven2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 132, 30));
+        panel1.add(buttonSeven2);
+        buttonSeven2.setBounds(170, 120, 132, 30);
+
+        btn_primero.setBackground(new java.awt.Color(0, 57, 85));
+        btn_primero.setText("<<");
+        btn_primero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_primeroActionPerformed(evt);
+            }
+        });
+        panel1.add(btn_primero);
+        btn_primero.setBounds(490, 320, 60, 35);
+
+        btn_anterior.setBackground(new java.awt.Color(0, 57, 85));
+        btn_anterior.setText("<");
+        btn_anterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_anteriorActionPerformed(evt);
+            }
+        });
+        panel1.add(btn_anterior);
+        btn_anterior.setBounds(560, 320, 44, 35);
+
+        btn_siguiente.setBackground(new java.awt.Color(0, 57, 85));
+        btn_siguiente.setText(">");
+        btn_siguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_siguienteActionPerformed(evt);
+            }
+        });
+        panel1.add(btn_siguiente);
+        btn_siguiente.setBounds(610, 320, 43, 35);
+
+        btn_ultimo.setBackground(new java.awt.Color(0, 57, 85));
+        btn_ultimo.setText(">>");
+        btn_ultimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ultimoActionPerformed(evt);
+            }
+        });
+        panel1.add(btn_ultimo);
+        btn_ultimo.setBounds(660, 320, 62, 35);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -197,7 +266,7 @@ public class Frm_expd extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
         );
 
         pack();
@@ -257,6 +326,22 @@ private void buttonSeven2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     // TODO add your handling code here:
 }//GEN-LAST:event_buttonSeven2ActionPerformed
 
+private void btn_primeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_primeroActionPerformed
+        this.dataSource1.primero();
+}//GEN-LAST:event_btn_primeroActionPerformed
+
+private void btn_anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_anteriorActionPerformed
+        this.dataSource1.anterior();
+}//GEN-LAST:event_btn_anteriorActionPerformed
+
+private void btn_siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_siguienteActionPerformed
+        this.dataSource1.siguiente();
+}//GEN-LAST:event_btn_siguienteActionPerformed
+
+private void btn_ultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ultimoActionPerformed
+        this.dataSource1.ultimo();
+}//GEN-LAST:event_btn_ultimoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -281,6 +366,10 @@ private void buttonSeven2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private datechooser.beans.DateChooserCombo JDtChFecha;
     private FuenteDeDatos.DataMaskedTextField JTxtFechaPacientes;
     private javax.swing.JLabel Lbl_expedientes;
+    private org.edisoncor.gui.button.ButtonSeven btn_anterior;
+    private org.edisoncor.gui.button.ButtonSeven btn_primero;
+    private org.edisoncor.gui.button.ButtonSeven btn_siguiente;
+    private org.edisoncor.gui.button.ButtonSeven btn_ultimo;
     private org.edisoncor.gui.button.ButtonSeven buttonSeven1;
     private org.edisoncor.gui.button.ButtonSeven buttonSeven2;
     private org.edisoncor.gui.button.ButtonSeven buttonSeven3;

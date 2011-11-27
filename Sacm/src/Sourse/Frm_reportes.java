@@ -12,16 +12,27 @@ package Sourse;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+
 
 /**
  *
  * @author DavidPeinado
  */
 public class Frm_reportes extends javax.swing.JFrame {
+     DefaultTableModel modelo = new DefaultTableModel();
 
     /** Creates new form Frm_reportes */
     public Frm_reportes() {
         initComponents();
+        
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension frameSize = this.getSize();
         if (frameSize.height > screenSize.height) {
@@ -31,7 +42,31 @@ public class Frm_reportes extends javax.swing.JFrame {
             frameSize.width = screenSize.width;
         }
         this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
+         try{
+            this.dataSource1.consulta();
+        }catch(Exception e){
+           System.out.println("no me conecte");
+           
+        }
+    try {
+            modelo.addColumn("id_paciente");
+            modelo.addColumn("Fecha");
+            modelo.addColumn("Descripcion");
+            modelo.addColumn("Medicacion");
+            modelo.addColumn("F_nac");
+        while (this.dataSource1.rs.next())
+        {                
+               Object [] fila = new Object[5];
+               for (int i=0;i<5;i++)
+               fila[i] =this.dataSource1.rs.getObject(i+1); 
+               modelo.addRow(fila);    
+            } 
+        }catch (SQLException ex) {
+                System.out.println("no se porque no llene la tabla");
+        }
+        jTable1.setModel(modelo); 
     }
+   
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -47,15 +82,15 @@ public class Frm_reportes extends javax.swing.JFrame {
         tbn_salir = new org.edisoncor.gui.button.ButtonSeven();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        dataTable1 = new FuenteDeDatos.DataTable();
-        buttonSeven1 = new org.edisoncor.gui.button.ButtonSeven();
-        jtxf_busqueda = new javax.swing.JTextField();
-        JDtChFechaDel = new datechooser.beans.DateChooserCombo();
+        jTable1 = new javax.swing.JTable();
+        bt = new org.edisoncor.gui.button.ButtonSeven();
         jLabel2 = new javax.swing.JLabel();
+        JTxtBuscar = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
-        dataSource1.setCodigosql("select * from tbl_empleados");
+        dataSource1.setCodigosql("select * from vw_reportes;");
         dataSource1.setDb("sacm");
-        dataSource1.setIp("http://localhost/");
+        dataSource1.setIp("localhost");
         dataSource1.setPassword("");
         dataSource1.setUsuario("root");
 
@@ -78,91 +113,40 @@ public class Frm_reportes extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 57, 85));
         jLabel1.setText("Reportes");
 
-        dataTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null}
             },
             new String [] {
-                "id_paciente", "Feha Consulta", "Descripcion", "Medicacion", "Fecha de Nacimiento"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
             }
         ));
-        jScrollPane1.setViewportView(dataTable1);
+        jScrollPane1.setViewportView(jTable1);
 
-        buttonSeven1.setBackground(new java.awt.Color(0, 57, 85));
-        buttonSeven1.setText("Buscar");
-        buttonSeven1.addActionListener(new java.awt.event.ActionListener() {
+        bt.setBackground(new java.awt.Color(0, 57, 85));
+        bt.setText("Buscar");
+        bt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSeven1ActionPerformed(evt);
+                btActionPerformed(evt);
             }
         });
 
-        JDtChFechaDel.addCommitListener(new datechooser.events.CommitListener() {
-            public void onCommit(datechooser.events.CommitEvent evt) {
-                JDtChFechaDelOnCommit(evt);
-            }
-        });
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 57, 85));
-        jLabel2.setText("Buscar por fecha de consulta:");
+        jLabel2.setText("Buscar por fecha:");
+
+        JTxtBuscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JTxtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JTxtBuscarKeyTyped(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Año-Mes-Dia");
 
         org.jdesktop.layout.GroupLayout panel1Layout = new org.jdesktop.layout.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -170,25 +154,24 @@ public class Frm_reportes extends javax.swing.JFrame {
             panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(panel1Layout.createSequentialGroup()
                 .add(tbn_salir, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(767, Short.MAX_VALUE))
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, panel1Layout.createSequentialGroup()
-                .addContainerGap(644, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 555, Short.MAX_VALUE)
                 .add(jLabel1)
-                .add(46, 46, 46))
+                .add(32, 32, 32))
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, panel1Layout.createSequentialGroup()
+                .addContainerGap(178, Short.MAX_VALUE)
+                .add(bt, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 81, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(18, 18, 18)
+                .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 131, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(18, 18, 18)
+                .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(JTxtBuscar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 130, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(panel1Layout.createSequentialGroup()
+                        .add(20, 20, 20)
+                        .add(jLabel3)))
+                .add(168, 168, 168))
             .add(org.jdesktop.layout.GroupLayout.TRAILING, panel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                    .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                        .add(panel1Layout.createSequentialGroup()
-                            .add(32, 32, 32)
-                            .add(buttonSeven1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .add(org.jdesktop.layout.GroupLayout.TRAILING, panel1Layout.createSequentialGroup()
-                            .add(jtxf_busqueda, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 141, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                            .add(JDtChFechaDel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                    .add(jLabel2))
-                .add(18, 18, 18)
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 516, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panel1Layout.setVerticalGroup(
@@ -197,30 +180,29 @@ public class Frm_reportes extends javax.swing.JFrame {
                 .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(tbn_salir, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(panel1Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .add(10, 10, 10)
                         .add(jLabel1)))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(panel1Layout.createSequentialGroup()
-                        .add(27, 27, 27)
-                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 334, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(panel1Layout.createSequentialGroup()
-                        .add(72, 72, 72)
-                        .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 17, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(JDtChFechaDel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                                .add(JTxtBuscar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                             .add(panel1Layout.createSequentialGroup()
-                                .add(jtxf_busqueda, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(buttonSeven1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(29, Short.MAX_VALUE))
+                                .add(20, 20, 20)
+                                .add(jLabel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 27, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                    .add(bt, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 35, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
         );
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(panel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .add(panel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -236,26 +218,15 @@ private void tbn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         this.dispose();
 }//GEN-LAST:event_tbn_salirActionPerformed
 
-private void buttonSeven1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven1ActionPerformed
+private void btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btActionPerformed
+this.JTxtBuscar.setEnabled(true);
+this.JTxtBuscar.requestFocus();
         
-}//GEN-LAST:event_buttonSeven1ActionPerformed
+}//GEN-LAST:event_btActionPerformed
 
-private void JDtChFechaDelOnCommit(datechooser.events.CommitEvent evt) {//GEN-FIRST:event_JDtChFechaDelOnCommit
-        
-         String []datos=JDtChFechaDel.getText().split("/");
-
-        String Dia, Mes, Ano;
-//El campo DATE en la base de datos solo admite en ese orden
-        Ano="";
-        Mes="";
-        Dia="";
-
-        Dia=datos[0];
-        Mes=datos[1];
-        Ano=datos[2];
-//Caja de texto donde va la fecha extraida
-        jtxf_busqueda.setText(Ano+"-" + Mes + "-"+ Dia); 
-}//GEN-LAST:event_JDtChFechaDelOnCommit
+private void JTxtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTxtBuscarKeyTyped
+        getJTxtBuscar();
+}//GEN-LAST:event_JTxtBuscarKeyTyped
 
     /**
      * @param args the command line arguments
@@ -293,15 +264,54 @@ private void JDtChFechaDelOnCommit(datechooser.events.CommitEvent evt) {//GEN-FI
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private datechooser.beans.DateChooserCombo JDtChFechaDel;
-    private org.edisoncor.gui.button.ButtonSeven buttonSeven1;
+    private javax.swing.JTextField JTxtBuscar;
+    private org.edisoncor.gui.button.ButtonSeven bt;
     private FuenteDeDatos.DataSource dataSource1;
-    private FuenteDeDatos.DataTable dataTable1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jtxf_busqueda;
+    private javax.swing.JTable jTable1;
     private org.edisoncor.gui.panel.Panel panel1;
     private org.edisoncor.gui.button.ButtonSeven tbn_salir;
     // End of variables declaration//GEN-END:variables
+ public javax.swing.JTextField getJTxtBuscar() 
+    {
+        if (JTxtBuscar.getText() != "")
+        {
+            //JTxtBuscar.
+            JTxtBuscar.addKeyListener(new java.awt.event.KeyAdapter()
+            {
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent e)
+                {
+                    final TableRowSorter<TableModel> sorter =new TableRowSorter<TableModel>(jTable1.getModel());
+                    jTable1.setRowSorter(sorter);
+                    String Fecha = JTxtBuscar.getText();
+                    if (Fecha.length() == 0)
+                    {
+                       sorter.setRowFilter(null);
+                    }
+                    else
+                    {
+                        try
+                        {
+                            sorter.setRowFilter(RowFilter.regexFilter("^" + Fecha, 1));
+                        }
+                        catch (Exception ex)
+                        {
+                            JOptionPane.showMessageDialog( null, "NO EXISTEN DATOS QUE COINCIDAN\nCON LAS PALABRAS ESCRITAS", "ERROR", JOptionPane.ERROR_MESSAGE);
+                        }
+                   }
+                }
+            });
+       }
+        return JTxtBuscar;
+    }
+
+    public void setJTxtBuscar(javax.swing.JTextField JTxtBuscar)
+    {
+        this.JTxtBuscar = JTxtBuscar;
+    }
 }
+
