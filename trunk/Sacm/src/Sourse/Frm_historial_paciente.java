@@ -10,6 +10,8 @@
  */
 package Sourse;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,6 +24,15 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
     DefaultTableModel modelo = new DefaultTableModel();
     public Frm_historial_paciente(int id_pac) {
         initComponents();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension frameSize = this.getSize();
+        if (frameSize.height > screenSize.height) {
+            frameSize.height = screenSize.height;
+        }
+        if (frameSize.width > screenSize.width) {
+            frameSize.width = screenSize.width;
+        }
+        this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
         jTable1.setModel(modelo);
         String consulta=this.dataSource1.consulta()+"where id_paciente="+id_pac;
         System.out.println(""+consulta);
@@ -70,7 +81,7 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
         dataSource1.setCodigosql("select * from tbl_expedientes");
         dataSource1.setDb("sacm");
         dataSource1.setIp("localhost");
-        dataSource1.setPassword("3mbl3ma");
+        dataSource1.setPassword("");
         dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -89,7 +100,7 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
             }
         });
 
-        Lbl_catalogo_pacientes.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Lbl_catalogo_pacientes.setFont(new java.awt.Font("Tahoma", 1, 24));
         Lbl_catalogo_pacientes.setForeground(new java.awt.Color(0, 57, 85));
         Lbl_catalogo_pacientes.setText("Aqui aparece el id del paciente");
 
@@ -118,7 +129,7 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addComponent(tbn_salir5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
                         .addComponent(Lbl_catalogo_pacientes)
                         .addGap(23, 23, 23))))
         );

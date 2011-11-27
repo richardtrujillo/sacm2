@@ -9,9 +9,11 @@ package Sourse;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -23,7 +25,7 @@ public class Frm_Agenda extends javax.swing.JFrame {
         
     public Frm_Agenda() {
         initComponents();
-        this.jtxf_busqueda.setEnabled(false);
+        this.JTxtBuscar.setEnabled(false);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension frameSize = this.getSize();
         if (frameSize.height > screenSize.height) {
@@ -65,18 +67,18 @@ public class Frm_Agenda extends javax.swing.JFrame {
         dataSource1 = new FuenteDeDatos.DataSource();
         panel1 = new org.edisoncor.gui.panel.Panel();
         Lbl_catalogo_pacientes = new javax.swing.JLabel();
-        jtxf_busqueda = new javax.swing.JTextField();
-        buttonSeven1 = new org.edisoncor.gui.button.ButtonSeven();
         tbn_salir5 = new org.edisoncor.gui.button.ButtonSeven();
         jLabel1 = new javax.swing.JLabel();
-        JDtChFechaDel = new datechooser.beans.DateChooserCombo();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        JTxtBuscar = new javax.swing.JTextField();
+        bt = new org.edisoncor.gui.button.ButtonSeven();
+        jLabel2 = new javax.swing.JLabel();
 
-        dataSource1.setCodigosql("select * from vw_agenda_medico");
+        dataSource1.setCodigosql("select * from vw_agenda_medico;");
         dataSource1.setDb("sacm");
         dataSource1.setIp("localhost");
-        dataSource1.setPassword("3mbl3ma");
+        dataSource1.setPassword("");
         dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -86,18 +88,13 @@ public class Frm_Agenda extends javax.swing.JFrame {
         panel1.setForeground(new java.awt.Color(0, 57, 85));
         panel1.setColorPrimario(new java.awt.Color(255, 255, 255));
         panel1.setColorSecundario(new java.awt.Color(0, 153, 153));
+        panel1.setLayout(null);
 
-        Lbl_catalogo_pacientes.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Lbl_catalogo_pacientes.setFont(new java.awt.Font("Tahoma", 1, 24));
         Lbl_catalogo_pacientes.setForeground(new java.awt.Color(0, 57, 85));
         Lbl_catalogo_pacientes.setText("Agenda medico:");
-
-        buttonSeven1.setBackground(new java.awt.Color(0, 57, 85));
-        buttonSeven1.setText("Buscar");
-        buttonSeven1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSeven1ActionPerformed(evt);
-            }
-        });
+        panel1.add(Lbl_catalogo_pacientes);
+        Lbl_catalogo_pacientes.setBounds(554, 20, 192, 43);
 
         tbn_salir5.setBackground(new java.awt.Color(255, 0, 0));
         tbn_salir5.setText("X");
@@ -106,16 +103,14 @@ public class Frm_Agenda extends javax.swing.JFrame {
                 tbn_salir5ActionPerformed(evt);
             }
         });
+        panel1.add(tbn_salir5);
+        tbn_salir5.setBounds(0, 0, 30, 20);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 57, 85));
         jLabel1.setText("Buscar por fecha:");
-
-        JDtChFechaDel.addCommitListener(new datechooser.events.CommitListener() {
-            public void onCommit(datechooser.events.CommitEvent evt) {
-                JDtChFechaDelOnCommit(evt);
-            }
-        });
+        panel1.add(jLabel1);
+        jLabel1.setBounds(40, 150, 121, 17);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -130,99 +125,63 @@ public class Frm_Agenda extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
-        panel1.setLayout(panel1Layout);
-        panel1Layout.setHorizontalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(Lbl_catalogo_pacientes))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel1Layout.createSequentialGroup()
-                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panel1Layout.createSequentialGroup()
-                                        .addGap(31, 31, 31)
-                                        .addComponent(jLabel1))
-                                    .addGroup(panel1Layout.createSequentialGroup()
-                                        .addGap(52, 52, 52)
-                                        .addComponent(buttonSeven1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(panel1Layout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addComponent(jtxf_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                                        .addComponent(JDtChFechaDel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(67, 67, 67)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(28, 28, 28))
-                    .addComponent(tbn_salir5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-        panel1Layout.setVerticalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(tbn_salir5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JDtChFechaDel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addComponent(jtxf_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buttonSeven1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Lbl_catalogo_pacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        panel1.add(jScrollPane1);
+        jScrollPane1.setBounds(207, 71, 601, 343);
+
+        JTxtBuscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JTxtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JTxtBuscarKeyTyped(evt);
+            }
+        });
+        panel1.add(JTxtBuscar);
+        JTxtBuscar.setBounds(30, 180, 130, 27);
+
+        bt.setBackground(new java.awt.Color(0, 57, 85));
+        bt.setText("Buscar");
+        bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btActionPerformed(evt);
+            }
+        });
+        panel1.add(bt);
+        bt.setBounds(41, 97, 116, 35);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setText("Año-Mes-Dia");
+        panel1.add(jLabel2);
+        jLabel2.setBounds(50, 200, 91, 27);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+private void JTxtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTxtBuscarKeyTyped
+        getJTxtBuscar();
+}//GEN-LAST:event_JTxtBuscarKeyTyped
 
-    private void buttonSeven1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven1ActionPerformed
-        
-}//GEN-LAST:event_buttonSeven1ActionPerformed
+private void tbn_salir5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salir5ActionPerformed
 
-    private void tbn_salir5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salir5ActionPerformed
         Frm_menu men=new Frm_menu(null,0);
         men.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_tbn_salir5ActionPerformed
 
-private void JDtChFechaDelOnCommit(datechooser.events.CommitEvent evt) {//GEN-FIRST:event_JDtChFechaDelOnCommit
+private void btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btActionPerformed
+this.JTxtBuscar.setEnabled(true);
+this.JTxtBuscar.requestFocus();
         
-         String []datos=JDtChFechaDel.getText().split("/");
-
-        String Dia, Mes, Ano;
-//El campo DATE en la base de datos solo admite en ese orden
-        Ano="";
-        Mes="";
-        Dia="";
-
-        Dia=datos[0];
-        Mes=datos[1];
-        Ano=datos[2];
-//Caja de texto donde va la fecha extraida
-        jtxf_busqueda.setText(Ano+"-" + Mes + "-"+ Dia); 
-}//GEN-LAST:event_JDtChFechaDelOnCommit
+}//GEN-LAST:event_btActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,15 +195,57 @@ private void JDtChFechaDelOnCommit(datechooser.events.CommitEvent evt) {//GEN-FI
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private datechooser.beans.DateChooserCombo JDtChFechaDel;
+    private javax.swing.JTextField JTxtBuscar;
     private javax.swing.JLabel Lbl_catalogo_pacientes;
-    private org.edisoncor.gui.button.ButtonSeven buttonSeven1;
+    private org.edisoncor.gui.button.ButtonSeven bt;
     private FuenteDeDatos.DataSource dataSource1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jtxf_busqueda;
     private org.edisoncor.gui.panel.Panel panel1;
     private org.edisoncor.gui.button.ButtonSeven tbn_salir5;
     // End of variables declaration//GEN-END:variables
+   
+
+
+    public javax.swing.JTextField getJTxtBuscar() 
+    {
+        if (JTxtBuscar.getText() != "")
+        {
+            //JTxtBuscar.
+            JTxtBuscar.addKeyListener(new java.awt.event.KeyAdapter()
+            {
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent e)
+                {
+                    final TableRowSorter<TableModel> sorter =new TableRowSorter<TableModel>(jTable1.getModel());
+                    jTable1.setRowSorter(sorter);
+                    String Fecha = JTxtBuscar.getText();
+                    if (Fecha.length() == 0)
+                    {
+                       sorter.setRowFilter(null);
+                    }
+                    else
+                    {
+                        try
+                        {
+                            sorter.setRowFilter(RowFilter.regexFilter("^" + Fecha, 0));
+                        }
+                        catch (Exception ex)
+                        {
+                            JOptionPane.showMessageDialog( null, "NO EXISTEN DATOS QUE COINCIDAN\nCON LAS PALABRAS ESCRITAS", "ERROR", JOptionPane.ERROR_MESSAGE);
+                        }
+                   }
+                }
+            });
+       }
+        return JTxtBuscar;
+    }
+
+    public void setJTxtBuscar(javax.swing.JTextField JTxtBuscar)
+    {
+        this.JTxtBuscar = JTxtBuscar;
+    }
 }
+
