@@ -13,6 +13,9 @@ package Sourse;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -52,7 +55,6 @@ public class Frm_pacientes extends javax.swing.JFrame {
         desactivar();
         try{
             this.dataSource1.consulta();
-            this.dataSource1.siguiente();
         }catch(Exception e){
             System.out.println("No me conecte"+e);
         }
@@ -707,18 +709,23 @@ private void buttonSeven3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         try{
             this.dataSource1.consulta("insert into tbl_pacientes (nombre,apellido_p,apellido_m,f_nac,sexo,direccion,telefono,email,ciudad,estatus,foto) values('"+this.dtxf_nombre.getText()+"','"+this.dtxf_apellido_p.getText()+"','"+this.dtxf_apellido_m.getText()+"','"+this.JTxtFechaPacientes.getText()+"','"+this.dcbx_sexo.getSelectedItem()+"','"+this.dtxf_direccion.getText()+"',"+Integer.parseInt(this.dmtxf_telefono.getText())+",'"+this.dtx_email.getText()+"','"+this.dtxf_ciudad.getText()+"',"+status+",null);");
             JOptionPane.showMessageDialog(this,"Paciente agregado correctamente","Validacion Campos",JOptionPane.ERROR_MESSAGE);
-            this.dataSource1.setCodigosql("select id_paciente from tbl_pacientes where email='"+this.dtx_email.getText()+"';");
-            this.dataSource1.rs.getString(1);
-            
-            this.dataSource1.consulta("insert into tbl_medico_paciente values(,"+Integer.parseInt(this.dataSource1.rs.getString(1))+"',"+id+","+id+");");
-            System.out.println("agrege a tbl_medico_paciente");
-            this.dataSource1.consulta();
-            desactivar();
         }
         catch(Exception e){
             System.out.println(""+e);
             JOptionPane.showMessageDialog(this,"No se pudo agregar al paciente","Confirmación",JOptionPane.ERROR_MESSAGE);
+        }    
+            this.dataSource1.setCodigosql("select id_paciente from tbl_pacientes where email='"+this.dtx_email.getText()+"';");
+        try {
+            this.dataSource1.rs.getString(1);
+        } catch (SQLException ex) {
+            System.out.println("obteniendo id");
         }
+            insertar();
+            this.dataSource1.setCodigosql("select * from tbl_pacientes");
+            this.dataSource1.consulta();
+   
+            desactivar();
+        
         System.out.println(this.dcbx_sexo.getSelectedItem());
         System.out.println(""+selected);
         
@@ -742,6 +749,21 @@ private void buttonSeven4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         this.dtxf_ciudad.setText(" ");
         this.dtxf_direccion.setText(" ");
         this.dtxf_nombre.setText(" ");
+    }
+    public void insertar(){
+            
+        this.dataSource1.setCodigosql("select * from tbl_medico_paciente");
+        this.dataSource1.consulta();
+        
+        try{    
+            if(this.dataSource1.consulta().getRow()==0)      
+                this.dataSource1.consulta("insert into tbl_medico_paciente values(1,"+Integer.parseInt(this.dataSource1.rs.getString(1))+"',"+id+","+id+");");
+            else
+                this.dataSource1.consulta("insert into tbl_medico_paciente values("+((this.dataSource1.consulta().getRow())+1)+","+Integer.parseInt(this.dataSource1.rs.getString(1))+"',"+id+","+id+");");           
+        } catch (SQLException ex) {
+            System.out.println(""+ex);
+             JOptionPane.showMessageDialog(this,"No se pudo agregar al paciente con su asignacion ","Confirmación",JOptionPane.ERROR_MESSAGE);
+        } 
     }
     public void activar(){
          this.dcbx_sexo.setEnabled(true);
