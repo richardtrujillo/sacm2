@@ -28,8 +28,12 @@ public class Frm_bitacora extends javax.swing.JFrame {
     DefaultTableModel modelo = new DefaultTableModel();
 
     /** Creates new form Frm_bitacora */
-    public Frm_bitacora() {
+    String id="";
+    int t=0;
+    public Frm_bitacora(String id_m,int tip) {
         initComponents();
+        id=id_m;
+        t=tip;        
         this.setSize(752,393);
         this.panel1.setSize(752,393);
         //algoritmo de centrado
@@ -221,7 +225,7 @@ public class Frm_bitacora extends javax.swing.JFrame {
 }//GEN-LAST:event_buttonSeven1ActionPerformed
 
 private void tbn_salir5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salir5ActionPerformed
-        Frm_menu log=new Frm_menu("",0);
+        Frm_menu log=new Frm_menu(id,t);
         log.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_tbn_salir5ActionPerformed
@@ -255,7 +259,7 @@ private void buttonSeven2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 
             @Override
             public void run() {
-                new Frm_bitacora().setVisible(true);
+                new Frm_bitacora(null,0).setVisible(true);
             }
         });
     }

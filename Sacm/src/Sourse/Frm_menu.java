@@ -21,10 +21,19 @@ import java.awt.Toolkit;
  */
 public final class Frm_menu extends javax.swing.JFrame {
     /** Creates new form Frm_menu */
-    public Frm_menu(final String nombre,int tipo) {
+    String id_t="";
+    int t=0;
+    public Frm_menu(final String id,int tipo) {
         initComponents();
-        final String nombre1=nombre;
-        //dataSource1.consulta();
+        id_t=id;
+        t=tipo;
+        try{
+        this.dataSource1.setCodigosql("select concat(concat(concat(nombre,' '),' '),apellido_p) as name from empleados where id_empleado='"+id+"';");
+        this.dataSource1.consulta();
+        this.dlbl_nombre.setText(this.dataSource1.rs.getString("name"));
+        }catch(Exception e){
+            System.out.println("no se pudo encontrar el nombre");
+        }
         switch(tipo){
             case 1:
                         //Caso Jefe clinico
@@ -32,6 +41,19 @@ public final class Frm_menu extends javax.swing.JFrame {
                         this.datahabilitador1.habilitaredison(panel1, this.buttonTask1);
                 break;
             case 2:
+                        //Caso Medico
+                        this.setSize(660, 360);
+                        this.tbn_salir.setLocation(480, 350);
+                        this.buttonTask1.setVisible(false);
+                        this.buttonTask2.setVisible(true);
+                        this.buttonTask3.setVisible(true);
+                        this.buttonTask4.setVisible(true);
+                        this.buttonTask5.setVisible(false);
+                        this.buttonTask6.setVisible(false);
+                        this.buttonTask7.setVisible(true);
+                        this.buttonTask8.setVisible(true);
+                        break;
+            case 3:
                         //Caso Recepcion
                         this.setSize(350, 360);
                         this.tbn_salir.setLocation(200, 250);
@@ -44,20 +66,6 @@ public final class Frm_menu extends javax.swing.JFrame {
                         this.buttonTask7.setVisible(false);
                         this.buttonTask8.setVisible(true);
                         break;
-            case 3:
-                        //Caso Medico
-                        this.setSize(660, 360);
-                        this.tbn_salir.setLocation(480, 350);
-                        this.buttonTask1.setVisible(false);
-                        this.buttonTask2.setVisible(true);
-                        this.buttonTask3.setVisible(true);
-                        this.buttonTask4.setVisible(true);
-                        this.buttonTask5.setVisible(false);
-                        this.buttonTask6.setVisible(false);
-                        this.buttonTask7.setVisible(true);
-                        this.buttonTask8.setVisible(true);
-                        
-                break;
             default:
                         this.buttonTask1.setVisible(true);
                         this.buttonTask2.setVisible(true);
@@ -69,7 +77,6 @@ public final class Frm_menu extends javax.swing.JFrame {
                         this.buttonTask8.setVisible(true);
                 break;
         }
-        this.dlbl_nombre.setText(" "+nombre1);
         //algoritmo para centrar el formulario
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension frameSize = this.getSize();
@@ -308,7 +315,7 @@ public final class Frm_menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonTask2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask2ActionPerformed
-        Frm_pacientes pac=new Frm_pacientes();
+        Frm_pacientes pac=new Frm_pacientes(id_t,t);
         pac.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonTask2ActionPerformed
@@ -326,20 +333,20 @@ public final class Frm_menu extends javax.swing.JFrame {
 }//GEN-LAST:event_tbn_salirActionPerformed
 
     private void buttonTask6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask6ActionPerformed
-        Frm_bitacora bit=new Frm_bitacora();
+        Frm_bitacora bit=new Frm_bitacora(id_t,t);
         bit.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonTask6ActionPerformed
 
     private void buttonTask1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask1ActionPerformed
         System.out.println("Aqui tiene que ir a mostrar el Frm_empleados");
-        Frm_empleados Em=new Frm_empleados(null);
+        Frm_empleados Em=new Frm_empleados("",id_t,t);
         Em.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonTask1ActionPerformed
 
     private void buttonTask4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask4ActionPerformed
-        Frm_citas cit=new Frm_citas();
+        Frm_citas cit=new Frm_citas(id_t,t);
         cit.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonTask4ActionPerformed
@@ -351,13 +358,13 @@ public final class Frm_menu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonTask7ActionPerformed
 
     private void buttonTask8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask8ActionPerformed
-        Frm_Agenda age=new Frm_Agenda();
+        Frm_Agenda age=new Frm_Agenda(id_t,t);
         age.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonTask8ActionPerformed
 
 private void buttonTask3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask3ActionPerformed
-        Frm_expd ex=new Frm_expd();
+        Frm_expd ex=new Frm_expd(id_t,t);
         ex.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_buttonTask3ActionPerformed

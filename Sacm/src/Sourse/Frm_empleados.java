@@ -23,9 +23,12 @@ import javax.swing.JFileChooser;
 public class Frm_empleados extends javax.swing.JFrame {
 
     /** Creates new form Frm_empleados */
-    public Frm_empleados(String id_u) {
+    String id="";
+    int t=0;
+    public Frm_empleados(String id_u,String id_m,int tip) {
         initComponents();
-        
+        id=id_m;
+        t=tip;
         //algoritmo para centrar el formulario
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension frameSize = this.getSize();
@@ -66,6 +69,8 @@ public class Frm_empleados extends javax.swing.JFrame {
         }
         
     }
+
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -448,7 +453,7 @@ public class Frm_empleados extends javax.swing.JFrame {
 }//GEN-LAST:event_btn_anteriorActionPerformed
 
     private void buttonSeven2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven2ActionPerformed
-        Frm_empleados_adv em2=new Frm_empleados_adv();
+        Frm_agregar_emp em2=new Frm_agregar_emp(id,t);
         em2.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_buttonSeven2ActionPerformed
@@ -484,13 +489,13 @@ private void JTxtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
 }//GEN-LAST:event_JTxtFechaActionPerformed
 
 private void tbn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salirActionPerformed
-        Frm_menu menu=new Frm_menu(null,0);
+        Frm_menu menu=new Frm_menu(id,t);
         menu.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_tbn_salirActionPerformed
 
 private void buttonSeven3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven3ActionPerformed
-// TODO add your handling code here:
+        
 }//GEN-LAST:event_buttonSeven3ActionPerformed
 
 private void dtxf_id_empleadoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dtxf_id_empleadoKeyPressed
@@ -598,7 +603,7 @@ if(letra==10)
 
             @Override
             public void run() {
-                new Frm_empleados(null).setVisible(true);
+                new Frm_empleados(null,null,0).setVisible(true);
             }
         });
     }

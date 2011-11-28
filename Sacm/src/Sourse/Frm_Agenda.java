@@ -20,9 +20,12 @@ import javax.swing.table.TableRowSorter;
  * @author wsdess
  */
 public class Frm_Agenda extends javax.swing.JFrame {
-
+    String id="";
+    int t=0;
     DefaultTableModel modelo = new DefaultTableModel();   
-    public Frm_Agenda() {
+    public Frm_Agenda(String id_m,int tip) {
+        id=id_m;
+        t=tip;
         initComponents();
         this.JTxtBuscar.setEnabled(false);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -35,6 +38,7 @@ public class Frm_Agenda extends javax.swing.JFrame {
         }
         this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
         try{
+            this.dataSource1.setCodigosql("select * from vw_agenda_medico where id_empleado='"+id+"';");
             this.dataSource1.consulta();
         }catch(Exception e){
            System.out.println("no me conecte");
@@ -74,7 +78,7 @@ public class Frm_Agenda extends javax.swing.JFrame {
         bt = new org.edisoncor.gui.button.ButtonSeven();
         jLabel2 = new javax.swing.JLabel();
 
-        dataSource1.setCodigosql("select * from vw_agenda_medico;");
+        dataSource1.setCodigosql("select * from vw_agenda_medico");
         dataSource1.setDb("sacm");
         dataSource1.setIp("localhost");
         dataSource1.setPassword("3mbl3ma");
@@ -171,7 +175,7 @@ private void JTxtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
 
 private void tbn_salir5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salir5ActionPerformed
 
-        Frm_menu men=new Frm_menu(null,0);
+        Frm_menu men=new Frm_menu(id,t);
         men.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_tbn_salir5ActionPerformed
@@ -190,7 +194,7 @@ this.JTxtBuscar.requestFocus();
 
             @Override
             public void run() {
-                new Frm_Agenda().setVisible(true);
+                new Frm_Agenda(null,0).setVisible(true);
             }
         });
     }
