@@ -340,7 +340,7 @@ public final class Frm_menu extends javax.swing.JFrame {
 
     private void buttonTask1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask1ActionPerformed
         System.out.println("Aqui tiene que ir a mostrar el Frm_empleados");
-        Frm_empleados Em=new Frm_empleados("",id_t,t);
+        Frm_empleados Em=new Frm_empleados(null,id_t,t);
         Em.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonTask1ActionPerformed
