@@ -20,11 +20,10 @@ import java.awt.Toolkit;
  * @author wsdess
  */
 public final class Frm_menu extends javax.swing.JFrame {
-    //Pruebas
-    private int tipo_usuario=3;
     /** Creates new form Frm_menu */
     public Frm_menu(final String nombre,int tipo) {
         initComponents();
+        final String nombre1=nombre;
         //dataSource1.consulta();
         switch(tipo){
             case 1:
@@ -70,7 +69,7 @@ public final class Frm_menu extends javax.swing.JFrame {
                         this.buttonTask8.setVisible(true);
                 break;
         }
-        this.dlbl_nombre.setText(" "+nombre);
+        this.dlbl_nombre.setText(" "+nombre1);
         //algoritmo para centrar el formulario
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension frameSize = this.getSize();
@@ -109,10 +108,10 @@ public final class Frm_menu extends javax.swing.JFrame {
         dlbl_nombre = new FuenteDeDatos.DataLabel();
         buttonTask8 = new org.edisoncor.gui.button.ButtonTask();
 
-        dataSource1.setCodigosql("select * from tbl_medicos");
+        dataSource1.setCodigosql("select * from empleados");
         dataSource1.setDb("sacm");
-        dataSource1.setIp("http://localhost/");
-        dataSource1.setPassword("");
+        dataSource1.setIp("localhost");
+        dataSource1.setPassword("3mbl3ma");
         dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -258,7 +257,7 @@ public final class Frm_menu extends javax.swing.JFrame {
                         .addComponent(jLabel1)))
                 .addGap(18, 18, 18)
                 .addComponent(dlbl_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buttonTask7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCurves1Layout.createSequentialGroup()
@@ -287,7 +286,7 @@ public final class Frm_menu extends javax.swing.JFrame {
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelCurves1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelCurves1, javax.swing.GroupLayout.DEFAULT_SIZE, 737, Short.MAX_VALUE)
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,7 +333,7 @@ public final class Frm_menu extends javax.swing.JFrame {
 
     private void buttonTask1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask1ActionPerformed
         System.out.println("Aqui tiene que ir a mostrar el Frm_empleados");
-        Frm_empleados Em=new Frm_empleados();
+        Frm_empleados Em=new Frm_empleados(null);
         Em.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonTask1ActionPerformed
@@ -358,9 +357,9 @@ public final class Frm_menu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonTask8ActionPerformed
 
 private void buttonTask3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask3ActionPerformed
-Frm_expd ex=new Frm_expd();
-ex.setVisible(true);
-this.dispose();
+        Frm_expd ex=new Frm_expd();
+        ex.setVisible(true);
+        this.dispose();
 }//GEN-LAST:event_buttonTask3ActionPerformed
 
     /**
@@ -376,6 +375,7 @@ this.dispose();
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
+            @Override
             public void run() {
                 new Frm_menu("",0).setVisible(true);
             }
@@ -400,17 +400,4 @@ this.dispose();
     private org.edisoncor.gui.button.ButtonSeven tbn_salir;
     // End of variables declaration//GEN-END:variables
 
-    /**
-     * @return the tipo_usuario
-     */
-    public int getTipo_usuario() {
-        return tipo_usuario;
-    }
-
-    /**
-     * @param tipo_usuario the tipo_usuario to set
-     */
-    public void setTipo_usuario(int tipo_u) {
-        this.tipo_usuario = tipo_u;
-    }
 }

@@ -44,11 +44,16 @@ public class Frm_reportes extends javax.swing.JFrame {
         this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
          try{
             this.dataSource1.consulta();
+            System.out.println(""+this.dataSource1.consulta().getRow());
         }catch(Exception e){
            System.out.println("no me conecte");
            
         }
-    try {
+         try {
+         if(this.dataSource1.consulta().getRow()==0){
+         
+         }else{
+    
             modelo.addColumn("id_paciente");
             modelo.addColumn("Fecha");
             modelo.addColumn("Descripcion");
@@ -60,12 +65,14 @@ public class Frm_reportes extends javax.swing.JFrame {
                for (int i=0;i<5;i++)
                fila[i] =this.dataSource1.rs.getObject(i+1); 
                modelo.addRow(fila);    
-            } 
-        }catch (SQLException ex) {
-                System.out.println("no se porque no llene la tabla");
         }
+        
         jTable1.setModel(modelo); 
     }
+         }catch (SQLException ex) {
+                System.out.println("no se porque no llene la tabla");
+        }
+}
    
 
     /** This method is called from within the constructor to
@@ -91,7 +98,7 @@ public class Frm_reportes extends javax.swing.JFrame {
         dataSource1.setCodigosql("select * from vw_reportes;");
         dataSource1.setDb("sacm");
         dataSource1.setIp("localhost");
-        dataSource1.setPassword("");
+        dataSource1.setPassword("3mbl3ma");
         dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -134,18 +141,18 @@ public class Frm_reportes extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel2.setForeground(new java.awt.Color(0, 57, 85));
         jLabel2.setText("Buscar por fecha:");
 
-        JTxtBuscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JTxtBuscar.setFont(new java.awt.Font("Tahoma", 1, 12));
         JTxtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 JTxtBuscarKeyTyped(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel3.setText("Año-Mes-Dia");
 
         org.jdesktop.layout.GroupLayout panel1Layout = new org.jdesktop.layout.GroupLayout(panel1);
@@ -171,7 +178,7 @@ public class Frm_reportes extends javax.swing.JFrame {
                 .add(168, 168, 168))
             .add(org.jdesktop.layout.GroupLayout.TRAILING, panel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panel1Layout.setVerticalGroup(
@@ -186,15 +193,12 @@ public class Frm_reportes extends javax.swing.JFrame {
                 .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                        .add(JTxtBuscar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(panel1Layout.createSequentialGroup()
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                .add(JTxtBuscar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(panel1Layout.createSequentialGroup()
-                                .add(20, 20, 20)
-                                .add(jLabel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 27, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                        .add(20, 20, 20)
+                        .add(jLabel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 27, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(bt, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 35, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
         );
 

@@ -21,8 +21,7 @@ import javax.swing.table.TableRowSorter;
  */
 public class Frm_Agenda extends javax.swing.JFrame {
 
-    DefaultTableModel modelo = new DefaultTableModel();
-        
+    DefaultTableModel modelo = new DefaultTableModel();   
     public Frm_Agenda() {
         initComponents();
         this.JTxtBuscar.setEnabled(false);
@@ -47,13 +46,13 @@ public class Frm_Agenda extends javax.swing.JFrame {
             modelo.addColumn("nombre");
             modelo.addColumn("apellido_p");
             modelo.addColumn("apellido_m");
-        while (this.dataSource1.rs.next())
+        do
         {                
                Object [] fila = new Object[6];
                for (int i=0;i<6;i++)
                fila[i] =this.dataSource1.rs.getObject(i+1); 
                modelo.addRow(fila);    
-            } 
+        }while (this.dataSource1.rs.next());
         }catch (SQLException ex) {
                 System.out.println("no se porque no llene la tabla");
         }
@@ -78,7 +77,7 @@ public class Frm_Agenda extends javax.swing.JFrame {
         dataSource1.setCodigosql("select * from vw_agenda_medico;");
         dataSource1.setDb("sacm");
         dataSource1.setIp("localhost");
-        dataSource1.setPassword("");
+        dataSource1.setPassword("3mbl3ma");
         dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -106,7 +105,7 @@ public class Frm_Agenda extends javax.swing.JFrame {
         panel1.add(tbn_salir5);
         tbn_salir5.setBounds(0, 0, 30, 20);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel1.setForeground(new java.awt.Color(0, 57, 85));
         jLabel1.setText("Buscar por fecha:");
         panel1.add(jLabel1);
@@ -128,14 +127,14 @@ public class Frm_Agenda extends javax.swing.JFrame {
         panel1.add(jScrollPane1);
         jScrollPane1.setBounds(207, 71, 601, 343);
 
-        JTxtBuscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JTxtBuscar.setFont(new java.awt.Font("Tahoma", 1, 12));
         JTxtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 JTxtBuscarKeyTyped(evt);
             }
         });
         panel1.add(JTxtBuscar);
-        JTxtBuscar.setBounds(30, 180, 130, 27);
+        JTxtBuscar.setBounds(30, 180, 130, 21);
 
         bt.setBackground(new java.awt.Color(0, 57, 85));
         bt.setText("Buscar");
@@ -147,10 +146,10 @@ public class Frm_Agenda extends javax.swing.JFrame {
         panel1.add(bt);
         bt.setBounds(41, 97, 116, 35);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel2.setText("Año-Mes-Dia");
         panel1.add(jLabel2);
-        jLabel2.setBounds(50, 200, 91, 27);
+        jLabel2.setBounds(50, 200, 88, 27);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -189,6 +188,7 @@ this.JTxtBuscar.requestFocus();
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
+            @Override
             public void run() {
                 new Frm_Agenda().setVisible(true);
             }
@@ -211,7 +211,7 @@ this.JTxtBuscar.requestFocus();
 
     public javax.swing.JTextField getJTxtBuscar() 
     {
-        if (JTxtBuscar.getText() != "")
+        if (JTxtBuscar.getText().equals(""))
         {
             //JTxtBuscar.
             JTxtBuscar.addKeyListener(new java.awt.event.KeyAdapter()

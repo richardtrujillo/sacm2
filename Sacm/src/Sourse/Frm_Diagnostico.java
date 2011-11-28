@@ -61,7 +61,7 @@ public class Frm_Diagnostico extends javax.swing.JFrame {
         dataSource1.setCodigosql("select * from tbl_empleados");
         dataSource1.setDb("sacm");
         dataSource1.setIp("http://localhost/");
-        dataSource1.setPassword("");
+        dataSource1.setPassword("3mbl3ma");
         dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);

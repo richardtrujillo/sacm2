@@ -3,6 +3,13 @@
 <Form version="1.3" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Component class="FuenteDeDatos.DataSource" name="dataSource1">
+      <Properties>
+        <Property name="codigosql" type="java.lang.String" value="select * from tbl_citas"/>
+        <Property name="db" type="java.lang.String" value="sacm"/>
+        <Property name="ip" type="java.lang.String" value="localhost"/>
+        <Property name="password" type="java.lang.String" value="3mbl3ma"/>
+        <Property name="usuario" type="java.lang.String" value="root"/>
+      </Properties>
     </Component>
     <Component class="org.edisoncor.gui.button.ButtonSeven" name="tbn_salir1">
       <Properties>
@@ -66,54 +73,6 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
       <SubComponents>
-        <Component class="org.edisoncor.gui.button.ButtonSeven" name="btn_siguiente">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="55" green="39" red="0" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="&gt;"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_siguienteActionPerformed"/>
-          </Events>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="510" y="150" width="43" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="org.edisoncor.gui.button.ButtonSeven" name="btn_anterior">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="55" green="39" red="0" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="&lt;"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_anteriorActionPerformed"/>
-          </Events>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="460" y="150" width="44" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="org.edisoncor.gui.button.ButtonSeven" name="btn_ultimo">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="55" green="39" red="0" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="&gt;&gt;"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_ultimoActionPerformed"/>
-          </Events>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="560" y="150" width="62" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
         <Component class="org.edisoncor.gui.button.ButtonSeven" name="buttonSeven5">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -126,7 +85,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="410" y="230" width="94" height="-1"/>
+              <AbsoluteConstraints x="510" y="230" width="94" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -139,7 +98,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="510" y="190" width="95" height="-1"/>
+              <AbsoluteConstraints x="510" y="150" width="95" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -152,7 +111,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="510" y="230" width="94" height="-1"/>
+              <AbsoluteConstraints x="510" y="190" width="94" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -161,30 +120,14 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="55" green="39" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ingresar"/>
+            <Property name="text" type="java.lang.String" value="Citar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSeven2ActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="410" y="190" width="94" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="org.edisoncor.gui.button.ButtonSeven" name="btn_primero">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="55" green="39" red="0" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="&lt;&lt;"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_primeroActionPerformed"/>
-          </Events>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="390" y="150" width="60" height="-1"/>
+              <AbsoluteConstraints x="510" y="110" width="94" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -248,7 +191,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="100" y="120" width="160" height="30"/>
+              <AbsoluteConstraints x="140" y="120" width="160" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -268,7 +211,7 @@
         </Component>
         <Component class="FuenteDeDatos.DataTextField" name="dataTextField1">
           <Properties>
-            <Property name="campo" type="java.lang.String" value="id_paciente"/>
+            <Property name="campo" type="java.lang.String" value=""/>
             <Property name="data" type="FuenteDeDatos.DataSource" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="dataSource1"/>
             </Property>
@@ -391,6 +334,12 @@
           </Constraints>
         </Component>
         <Component class="FuenteDeDatos.DataTextField" name="dataTextField2">
+          <Properties>
+            <Property name="campo" type="java.lang.String" value="descripcion"/>
+            <Property name="data" type="FuenteDeDatos.DataSource" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="dataSource1"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="100" y="230" width="230" height="-1"/>

@@ -52,13 +52,13 @@ public class Frm_bitacora extends javax.swing.JFrame {
             modelo.addColumn("Area");
             modelo.addColumn("Movimiento");
             modelo.addColumn("id_empleado");
-        while (this.dataSource1.rs.next())
+        do
         {                
                Object [] fila = new Object[4];
                for (int i=0;i<4;i++)
                fila[i] =this.dataSource1.rs.getObject(i+1); 
                modelo.addRow(fila);    
-            } 
+        }while (this.dataSource1.rs.next()); 
         }catch (SQLException ex) {
                 System.out.println("no se porque no llene la tabla");
         }
@@ -88,7 +88,7 @@ public class Frm_bitacora extends javax.swing.JFrame {
         dataSource1.setCodigosql("select * from tbl_bitacora");
         dataSource1.setDb("sacm");
         dataSource1.setIp("localhost");
-        dataSource1.setPassword("");
+        dataSource1.setPassword("3mbl3ma");
         dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
