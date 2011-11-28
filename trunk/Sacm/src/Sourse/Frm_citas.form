@@ -22,6 +22,15 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tbn_salir1ActionPerformed"/>
       </Events>
     </Component>
+    <Component class="FuenteDeDatos.DataSource" name="dataSource2">
+      <Properties>
+        <Property name="codigosql" type="java.lang.String" value="select * from tbl_citas"/>
+        <Property name="db" type="java.lang.String" value="sacm"/>
+        <Property name="ip" type="java.lang.String" value="localhost"/>
+        <Property name="password" type="java.lang.String" value="3mbl3ma"/>
+        <Property name="usuario" type="java.lang.String" value="root"/>
+      </Properties>
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -109,6 +118,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Guardar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSeven3ActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="510" y="190" width="94" height="-1"/>
@@ -230,7 +242,7 @@
           <Properties>
             <Property name="campo" type="java.lang.String" value="fecha"/>
             <Property name="data" type="FuenteDeDatos.DataSource" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="dataSource1"/>
+              <ComponentRef name="dataSource2"/>
             </Property>
           </Properties>
           <Constraints>
@@ -298,7 +310,7 @@
             </Property>
             <Property name="campo" type="java.lang.String" value="hora"/>
             <Property name="data" type="FuenteDeDatos.DataSource" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="dataSource1"/>
+              <ComponentRef name="dataSource2"/>
             </Property>
           </Properties>
           <Constraints>
@@ -337,7 +349,7 @@
           <Properties>
             <Property name="campo" type="java.lang.String" value="descripcion"/>
             <Property name="data" type="FuenteDeDatos.DataSource" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="dataSource1"/>
+              <ComponentRef name="dataSource2"/>
             </Property>
           </Properties>
           <Constraints>

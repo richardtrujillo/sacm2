@@ -496,8 +496,12 @@ private void tbn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
 }//GEN-LAST:event_tbn_salirActionPerformed
 
 private void buttonSeven3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven3ActionPerformed
+        this.btn_anterior.setEnabled(false);
+        this.btn_primero.setEnabled(false);
+        this.btn_ultimo.setEnabled(false);
+        this.btn_siguiente.setEnabled(false);
         try{
-            this.dataSource1.consulta("insert into empleados values('"+this.dtxf_id_empleado.getText()+"','"+this.dtxf_nombre.getText()+"','"+this.dtxf_apellido_p.getText()+"','"+this.dtxf_apellido_m.getText()+"','"+this.JTxtFecha.getText()+"','"+this.dtxf_id_usuario.getText()+"',null)");
+            this.dataSource1.consulta("insert into empleados (nombre,apellido_p,apellido_m,f_nac,id_usuario,foto) values('"+this.dtxf_nombre.getText()+"','"+this.dtxf_apellido_p.getText()+"','"+this.dtxf_apellido_m.getText()+"','"+this.JTxtFecha.getText()+"','"+this.dtxf_id_usuario.getText()+"',null)");
             JOptionPane.showMessageDialog(this,"Empleado Agregado Correctamente","Confirmación",JOptionPane.ERROR_MESSAGE);
         }catch(Exception e){
              JOptionPane.showMessageDialog(this,"No se pudo agregar al Empleado","Confirmación",JOptionPane.ERROR_MESSAGE);
@@ -519,7 +523,10 @@ private void buttonSeven3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
             this.dtxf_apellido_m.setText("");
             this.JTxtFecha.setText("");
             this.dtxf_id_usuario.setText("");
-
+            this.btn_anterior.setEnabled(true);
+            this.btn_primero.setEnabled(true);
+            this.btn_ultimo.setEnabled(true);
+            this.btn_siguiente.setEnabled(true);
             this.dataSource1.consulta();
         
 }//GEN-LAST:event_buttonSeven3ActionPerformed

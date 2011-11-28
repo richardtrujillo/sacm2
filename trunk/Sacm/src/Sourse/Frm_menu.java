@@ -364,7 +364,7 @@ public final class Frm_menu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonTask8ActionPerformed
 
 private void buttonTask3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask3ActionPerformed
-        Frm_expd ex=new Frm_expd(id_t,t);
+        Frm_historial_paciente ex=new Frm_historial_paciente(id_t,t);
         ex.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_buttonTask3ActionPerformed

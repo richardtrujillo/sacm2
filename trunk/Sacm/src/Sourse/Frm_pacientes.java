@@ -13,6 +13,7 @@ package Sourse;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,9 +30,9 @@ public class Frm_pacientes extends javax.swing.JFrame {
     /** Creates new form Frm_pacientes */
     String id="";
     int t=0;
-    public Frm_pacientes(String id_medico,int tipo) {
+    public Frm_pacientes(String id_empleado,int tipo) {
         initComponents();
-        id=id_medico;
+        id=id_empleado;
         t=tipo;
         //medidas oficiales de los catalogos
         this.setSize(752,393);
@@ -54,7 +55,9 @@ public class Frm_pacientes extends javax.swing.JFrame {
         this.buttonSeven4.setEnabled(false);
         desactivar();
         try{
-            this.dataSource1.consulta();
+            System.out.println("id empleado:"+id_empleado);
+           this.dataSource1.setCodigosql("select * from tbl_pacientes where id_paciente = any(select id_paciente from tbl_medico_paciente where id_empleado=(select id_empleado from empleados where id_usuario='"+id_empleado+"'));");
+            System.out.println(" la la la la"+this.dataSource1.consulta().getRow());
         }catch(Exception e){
             System.out.println("No me conecte"+e);
         }
@@ -71,6 +74,7 @@ public class Frm_pacientes extends javax.swing.JFrame {
     private void initComponents() {
 
         dataSource1 = new FuenteDeDatos.DataSource();
+        dataSource2 = new FuenteDeDatos.DataSource();
         panel1 = new org.edisoncor.gui.panel.Panel();
         Lbl_catalogo_pacientes = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -112,6 +116,12 @@ public class Frm_pacientes extends javax.swing.JFrame {
         dataSource1.setIp("localhost");
         dataSource1.setPassword("3mbl3ma");
         dataSource1.setUsuario("root");
+
+        dataSource2.setCodigosql("select * tbl_medico_paciente");
+        dataSource2.setDb("sacm");
+        dataSource2.setIp("localhost");
+        dataSource2.setPassword("3mbl3ma");
+        dataSource2.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(getIconImage());
@@ -335,7 +345,7 @@ public class Frm_pacientes extends javax.swing.JFrame {
         lbl_id_pc.setForeground(new java.awt.Color(0, 57, 85));
         lbl_id_pc.setText("ID_Paciente:");
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel11.setForeground(new java.awt.Color(0, 57, 85));
         jLabel11.setText("Estatus:");
 
@@ -682,10 +692,6 @@ char letra=  evt.getKeyChar();
       if(letra==10)
       {
           
-      
-          
-        
-        
       }
 }//GEN-LAST:event_dtxf_ciudadKeyTyped
 
@@ -702,33 +708,34 @@ if(letra==10)
 }//GEN-LAST:event_dtx_emailKeyTyped
 
 private void buttonSeven3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven3ActionPerformed
+        this.btn_anterior.setEnabled(false);
+        this.btn_primero.setEnabled(false);
+        this.btn_ultimo.setEnabled(false);
+        this.btn_siguiente.setEnabled(false);
         boolean selected = this.dataCheckBox1.isSelected();
         int status=0;
         if(selected==true)status=1;
         else status=0;
         try{
-            this.dataSource1.consulta("insert into tbl_pacientes (nombre,apellido_p,apellido_m,f_nac,sexo,direccion,telefono,email,ciudad,estatus,foto) values('"+this.dtxf_nombre.getText()+"','"+this.dtxf_apellido_p.getText()+"','"+this.dtxf_apellido_m.getText()+"','"+this.JTxtFechaPacientes.getText()+"','"+this.dcbx_sexo.getSelectedItem()+"','"+this.dtxf_direccion.getText()+"',"+Integer.parseInt(this.dmtxf_telefono.getText())+",'"+this.dtx_email.getText()+"','"+this.dtxf_ciudad.getText()+"',"+status+",null);");
+            this.dataSource1.consulta("insert into tbl_pacientes (nombre,apellido_p,apellido_m,f_nac,sexo,direccion,telefono,email,ciudad,estatus) values('"+this.dtxf_nombre.getText()+"','"+this.dtxf_apellido_p.getText()+"','"+this.dtxf_apellido_m.getText()+"','"+this.JTxtFechaPacientes.getText()+"','"+this.dcbx_sexo.getSelectedItem()+"','"+this.dtxf_direccion.getText()+"',"+Integer.parseInt(this.dmtxf_telefono.getText())+",'"+this.dtx_email.getText()+"','"+this.dtxf_ciudad.getText()+"',"+status+");");
             JOptionPane.showMessageDialog(this,"Paciente agregado correctamente","Validacion Campos",JOptionPane.ERROR_MESSAGE);
+            this.dataSource2.setCodigosql("select max(id_paciente) from tbl_pacientes");
+            this.dataSource2.consulta();            
+            this.dataSource2.consulta("insert into tbl_medico_paciente(id_asignacion,id_paciente,id_empleado,id_empleado_temporal) values('"+(this.dataSource2.rs.getInt(1)+"-"+id)+"',"+this.dataSource2.rs.getInt(1)+","+id+","+id+");");
         }
         catch(Exception e){
             System.out.println(""+e);
-            JOptionPane.showMessageDialog(this,"No se pudo agregar al paciente","Confirmación",JOptionPane.ERROR_MESSAGE);
-        }    
-            this.dataSource1.setCodigosql("select id_paciente from tbl_pacientes where email='"+this.dtx_email.getText()+"';");
-        try {
-            this.dataSource1.rs.getString(1);
-        } catch (SQLException ex) {
-            System.out.println("obteniendo id");
-        }
-            insertar();
-            this.dataSource1.setCodigosql("select * from tbl_pacientes");
-            this.dataSource1.consulta();
-   
+            JOptionPane.showMessageDialog(this,"No se pudo agregar al paciente","Confirmación",JOptionPane.ERROR_MESSAGE); 
+        }                  
             desactivar();
-        
-        System.out.println(this.dcbx_sexo.getSelectedItem());
-        System.out.println(""+selected);
-        
+            this.btn_anterior.setEnabled(true);
+            this.btn_primero.setEnabled(true);
+            this.btn_ultimo.setEnabled(true);
+            this.btn_siguiente.setEnabled(true);
+            this.dtxf_nombre.setEnabled(false);
+            this.buttonSeven3.setEnabled(false);
+            this.buttonSeven4.setEnabled(false);
+            this.dataSource2.consulta("select * from tbl_pacientes");
 }//GEN-LAST:event_buttonSeven3ActionPerformed
 
 private void buttonSeven4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven4ActionPerformed
@@ -750,21 +757,7 @@ private void buttonSeven4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         this.dtxf_direccion.setText(" ");
         this.dtxf_nombre.setText(" ");
     }
-    public void insertar(){
-            
-        this.dataSource1.setCodigosql("select * from tbl_medico_paciente");
-        this.dataSource1.consulta();
-        
-        try{    
-            if(this.dataSource1.consulta().getRow()==0)      
-                this.dataSource1.consulta("insert into tbl_medico_paciente values(1,"+Integer.parseInt(this.dataSource1.rs.getString(1))+"',"+id+","+id+");");
-            else
-                this.dataSource1.consulta("insert into tbl_medico_paciente values("+((this.dataSource1.consulta().getRow())+1)+","+Integer.parseInt(this.dataSource1.rs.getString(1))+"',"+id+","+id+");");           
-        } catch (SQLException ex) {
-            System.out.println(""+ex);
-             JOptionPane.showMessageDialog(this,"No se pudo agregar al paciente con su asignacion ","Confirmación",JOptionPane.ERROR_MESSAGE);
-        } 
-    }
+
     public void activar(){
          this.dcbx_sexo.setEnabled(true);
         this.JTxtFechaPacientes.setEnabled(true);
@@ -827,6 +820,7 @@ private void buttonSeven4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private org.edisoncor.gui.button.ButtonSeven buttonSeven4;
     private FuenteDeDatos.DataCheckBox dataCheckBox1;
     private FuenteDeDatos.DataSource dataSource1;
+    private FuenteDeDatos.DataSource dataSource2;
     private FuenteDeDatos.DataCombobox dcbx_sexo;
     private FuenteDeDatos.DataMaskedTextField dmtxf_telefono;
     private FuenteDeDatos.DataTextField dtx_email;
