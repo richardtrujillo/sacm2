@@ -121,6 +121,7 @@
             </Property>
           </Properties>
           <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataTextField1ActionPerformed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="dataTextField1KeyTyped"/>
           </Events>
           <Constraints>
@@ -255,16 +256,6 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="datechooser.beans.DateChooserCombo" name="JDtChFecha">
-          <Events>
-            <EventHandler event="onCommit" listener="datechooser.events.CommitListener" parameters="datechooser.events.CommitEvent" handler="JDtChFechaOnCommit"/>
-          </Events>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="309" y="276" width="29" height="25"/>
-            </Constraint>
-          </Constraints>
-        </Component>
         <Component class="FuenteDeDatos.DataMaskedTextField" name="JTxtFechaPacientes">
           <Properties>
             <Property name="campo" type="java.lang.String" value="F_nac"/>
@@ -274,7 +265,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="143" y="276" width="160" height="25"/>
+              <AbsoluteConstraints x="143" y="276" width="200" height="25"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -286,11 +277,11 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="55" green="39" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Fecha Nacimiento:"/>
+            <Property name="text" type="java.lang.String" value="Fecha:"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="10" y="276" width="-1" height="22"/>
+              <AbsoluteConstraints x="80" y="280" width="60" height="22"/>
             </Constraint>
           </Constraints>
         </Component>
