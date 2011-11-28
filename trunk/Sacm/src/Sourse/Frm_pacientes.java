@@ -101,7 +101,7 @@ public class Frm_pacientes extends javax.swing.JFrame {
         dataSource1.setCodigosql("select * from tbl_pacientes");
         dataSource1.setDb("sacm");
         dataSource1.setIp("localhost");
-        dataSource1.setPassword("");
+        dataSource1.setPassword("3mbl3ma");
         dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -146,7 +146,7 @@ public class Frm_pacientes extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 57, 85));
         jLabel4.setText("Apellido_M:");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel5.setForeground(new java.awt.Color(0, 57, 85));
         jLabel5.setText("Fecha Nacimiento:");
 
@@ -317,11 +317,11 @@ public class Frm_pacientes extends javax.swing.JFrame {
             }
         });
 
-        lbl_id_pc.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_id_pc.setFont(new java.awt.Font("Tahoma", 1, 14));
         lbl_id_pc.setForeground(new java.awt.Color(0, 57, 85));
         lbl_id_pc.setText("ID_Paciente:");
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel11.setForeground(new java.awt.Color(0, 57, 85));
         jLabel11.setText("Estatus:");
 

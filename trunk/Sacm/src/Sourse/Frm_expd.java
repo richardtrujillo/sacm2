@@ -80,7 +80,7 @@ public class Frm_expd extends javax.swing.JFrame {
         dataSource1.setCodigosql("select * from tbl_expedientes");
         dataSource1.setDb("sacm");
         dataSource1.setIp("localhost");
-        dataSource1.setPassword("");
+        dataSource1.setPassword("3mbl3ma");
         dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -103,7 +103,7 @@ public class Frm_expd extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 57, 85));
         jLabel1.setText("Paciente:");
         panel1.add(jLabel1);
-        jLabel1.setBounds(58, 88, 64, 17);
+        jLabel1.setBounds(58, 88, 63, 17);
 
         buttonSeven1.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven1.setText("Ver historial completo");
@@ -123,7 +123,7 @@ public class Frm_expd extends javax.swing.JFrame {
             }
         });
         panel1.add(dataTextField1);
-        dataTextField1.setBounds(139, 88, 207, 28);
+        dataTextField1.setBounds(139, 88, 207, 20);
 
         tbn_salir1.setBackground(new java.awt.Color(255, 0, 0));
         tbn_salir1.setText("X");
@@ -135,27 +135,27 @@ public class Frm_expd extends javax.swing.JFrame {
         panel1.add(tbn_salir1);
         tbn_salir1.setBounds(0, 0, 30, 20);
         panel1.add(dataTextField3);
-        dataTextField3.setBounds(141, 200, 203, 28);
+        dataTextField3.setBounds(141, 200, 203, 20);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel13.setForeground(new java.awt.Color(0, 57, 85));
         jLabel13.setText("Descripcion:");
         panel1.add(jLabel13);
-        jLabel13.setBounds(43, 200, 86, 17);
+        jLabel13.setBounds(43, 200, 83, 17);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel11.setForeground(new java.awt.Color(0, 57, 85));
         jLabel11.setText("ID_Paciente:");
         panel1.add(jLabel11);
-        jLabel11.setBounds(37, 162, 91, 17);
+        jLabel11.setBounds(37, 162, 89, 17);
         panel1.add(dataTextField4);
-        dataTextField4.setBounds(140, 238, 203, 28);
+        dataTextField4.setBounds(140, 238, 203, 20);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel12.setForeground(new java.awt.Color(0, 57, 85));
         jLabel12.setText("Medicacion:");
         panel1.add(jLabel12);
-        jLabel12.setBounds(46, 238, 83, 17);
+        jLabel12.setBounds(46, 238, 80, 17);
 
         dataTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -163,7 +163,7 @@ public class Frm_expd extends javax.swing.JFrame {
             }
         });
         panel1.add(dataTextField2);
-        dataTextField2.setBounds(141, 162, 203, 28);
+        dataTextField2.setBounds(141, 162, 203, 20);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SACM_SPLASH.png"))); // NOI18N
         panel1.add(jLabel2);
@@ -196,7 +196,7 @@ public class Frm_expd extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(0, 57, 85));
         jLabel5.setText("Fecha Nacimiento:");
         panel1.add(jLabel5);
-        jLabel5.setBounds(10, 276, 128, 22);
+        jLabel5.setBounds(10, 276, 126, 22);
 
         buttonSeven5.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven5.setText("Ingresar");

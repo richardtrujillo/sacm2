@@ -67,8 +67,8 @@ public class Frm_log_in extends javax.swing.JFrame {
 
         dataSource1.setCodigosql("select * from tbl_usuarios");
         dataSource1.setDb("SACM");
-        dataSource1.setIp("http://localhost/");
-        dataSource1.setPassword("");
+        dataSource1.setIp("localhost");
+        dataSource1.setPassword("3mbl3ma");
         dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -202,19 +202,38 @@ private void buttonSeven1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         JOptionPane.showMessageDialog(this,"Campo contraseña vacio","Validacion Campos",JOptionPane.ERROR_MESSAGE);
    }
     else{
-//        rc=nom=dataSource1.rs.getString("nombre");
-//        rc_tip=dataSourse.rs.getString("tipo_usuario");
-//        try {
-//            if(this.dataSource1.rs.getString("empleado_id").equals(this.dataTextField1.getText())&&this.dataSource1.rs.getString("password").equals(this.jPasswordField1.getPassword())){
-//            
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(Frm_log_in.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-            Frm_menu menu=new Frm_menu(rc_nom,1);
+        this.dataSource1.setCodigosql("select * from tbl_usuarios where id_usuario='"+this.dataTextField1.getText()+"' and password='"+pass+"';");
+        try{this.dataSource1.consulta();
+        }
+        catch(Exception e){
+            System.out.println("no hiso la consulta");
+        }
+        try{
+        System.out.println(""+this.dataSource1.consulta().getRow());
+        if(this.dataSource1.consulta().getRow()==1){
+            rc_tip=this.dataSource1.rs.getInt(4);
+            this.dataSource1.setCodigosql("select * from empleados where id_usuario='"+this.dataTextField1.getText()+"';");
+            try{
+                this.dataSource1.consulta();
+            }
+            catch(Exception e){
+                System.out.println("no hiso la segunda consulta");
+            }
+            rc_nom=this.dataSource1.rs.getString(2) + " "+ this.dataSource1.rs.getString(3)+" "+this.dataSource1.rs.getString(4); 
+            System.out.println(""+rc_nom+"--"+rc_tip);
+            Frm_menu menu=new Frm_menu(rc_nom,rc_tip);
             menu.setVisible(true);
-            this.dispose();
             
+            this.dispose(); 
+        }else{
+         JOptionPane.showMessageDialog(this,"No encontrado","Acceso controlado",JOptionPane.ERROR_MESSAGE);   
+         this.dataTextField1.setText("");
+         this.jPasswordField1.setText("");
+        }
+        
+        }catch(Exception e){
+            System.out.println("no guardo los datos");
+        }
     } 
 }//GEN-LAST:event_buttonSeven1ActionPerformed
 

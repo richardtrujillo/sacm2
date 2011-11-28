@@ -45,10 +45,8 @@ public class Frm_empleados_adv extends javax.swing.JFrame {
         dataSource1 = new FuenteDeDatos.DataSource();
         panel1 = new org.edisoncor.gui.panel.Panel();
         Lbl_catalogo_pacientes = new javax.swing.JLabel();
-        tbn_salir = new org.edisoncor.gui.button.ButtonSeven();
         buttonSeven4 = new org.edisoncor.gui.button.ButtonSeven();
         buttonSeven3 = new org.edisoncor.gui.button.ButtonSeven();
-        buttonSeven6 = new org.edisoncor.gui.button.ButtonSeven();
         jLabel5 = new javax.swing.JLabel();
         dcbx_tipo_ = new FuenteDeDatos.DataCombobox();
         jLabel7 = new javax.swing.JLabel();
@@ -57,50 +55,58 @@ public class Frm_empleados_adv extends javax.swing.JFrame {
         jpssf_contraseña = new javax.swing.JPasswordField();
         dataCheckBox1 = new FuenteDeDatos.DataCheckBox();
 
+        dataSource1.setCodigosql("select * from tbl_usuarios");
+        dataSource1.setDb("sacm");
+        dataSource1.setIp("localhost");
+        dataSource1.setPassword("3mbl3ma");
+        dataSource1.setUsuario("root");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         setUndecorated(true);
+        getContentPane().setLayout(null);
 
         panel1.setColorPrimario(new java.awt.Color(255, 255, 255));
         panel1.setColorSecundario(new java.awt.Color(0, 153, 153));
+        panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Lbl_catalogo_pacientes.setFont(new java.awt.Font("Tahoma", 1, 24));
         Lbl_catalogo_pacientes.setForeground(new java.awt.Color(0, 57, 85));
-        Lbl_catalogo_pacientes.setText("Empleado_adv");
-
-        tbn_salir.setBackground(new java.awt.Color(255, 0, 0));
-        tbn_salir.setText("X");
-        tbn_salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbn_salirActionPerformed(evt);
-            }
-        });
+        Lbl_catalogo_pacientes.setText("Ingresar nuevo usuario");
+        panel1.add(Lbl_catalogo_pacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, -1, 43));
 
         buttonSeven4.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven4.setText("Cancelar");
+        buttonSeven4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSeven4ActionPerformed(evt);
+            }
+        });
+        panel1.add(buttonSeven4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 85, -1));
 
         buttonSeven3.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven3.setText("Guardar");
-
-        buttonSeven6.setBackground(new java.awt.Color(0, 57, 85));
-        buttonSeven6.setText("Permisos");
-        buttonSeven6.addActionListener(new java.awt.event.ActionListener() {
+        buttonSeven3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSeven6ActionPerformed(evt);
+                buttonSeven3ActionPerformed(evt);
             }
         });
+        panel1.add(buttonSeven3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, 81, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel5.setForeground(new java.awt.Color(0, 57, 85));
         jLabel5.setText("Tipo de empleado:");
+        panel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 87, -1, -1));
 
         dcbx_tipo_.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Administrador", "Recepcionista", "Medico" }));
         dcbx_tipo_.setCampo("");
         dcbx_tipo_.setData(dataSource1);
+        panel1.add(dcbx_tipo_, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 87, 230, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel7.setForeground(new java.awt.Color(0, 57, 85));
         jLabel7.setText("Id_Usuario:");
+        panel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 130, -1, -1));
 
         dtxf_id_usuario.setCampo("");
         dtxf_id_usuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -109,110 +115,24 @@ public class Frm_empleados_adv extends javax.swing.JFrame {
                 dtxf_id_usuarioKeyTyped(evt);
             }
         });
+        panel1.add(dtxf_id_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 130, 230, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel8.setForeground(new java.awt.Color(0, 57, 85));
         jLabel8.setText("Contraseña:");
+        panel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 177, -1, 25));
+        panel1.add(jpssf_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 182, 230, -1));
 
         dataCheckBox1.setForeground(new java.awt.Color(0, 57, 85));
         dataCheckBox1.setText("Estatus");
         dataCheckBox1.setFont(new java.awt.Font("Tahoma", 1, 15));
+        panel1.add(dataCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 220, 109, -1));
 
-        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
-        panel1.setLayout(panel1Layout);
-        panel1Layout.setHorizontalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8))
-                        .addGap(18, 18, 18)
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jpssf_contraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                                .addComponent(dtxf_id_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
-                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(dcbx_tipo_, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                                .addComponent(dataCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE))
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(tbn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Lbl_catalogo_pacientes)
-                    .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(panel1Layout.createSequentialGroup()
-                            .addComponent(buttonSeven3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(buttonSeven4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                            .addComponent(buttonSeven6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(55, 55, 55))))
-                .addContainerGap())
-        );
-        panel1Layout.setVerticalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonSeven3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonSeven4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonSeven6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addComponent(tbn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(dcbx_tipo_, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(dtxf_id_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(panel1Layout.createSequentialGroup()
-                            .addGap(52, 52, 52)
-                            .addComponent(jpssf_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel7)
-                        .addGroup(panel1Layout.createSequentialGroup()
-                            .addGap(47, 47, 47)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addComponent(dataCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54))
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addComponent(Lbl_catalogo_pacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(258, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(panel1);
+        panel1.setBounds(0, 0, 630, 300);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tbn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salirActionPerformed
-        Frm_menu log=new Frm_menu("",0);
-        log.setVisible(true);
-        this.dispose();
-}//GEN-LAST:event_tbn_salirActionPerformed
-
-    private void buttonSeven6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven6ActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_buttonSeven6ActionPerformed
 
 private void dtxf_id_usuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dtxf_id_usuarioKeyTyped
 char letra=  evt.getKeyChar();
@@ -221,6 +141,19 @@ if(letra>='0' && letra<='9'||letra>='a' && letra<='Z' )
           evt.consume();
       }
 }//GEN-LAST:event_dtxf_id_usuarioKeyTyped
+
+private void buttonSeven3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven3ActionPerformed
+        //TODO implementar codigo de insercion
+        Frm_empleados emp=new Frm_empleados(this.dtxf_id_usuario.getText());
+        emp.setVisible(true);
+        this.dispose();
+}//GEN-LAST:event_buttonSeven3ActionPerformed
+
+private void buttonSeven4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven4ActionPerformed
+        Frm_empleados emp=new Frm_empleados(null);
+        emp.setVisible(true);
+        this.dispose();
+}//GEN-LAST:event_buttonSeven4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,7 +170,6 @@ if(letra>='0' && letra<='9'||letra>='a' && letra<='Z' )
     private javax.swing.JLabel Lbl_catalogo_pacientes;
     private org.edisoncor.gui.button.ButtonSeven buttonSeven3;
     private org.edisoncor.gui.button.ButtonSeven buttonSeven4;
-    private org.edisoncor.gui.button.ButtonSeven buttonSeven6;
     private FuenteDeDatos.DataCheckBox dataCheckBox1;
     private FuenteDeDatos.DataSource dataSource1;
     private FuenteDeDatos.DataCombobox dcbx_tipo_;
@@ -247,6 +179,5 @@ if(letra>='0' && letra<='9'||letra>='a' && letra<='Z' )
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPasswordField jpssf_contraseña;
     private org.edisoncor.gui.panel.Panel panel1;
-    private org.edisoncor.gui.button.ButtonSeven tbn_salir;
     // End of variables declaration//GEN-END:variables
 }

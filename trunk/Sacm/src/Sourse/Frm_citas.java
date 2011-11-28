@@ -44,13 +44,10 @@ public class Frm_citas extends javax.swing.JFrame {
             frameSize.width = screenSize.width;
         }
         this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
-        try{
-            this.dataSource1.consulta();
-            this.dataSource1.primero();
-        }catch(Exception e){
-            System.out.println("No me conecte");
+        this.buttonSeven3.setEnabled(false);
+        this.buttonSeven4.setEnabled(false);
+        this.buttonSeven5.setEnabled(false);
         }
-    }
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -64,14 +61,10 @@ public class Frm_citas extends javax.swing.JFrame {
         dataSource1 = new FuenteDeDatos.DataSource();
         tbn_salir1 = new org.edisoncor.gui.button.ButtonSeven();
         panel1 = new org.edisoncor.gui.panel.Panel();
-        btn_siguiente = new org.edisoncor.gui.button.ButtonSeven();
-        btn_anterior = new org.edisoncor.gui.button.ButtonSeven();
-        btn_ultimo = new org.edisoncor.gui.button.ButtonSeven();
         buttonSeven5 = new org.edisoncor.gui.button.ButtonSeven();
         buttonSeven4 = new org.edisoncor.gui.button.ButtonSeven();
         buttonSeven3 = new org.edisoncor.gui.button.ButtonSeven();
         buttonSeven2 = new org.edisoncor.gui.button.ButtonSeven();
-        btn_primero = new org.edisoncor.gui.button.ButtonSeven();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -88,6 +81,12 @@ public class Frm_citas extends javax.swing.JFrame {
         dataTextField2 = new FuenteDeDatos.DataTextField();
         jLabel6 = new javax.swing.JLabel();
         dataLabel2 = new FuenteDeDatos.DataLabel();
+
+        dataSource1.setCodigosql("select * from tbl_citas");
+        dataSource1.setDb("sacm");
+        dataSource1.setIp("localhost");
+        dataSource1.setPassword("3mbl3ma");
+        dataSource1.setUsuario("root");
 
         tbn_salir1.setBackground(new java.awt.Color(255, 0, 0));
         tbn_salir1.setText("X");
@@ -106,36 +105,6 @@ public class Frm_citas extends javax.swing.JFrame {
         panel1.setColorSecundario(new java.awt.Color(0, 153, 153));
         panel1.setLayout(null);
 
-        btn_siguiente.setBackground(new java.awt.Color(0, 57, 85));
-        btn_siguiente.setText(">");
-        btn_siguiente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_siguienteActionPerformed(evt);
-            }
-        });
-        panel1.add(btn_siguiente);
-        btn_siguiente.setBounds(510, 150, 43, 35);
-
-        btn_anterior.setBackground(new java.awt.Color(0, 57, 85));
-        btn_anterior.setText("<");
-        btn_anterior.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_anteriorActionPerformed(evt);
-            }
-        });
-        panel1.add(btn_anterior);
-        btn_anterior.setBounds(460, 150, 44, 35);
-
-        btn_ultimo.setBackground(new java.awt.Color(0, 57, 85));
-        btn_ultimo.setText(">>");
-        btn_ultimo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ultimoActionPerformed(evt);
-            }
-        });
-        panel1.add(btn_ultimo);
-        btn_ultimo.setBounds(560, 150, 62, 35);
-
         buttonSeven5.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven5.setText("Eliminar");
         buttonSeven5.addActionListener(new java.awt.event.ActionListener() {
@@ -144,37 +113,27 @@ public class Frm_citas extends javax.swing.JFrame {
             }
         });
         panel1.add(buttonSeven5);
-        buttonSeven5.setBounds(410, 230, 94, 35);
+        buttonSeven5.setBounds(510, 230, 94, 35);
 
         buttonSeven4.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven4.setText("Cancelar");
         panel1.add(buttonSeven4);
-        buttonSeven4.setBounds(510, 190, 95, 35);
+        buttonSeven4.setBounds(510, 150, 95, 35);
 
         buttonSeven3.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven3.setText("Guardar");
         panel1.add(buttonSeven3);
-        buttonSeven3.setBounds(510, 230, 94, 35);
+        buttonSeven3.setBounds(510, 190, 94, 35);
 
         buttonSeven2.setBackground(new java.awt.Color(0, 57, 85));
-        buttonSeven2.setText("Ingresar");
+        buttonSeven2.setText("Citar");
         buttonSeven2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonSeven2ActionPerformed(evt);
             }
         });
         panel1.add(buttonSeven2);
-        buttonSeven2.setBounds(410, 190, 94, 35);
-
-        btn_primero.setBackground(new java.awt.Color(0, 57, 85));
-        btn_primero.setText("<<");
-        btn_primero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_primeroActionPerformed(evt);
-            }
-        });
-        panel1.add(btn_primero);
-        btn_primero.setBounds(390, 150, 60, 35);
+        buttonSeven2.setBounds(510, 110, 94, 35);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 17));
         jLabel1.setForeground(new java.awt.Color(0, 57, 85));
@@ -202,7 +161,7 @@ public class Frm_citas extends javax.swing.JFrame {
             }
         });
         panel1.add(buttonSeven6);
-        buttonSeven6.setBounds(100, 120, 160, 30);
+        buttonSeven6.setBounds(140, 120, 160, 30);
 
         dataLabel1.setText("Aqui aparece el No.Cita");
         dataLabel1.setCampo("id_cita");
@@ -210,7 +169,7 @@ public class Frm_citas extends javax.swing.JFrame {
         panel1.add(dataLabel1);
         dataLabel1.setBounds(160, 40, 280, 14);
 
-        dataTextField1.setCampo("id_paciente");
+        dataTextField1.setCampo("");
         dataTextField1.setData(dataSource1);
         dataTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -269,6 +228,9 @@ public class Frm_citas extends javax.swing.JFrame {
         jLabel5.setText("Citas");
         panel1.add(jLabel5);
         jLabel5.setBounds(524, 11, 67, 29);
+
+        dataTextField2.setCampo("descripcion");
+        dataTextField2.setData(dataSource1);
         panel1.add(dataTextField2);
         dataTextField2.setBounds(100, 230, 230, 20);
 
@@ -298,29 +260,16 @@ public class Frm_citas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_siguienteActionPerformed
-        this.dataSource1.siguiente();
-}//GEN-LAST:event_btn_siguienteActionPerformed
-
-    private void btn_anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_anteriorActionPerformed
-        this.dataSource1.anterior();
-}//GEN-LAST:event_btn_anteriorActionPerformed
-
-    private void btn_ultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ultimoActionPerformed
-        this.dataSource1.ultimo();
-}//GEN-LAST:event_btn_ultimoActionPerformed
-
     private void buttonSeven5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven5ActionPerformed
         // TODO add your handling code here:
 }//GEN-LAST:event_buttonSeven5ActionPerformed
-
+        
     private void buttonSeven2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven2ActionPerformed
-
+       this.buttonSeven2.setEnabled(false);
+       this.buttonSeven3.setEnabled(true);
+       this.buttonSeven4.setEnabled(true);
+       this.buttonSeven5.setEnabled(false);     
 }//GEN-LAST:event_buttonSeven2ActionPerformed
-
-    private void btn_primeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_primeroActionPerformed
-        this.dataSource1.primero();
-}//GEN-LAST:event_btn_primeroActionPerformed
 
     private void tbn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salirActionPerformed
         Frm_menu men=new Frm_menu("",0);
@@ -367,11 +316,16 @@ if(letra>='0' && letra<='9'||letra>='a' && letra<='Z' )
 
 private void buttonSeven6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven6ActionPerformed
         try {
-            this.dataSource1.consulta("select id_paciente from tbl_pacientes where nombre='"+this.dataTextField1.getText()+"'");
-            System.out.println(""+this.dataSource1.rs.getString(1));
-        } catch (SQLException ex) {
-            Logger.getLogger(Frm_citas.class.getName()).log(Level.SEVERE, null, ex);
+            this.dataSource1.setCodigosql("select fecha,hora,descripcion from tbl_citas left join tbl_medico_paciente using(id_asignacion) where id_paciente='"+this.dataTextField1.getText()+"';");
+            this.dataSource1.consulta();
+            System.out.println(""+this.dataSource1.consulta().getRow());
+        } catch (Exception ex) {
+            System.out.println("no pude hacer la consulta");
         }
+        this.buttonSeven2.setEnabled(false);
+        this.buttonSeven3.setEnabled(false);
+        this.buttonSeven4.setEnabled(false);
+        this.buttonSeven5.setEnabled(true);
 }//GEN-LAST:event_buttonSeven6ActionPerformed
 
     /**
@@ -398,10 +352,6 @@ private void buttonSeven6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private javax.swing.JLabel F_cita;
     private datechooser.beans.DateChooserCombo JDtChFecha;
     private FuenteDeDatos.DataTextField JTxtFechaCitas;
-    private org.edisoncor.gui.button.ButtonSeven btn_anterior;
-    private org.edisoncor.gui.button.ButtonSeven btn_primero;
-    private org.edisoncor.gui.button.ButtonSeven btn_siguiente;
-    private org.edisoncor.gui.button.ButtonSeven btn_ultimo;
     private org.edisoncor.gui.button.ButtonSeven buttonSeven2;
     private org.edisoncor.gui.button.ButtonSeven buttonSeven3;
     private org.edisoncor.gui.button.ButtonSeven buttonSeven4;

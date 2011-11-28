@@ -6,10 +6,10 @@
     </Component>
     <Component class="FuenteDeDatos.DataSource" name="dataSource1">
       <Properties>
-        <Property name="codigosql" type="java.lang.String" value="select * from tbl_medicos"/>
+        <Property name="codigosql" type="java.lang.String" value="select * from empleados"/>
         <Property name="db" type="java.lang.String" value="sacm"/>
-        <Property name="ip" type="java.lang.String" value="http://localhost/"/>
-        <Property name="password" type="java.lang.String" value=""/>
+        <Property name="ip" type="java.lang.String" value="localhost"/>
+        <Property name="password" type="java.lang.String" value="3mbl3ma"/>
         <Property name="usuario" type="java.lang.String" value="root"/>
       </Properties>
     </Component>
@@ -66,7 +66,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="panelCurves1" alignment="0" max="32767" attributes="0"/>
+              <Component id="panelCurves1" alignment="0" pref="737" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -132,7 +132,7 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="dlbl_nombre" min="-2" pref="31" max="-2" attributes="0"/>
-                      <EmptySpace pref="22" max="32767" attributes="0"/>
+                      <EmptySpace pref="29" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="buttonTask7" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
