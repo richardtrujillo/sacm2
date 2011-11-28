@@ -164,6 +164,7 @@ public class Frm_add_empleado extends javax.swing.JFrame {
 
     private void buttonSeven3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven3ActionPerformed
         String us=this.dtxf_id_usuario.getText();
+        String pass=new String(this.jpssf_contraseña.getPassword());
         String tipo=(String) this.dcbx_tipo_.getSelectedItem();
         boolean selected = this.dataCheckBox1.isSelected();
         int ti=0;
@@ -174,7 +175,7 @@ public class Frm_add_empleado extends javax.swing.JFrame {
         if(tipo.equals("Medico")) ti=2;
         if(tipo.equals("Recepcionista")) ti=3;  
         try{
-            this.dataSource1.consulta("insert into tbl_usuarios values ('"+this.dtxf_id_usuario.getText()+"','"+this.jpssf_contraseña.getPassword()+"',"+status+","+ti+")");
+            this.dataSource1.consulta("insert into tbl_usuarios values ('"+this.dtxf_id_usuario.getText()+"','"+pass+"',"+status+","+ti+")");
             JOptionPane.showMessageDialog(this,"Empleado Agregado Correctamente","Confirmación",JOptionPane.ERROR_MESSAGE);
         }catch(Exception e){
              JOptionPane.showMessageDialog(this,"No se pudo agregar al Empleado","Confirmación",JOptionPane.ERROR_MESSAGE);

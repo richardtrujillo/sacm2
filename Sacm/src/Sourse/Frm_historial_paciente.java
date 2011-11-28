@@ -21,8 +21,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Frm_historial_paciente extends javax.swing.JFrame {
 
+     String id="";
+    int t=0;
     DefaultTableModel modelo = new DefaultTableModel();
-    public Frm_historial_paciente(int id_pac) {
+    public Frm_historial_paciente(String id_m,int tip){
+        id=id_m;
+        t=tip;
         initComponents();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension frameSize = this.getSize();
@@ -34,7 +38,8 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
         }
         this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
         jTable1.setModel(modelo);
-        this.dataSource1.setCodigosql("select * from tbl_expedientes where id_paciente="+id_pac+";");
+        this.dataSource1.setCodigosql("select id_paciente,fecha,descripcion,medicacion from tbl_expedientes natural join tbl_pacientes where id_paciente = any("+
+        "select id_paciente from tbl_medico_paciente where id_empleado="+"(select id_empleado from empleados where id_usuario='"+this.id+"'));");
         try{
             this.dataSource1.consulta();
             System.out.println(""+this.dataSource1.consulta()+"_nos lanza_"+this.dataSource1.consulta().getRow()+"_registros");
@@ -58,7 +63,7 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
                 System.out.println("no se porque no llene la tabla");
         }
         jTable1.setModel(modelo); 
-        this.Lbl_catalogo_pacientes.setText("historial completo del paciente: "+id_pac);
+        this.Lbl_catalogo_pacientes.setText("historial completo del paciente: ");
         }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -153,7 +158,9 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbn_salir5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salir5ActionPerformed
-        this.dispose();
+        Frm_menu menu=new Frm_menu(id,t);
+        menu.setVisible(true);
+        this.dispose(); 
 }//GEN-LAST:event_tbn_salir5ActionPerformed
 
     /**
@@ -163,7 +170,7 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                new Frm_historial_paciente(0).setVisible(true);
+                new Frm_historial_paciente(null,0).setVisible(true);
             }
         });
     }
