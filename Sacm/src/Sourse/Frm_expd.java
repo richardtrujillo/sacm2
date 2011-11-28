@@ -13,6 +13,9 @@ package Sourse;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -71,7 +74,6 @@ public class Frm_expd extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         buttonSeven3 = new org.edisoncor.gui.button.ButtonSeven();
         buttonSeven4 = new org.edisoncor.gui.button.ButtonSeven();
-        JDtChFecha = new datechooser.beans.DateChooserCombo();
         JTxtFechaPacientes = new FuenteDeDatos.DataMaskedTextField();
         jLabel5 = new javax.swing.JLabel();
         buttonSeven5 = new org.edisoncor.gui.button.ButtonSeven();
@@ -121,6 +123,11 @@ public class Frm_expd extends javax.swing.JFrame {
 
         dataTextField1.setCampo("id_paciente");
         dataTextField1.setData(dataSource1);
+        dataTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataTextField1ActionPerformed(evt);
+            }
+        });
         dataTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 dataTextField1KeyTyped(evt);
@@ -183,24 +190,16 @@ public class Frm_expd extends javax.swing.JFrame {
         panel1.add(buttonSeven4);
         buttonSeven4.setBounds(660, 360, 100, 35);
 
-        JDtChFecha.addCommitListener(new datechooser.events.CommitListener() {
-            public void onCommit(datechooser.events.CommitEvent evt) {
-                JDtChFechaOnCommit(evt);
-            }
-        });
-        panel1.add(JDtChFecha);
-        JDtChFecha.setBounds(309, 276, 29, 25);
-
         JTxtFechaPacientes.setCampo("F_nac");
         JTxtFechaPacientes.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         panel1.add(JTxtFechaPacientes);
-        JTxtFechaPacientes.setBounds(143, 276, 160, 25);
+        JTxtFechaPacientes.setBounds(143, 276, 200, 25);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 57, 85));
-        jLabel5.setText("Fecha Nacimiento:");
+        jLabel5.setText("Fecha:");
         panel1.add(jLabel5);
-        jLabel5.setBounds(10, 276, 126, 22);
+        jLabel5.setBounds(80, 280, 60, 22);
 
         buttonSeven5.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven5.setText("Ingresar");
@@ -289,23 +288,6 @@ private void tbn_salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         this.dispose();
 }//GEN-LAST:event_tbn_salir1ActionPerformed
 
-private void JDtChFechaOnCommit(datechooser.events.CommitEvent evt) {//GEN-FIRST:event_JDtChFechaOnCommit
-        
-        String []datos=JDtChFecha.getText().split("/");
-
-        String Dia, Mes, Ano;
-        //El campo DATE en la base de datos solo admite en ese orden
-        Ano="";
-        Mes="";
-        Dia="";
-
-        Ano=datos[0];
-        Mes=datos[1];
-        Dia=datos[2];
-        //Caja de texto donde va la fecha extraida
-        JTxtFechaPacientes.setText(Dia+"-" + Mes + "-"+ Ano); 
-}//GEN-LAST:event_JDtChFechaOnCommit
-
 private void dataTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dataTextField1KeyTyped
 char letra=  evt.getKeyChar();
 if(letra>='0' && letra<='9'||letra>='a' && letra<='Z' )
@@ -327,7 +309,15 @@ private void buttonSeven5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 }//GEN-LAST:event_buttonSeven5ActionPerformed
 
 private void buttonSeven2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven2ActionPerformed
-    // TODO add your handling code here:
+       this.dataSource1.setCodigosql("select * from tbl_expedientes where id_paciente="+Integer.parseInt(this.dataTextField1.getText())+";");
+       this.dataSource1.consulta();
+        try {
+            if(this.dataSource1.consulta().getRow()==0){
+                System.out.println("auch");
+            }
+       }catch(Exception e){
+            System.out.println("pff no se dejo");
+       }
 }//GEN-LAST:event_buttonSeven2ActionPerformed
 
 private void btn_primeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_primeroActionPerformed
@@ -345,6 +335,10 @@ private void btn_siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN
 private void btn_ultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ultimoActionPerformed
         this.dataSource1.ultimo();
 }//GEN-LAST:event_btn_ultimoActionPerformed
+
+private void dataTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataTextField1ActionPerformed
+    
+}//GEN-LAST:event_dataTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -367,7 +361,6 @@ private void btn_ultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private datechooser.beans.DateChooserCombo JDtChFecha;
     private FuenteDeDatos.DataMaskedTextField JTxtFechaPacientes;
     private javax.swing.JLabel Lbl_expedientes;
     private org.edisoncor.gui.button.ButtonSeven btn_anterior;

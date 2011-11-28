@@ -15,6 +15,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -453,7 +454,7 @@ public class Frm_empleados extends javax.swing.JFrame {
 }//GEN-LAST:event_btn_anteriorActionPerformed
 
     private void buttonSeven2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven2ActionPerformed
-        Frm_agregar_emp em2=new Frm_agregar_emp(id,t);
+        Frm_add_empleado em2=new Frm_add_empleado(id,t);
         em2.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_buttonSeven2ActionPerformed
@@ -495,6 +496,31 @@ private void tbn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
 }//GEN-LAST:event_tbn_salirActionPerformed
 
 private void buttonSeven3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven3ActionPerformed
+        try{
+            this.dataSource1.consulta("insert into empleados values('"+this.dtxf_id_empleado.getText()+"','"+this.dtxf_nombre.getText()+"','"+this.dtxf_apellido_p.getText()+"','"+this.dtxf_apellido_m.getText()+"','"+this.JTxtFecha.getText()+"','"+this.dtxf_id_usuario.getText()+"',null)");
+            JOptionPane.showMessageDialog(this,"Empleado Agregado Correctamente","Confirmación",JOptionPane.ERROR_MESSAGE);
+        }catch(Exception e){
+             JOptionPane.showMessageDialog(this,"No se pudo agregar al Empleado","Confirmación",JOptionPane.ERROR_MESSAGE);
+        }
+            this.JDtChFechaDel.setEnabled(false);
+            this.JTxtFecha.setEnabled(false);
+            this.dtxf_id_usuario.setEnabled(false);
+            this.dtxf_apellido_m.setEnabled(false);
+            this.dtxf_apellido_p.setEnabled(false);
+            this.dtxf_nombre.setEnabled(false);
+            this.dtxf_id_empleado.setEnabled(true);
+            this.buttonSeven2.setEnabled(false);
+            this.buttonSeven5.setEnabled(false);
+            this.buttonSeven6.setEnabled(false);
+            
+            this.dtxf_id_empleado.setText("");
+            this.dtxf_nombre.setText("");
+            this.dtxf_apellido_p.setText("");
+            this.dtxf_apellido_m.setText("");
+            this.JTxtFecha.setText("");
+            this.dtxf_id_usuario.setText("");
+
+            this.dataSource1.consulta();
         
 }//GEN-LAST:event_buttonSeven3ActionPerformed
 
