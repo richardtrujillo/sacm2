@@ -15,6 +15,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,8 +24,12 @@ import javax.swing.JFileChooser;
 public class Frm_pacientes extends javax.swing.JFrame {
 
     /** Creates new form Frm_pacientes */
-    public Frm_pacientes() {
+    String id="";
+    int t=0;
+    public Frm_pacientes(String id_medico,int tipo) {
         initComponents();
+        id=id_medico;
+        t=tipo;
         //medidas oficiales de los catalogos
         this.setSize(752,393);
         this.panel1.setSize(752,393);
@@ -42,6 +47,8 @@ public class Frm_pacientes extends javax.swing.JFrame {
         this.dtxf_apellido_p.setDocument(new DataTextFieldLimit(20));
         this.dtxf_apellido_m.setDocument(new DataTextFieldLimit(20));
         this.dmtxf_telefono.setDocument(new DataTextFieldLimit(10));
+        this.buttonSeven3.setEnabled(false);
+        this.buttonSeven4.setEnabled(false);
         desactivar();
         try{
             this.dataSource1.consulta();
@@ -287,6 +294,11 @@ public class Frm_pacientes extends javax.swing.JFrame {
 
         buttonSeven4.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven4.setText("Cancelar");
+        buttonSeven4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSeven4ActionPerformed(evt);
+            }
+        });
 
         JDtChFecha.addCommitListener(new datechooser.events.CommitListener() {
             public void onCommit(datechooser.events.CommitEvent evt) {
@@ -321,7 +333,7 @@ public class Frm_pacientes extends javax.swing.JFrame {
         lbl_id_pc.setForeground(new java.awt.Color(0, 57, 85));
         lbl_id_pc.setText("ID_Paciente:");
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 57, 85));
         jLabel11.setText("Estatus:");
 
@@ -536,7 +548,9 @@ public class Frm_pacientes extends javax.swing.JFrame {
         this.dtxf_nombre.setEnabled(true);
         this.dtxf_nombre.requestFocus();
         limpiarcampos();
-        this.buttonSeven3.setEnabled(false);
+        this.buttonSeven3.setEnabled(true);
+        this.buttonSeven2.setEnabled(false);
+        this.buttonSeven4.setEnabled(true);
     }//GEN-LAST:event_buttonSeven2ActionPerformed
         //Campo fecha
 private void JDtChFechaOnCommit(datechooser.events.CommitEvent evt) {//GEN-FIRST:event_JDtChFechaOnCommit
@@ -561,7 +575,7 @@ private void dataCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN
 }//GEN-LAST:event_dataCheckBox1ActionPerformed
 
 private void tbn_salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salir1ActionPerformed
-        Frm_menu log=new Frm_menu("",0);
+        Frm_menu log=new Frm_menu(id,t);
         log.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_tbn_salir1ActionPerformed
@@ -608,7 +622,7 @@ if(letra==10)
         this.dtxf_apellido_p.setEnabled(true);
         this.dtxf_nombre.setEnabled(true); 
         this.dtxf_apellido_m.requestFocus();
-        evt.consume();    
+        evt.consume();  
       }
 }//GEN-LAST:event_dtxf_apellido_pKeyTyped
 
@@ -686,10 +700,37 @@ if(letra==10)
 }//GEN-LAST:event_dtx_emailKeyTyped
 
 private void buttonSeven3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven3ActionPerformed
-    System.out.println(this.dcbx_sexo.getSelectedItem());
+        boolean selected = this.dataCheckBox1.isSelected();
+        int status=0;
+        if(selected==true)status=1;
+        else status=0;
+        try{
+            this.dataSource1.consulta("insert into tbl_pacientes (nombre,apellido_p,apellido_m,f_nac,sexo,direccion,telefono,email,ciudad,estatus,foto) values('"+this.dtxf_nombre.getText()+"','"+this.dtxf_apellido_p.getText()+"','"+this.dtxf_apellido_m.getText()+"','"+this.JTxtFechaPacientes.getText()+"','"+this.dcbx_sexo.getSelectedItem()+"','"+this.dtxf_direccion.getText()+"',"+Integer.parseInt(this.dmtxf_telefono.getText())+",'"+this.dtx_email.getText()+"','"+this.dtxf_ciudad.getText()+"',"+status+",null);");
+            JOptionPane.showMessageDialog(this,"Paciente agregado correctamente","Validacion Campos",JOptionPane.ERROR_MESSAGE);
+            this.dataSource1.setCodigosql("select id_paciente from tbl_pacientes where email='"+this.dtx_email.getText()+"';");
+            this.dataSource1.rs.getString(1);
+            
+            this.dataSource1.consulta("insert into tbl_medico_paciente values(,"+Integer.parseInt(this.dataSource1.rs.getString(1))+"',"+id+","+id+");");
+            System.out.println("agrege a tbl_medico_paciente");
+            this.dataSource1.consulta();
+            desactivar();
+        }
+        catch(Exception e){
+            System.out.println(""+e);
+            JOptionPane.showMessageDialog(this,"No se pudo agregar al paciente","Confirmación",JOptionPane.ERROR_MESSAGE);
+        }
+        System.out.println(this.dcbx_sexo.getSelectedItem());
+        System.out.println(""+selected);
+        
 }//GEN-LAST:event_buttonSeven3ActionPerformed
 
-
+private void buttonSeven4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven4ActionPerformed
+    limpiarcampos();
+    desactivar();
+    this.dataSource1.consulta();
+    this.buttonSeven3.setEnabled(false);
+    this.buttonSeven4.setEnabled(false);
+}//GEN-LAST:event_buttonSeven4ActionPerformed
     public void limpiarcampos(){
         this.lbl_id_pac.setText(" ");
         this.dcbx_sexo.setSelectedIndex(0);
@@ -746,7 +787,7 @@ private void buttonSeven3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
             
             @Override
             public void run() {
-                new Frm_pacientes().setVisible(true);
+                new Frm_pacientes(null,0).setVisible(true);
             }
         });
     }

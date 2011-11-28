@@ -22,8 +22,12 @@ public class Frm_expd extends javax.swing.JFrame {
 
     /** Creates new form Frm_expd */
     int id=0;
-    public Frm_expd() {
+    String id2="";
+    int t=0;
+    public Frm_expd(String id_m,int tip) {
         initComponents();
+        id2=id_m;
+        t=tip;
         this.JTxtFechaPacientes.setEnabled(false);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension frameSize = this.getSize();
@@ -280,7 +284,7 @@ public class Frm_expd extends javax.swing.JFrame {
 }//GEN-LAST:event_buttonSeven1ActionPerformed
 
 private void tbn_salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salir1ActionPerformed
-        Frm_menu log=new Frm_menu("",0);
+        Frm_menu log=new Frm_menu(id2,t);
         log.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_tbn_salir1ActionPerformed
@@ -358,7 +362,7 @@ private void btn_ultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                new Frm_expd().setVisible(true);
+                new Frm_expd(null,0).setVisible(true);
             }
         });
     }

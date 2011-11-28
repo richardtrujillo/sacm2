@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
  */
 public class Frm_log_in extends javax.swing.JFrame {
 
-    String rc_nom="nombre";
+    String rc_id="nombre";
     int rc_tip=1;
     int ban=0;
     String pass="";
@@ -195,8 +195,8 @@ public class Frm_log_in extends javax.swing.JFrame {
 
 private void buttonSeven1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven1ActionPerformed
     pass=new String(this.jPasswordField1.getPassword());
-    rc_nom=dataTextField1.getText();
-    if(rc_nom.equals("")){
+    rc_id=dataTextField1.getText();
+    if(rc_id.equals("")){
         JOptionPane.showMessageDialog(this,"Campo de usuario vacio","Validacion Campos",JOptionPane.ERROR_MESSAGE);}
     if(pass.equals("")){
         JOptionPane.showMessageDialog(this,"Campo contraseña vacio","Validacion Campos",JOptionPane.ERROR_MESSAGE);
@@ -219,11 +219,11 @@ private void buttonSeven1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
             catch(Exception e){
                 System.out.println("no hiso la segunda consulta");
             }
-            rc_nom=this.dataSource1.rs.getString(2) + " "+ this.dataSource1.rs.getString(3)+" "+this.dataSource1.rs.getString(4); 
-            System.out.println(""+rc_nom+"--"+rc_tip);
-            Frm_menu menu=new Frm_menu(rc_nom,rc_tip);
+            rc_id=this.dataSource1.rs.getString(1);
+            //rc_nom=this.dataSource1.rs.getString(2) + " "+ this.dataSource1.rs.getString(3)+" "+this.dataSource1.rs.getString(4); 
+            System.out.println(""+rc_id+"--"+rc_tip);
+            Frm_menu menu=new Frm_menu(rc_id,rc_tip);
             menu.setVisible(true);
-            
             this.dispose(); 
         }else{
          JOptionPane.showMessageDialog(this,"No encontrado","Acceso controlado",JOptionPane.ERROR_MESSAGE);   

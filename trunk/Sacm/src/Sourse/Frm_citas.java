@@ -25,8 +25,12 @@ import java.util.logging.Logger;
 public class Frm_citas extends javax.swing.JFrame {
 
     /** Creates new form Frm_citas */
-    public Frm_citas() {
+    String id="";
+    int t=0;
+    public Frm_citas(String id_m,int tip) {
         initComponents();
+        id=id_m;
+        t=tip;
         this.JTxtFechaCitas.setEnabled(false);
         //Con este aparece la fecha 
          Calendar cal=Calendar.getInstance(); 
@@ -296,8 +300,8 @@ private void JDtChFechaOnCommit(datechooser.events.CommitEvent evt) {//GEN-FIRST
 }//GEN-LAST:event_JDtChFechaOnCommit
 
 private void tbn_salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salir1ActionPerformed
-        Frm_log_in log=new Frm_log_in();
-        log.setVisible(true);
+        Frm_menu men=new Frm_menu(id,t);
+        men.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_tbn_salir1ActionPerformed
 
@@ -343,8 +347,9 @@ private void buttonSeven6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
+            @Override
             public void run() {
-                new Frm_citas().setVisible(true);
+                new Frm_citas(null,0).setVisible(true);
             }
         });
     }
