@@ -61,9 +61,8 @@ public class Frm_empleados extends javax.swing.JFrame {
                     this.dtxf_id_usuario.setEnabled(false);
                     this.dtxf_apellido_m.setEnabled(false);
                     this.dtxf_apellido_p.setEnabled(false);
-                    this.dtxf_nombre.setEnabled(false);
+                    this.dtxf_nombre.setEnabled(true);
                     this.buttonSeven2.setEnabled(false);
-                    this.buttonSeven5.setEnabled(false);
                     this.buttonSeven6.setEnabled(false);
         }
     }
@@ -90,7 +89,6 @@ public class Frm_empleados extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         dtxf_apellido_m = new FuenteDeDatos.DataTextField();
         dtxf_apellido_p = new FuenteDeDatos.DataTextField();
-        buttonSeven5 = new org.edisoncor.gui.button.ButtonSeven();
         buttonSeven6 = new org.edisoncor.gui.button.ButtonSeven();
         jLabel3 = new javax.swing.JLabel();
         JTxtFecha = new FuenteDeDatos.DataTextField();
@@ -222,14 +220,6 @@ public class Frm_empleados extends javax.swing.JFrame {
             }
         });
 
-        buttonSeven5.setBackground(new java.awt.Color(0, 57, 85));
-        buttonSeven5.setText("Eliminar");
-        buttonSeven5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSeven5ActionPerformed(evt);
-            }
-        });
-
         buttonSeven6.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven6.setText("Permisos");
         buttonSeven6.addActionListener(new java.awt.event.ActionListener() {
@@ -278,7 +268,7 @@ public class Frm_empleados extends javax.swing.JFrame {
 
         dataLabel1.setCampo("id_empleado");
         dataLabel1.setData(dataSource1);
-        dataLabel1.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        dataLabel1.setFont(new java.awt.Font("Tahoma", 3, 12));
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -286,7 +276,7 @@ public class Frm_empleados extends javax.swing.JFrame {
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addComponent(tbn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(733, Short.MAX_VALUE))
+                .addContainerGap(745, Short.MAX_VALUE))
             .addGroup(panel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -310,11 +300,6 @@ public class Frm_empleados extends javax.swing.JFrame {
                 .addGap(73, 73, 73)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                        .addComponent(buttonSeven6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(buttonSeven5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(Lbl_catalogo_pacientes)
                             .addGroup(panel1Layout.createSequentialGroup()
@@ -333,9 +318,12 @@ public class Frm_empleados extends javax.swing.JFrame {
                         .addComponent(btn_ultimo, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(42, 42, 42))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                        .addComponent(buttonSeven2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonSeven3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(buttonSeven6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addComponent(buttonSeven2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buttonSeven3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonSeven4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
@@ -390,9 +378,7 @@ public class Frm_empleados extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addComponent(dtxf_id_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonSeven5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonSeven6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(buttonSeven6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
@@ -455,10 +441,6 @@ public class Frm_empleados extends javax.swing.JFrame {
         this.dispose();
 }//GEN-LAST:event_buttonSeven2ActionPerformed
 
-    private void buttonSeven5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonSeven5ActionPerformed
-
     private void buttonSeven6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven6ActionPerformed
         Frm_permisos per=new Frm_permisos(id,t);
         per.setVisible(true);
@@ -512,7 +494,6 @@ private void buttonSeven3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
             this.dtxf_apellido_p.setEnabled(false);
             this.dtxf_nombre.setEnabled(false);
             this.buttonSeven2.setEnabled(false);
-            this.buttonSeven5.setEnabled(false);
             this.buttonSeven6.setEnabled(false);
             
             this.dtxf_nombre.setText("");
@@ -604,7 +585,6 @@ private void buttonSeven4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                     this.buttonSeven3.setEnabled(false);
                     this.buttonSeven4.setEnabled(false);
                     this.buttonSeven2.setEnabled(true);
-                    this.buttonSeven5.setEnabled(true);
                     this.buttonSeven6.setEnabled(true);
                     this.dataSource1.consulta();
 }//GEN-LAST:event_buttonSeven4ActionPerformed
@@ -636,7 +616,6 @@ private void buttonSeven4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private org.edisoncor.gui.button.ButtonSeven buttonSeven2;
     private org.edisoncor.gui.button.ButtonSeven buttonSeven3;
     private org.edisoncor.gui.button.ButtonSeven buttonSeven4;
-    private org.edisoncor.gui.button.ButtonSeven buttonSeven5;
     private org.edisoncor.gui.button.ButtonSeven buttonSeven6;
     private FuenteDeDatos.DataLabel dataLabel1;
     private FuenteDeDatos.DataSource dataSource1;

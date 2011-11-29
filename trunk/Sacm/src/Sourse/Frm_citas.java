@@ -163,7 +163,7 @@ public class Frm_citas extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 57, 85));
         jLabel2.setText("Paciente:");
         panel1.add(jLabel2);
-        jLabel2.setBounds(30, 90, 63, 17);
+        jLabel2.setBounds(30, 90, 64, 17);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel4.setForeground(new java.awt.Color(0, 57, 85));
@@ -194,12 +194,12 @@ public class Frm_citas extends javax.swing.JFrame {
             }
         });
         panel1.add(dataTextField1);
-        dataTextField1.setBounds(100, 90, 230, 20);
+        dataTextField1.setBounds(100, 90, 230, 28);
 
         JTxtFechaCitas.setCampo("fecha");
         JTxtFechaCitas.setData(dataSource1);
         panel1.add(JTxtFechaCitas);
-        JTxtFechaCitas.setBounds(100, 180, 130, 20);
+        JTxtFechaCitas.setBounds(100, 180, 130, 28);
 
         tbn_salir.setBackground(new java.awt.Color(255, 0, 0));
         tbn_salir.setText("X");
@@ -225,7 +225,7 @@ public class Frm_citas extends javax.swing.JFrame {
         dataCombobox1.setCampo("hora");
         dataCombobox1.setData(dataSource1);
         panel1.add(dataCombobox1);
-        dataCombobox1.setBounds(270, 180, 60, 20);
+        dataCombobox1.setBounds(270, 180, 80, 27);
 
         JDtChFecha.addCommitListener(new datechooser.events.CommitListener() {
             public void onCommit(datechooser.events.CommitEvent evt) {
@@ -233,7 +233,7 @@ public class Frm_citas extends javax.swing.JFrame {
             }
         });
         panel1.add(JDtChFecha);
-        JDtChFecha.setBounds(240, 180, 24, 20);
+        JDtChFecha.setBounds(240, 180, 24, 28);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 3, 24));
         jLabel5.setForeground(new java.awt.Color(0, 57, 85));
@@ -244,7 +244,7 @@ public class Frm_citas extends javax.swing.JFrame {
         dataTextField2.setCampo("descripcion");
         dataTextField2.setData(dataSource1);
         panel1.add(dataTextField2);
-        dataTextField2.setBounds(100, 230, 230, 20);
+        dataTextField2.setBounds(100, 230, 230, 28);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel6.setForeground(new java.awt.Color(0, 57, 85));
@@ -283,7 +283,7 @@ public class Frm_citas extends javax.swing.JFrame {
        this.buttonSeven3.setEnabled(true);
        this.buttonSeven4.setEnabled(true);
        this.buttonSeven5.setEnabled(false);
-       this.JTxtFechaCitas.setEnabled(true);
+       this.JTxtFechaCitas.setEnabled(false);
        this.dataTextField2.setEnabled(true);
        this.JDtChFecha.setEnabled(true);
        this.dataCombobox1.setEnabled(true);
@@ -367,6 +367,7 @@ private void buttonSeven3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
       this.dataCombobox1.setEnabled(false); 
       this.dataTextField1.setEnabled(true);
       this.buttonSeven6.setEnabled(true);
+      this.dispose();
 }//GEN-LAST:event_buttonSeven3ActionPerformed
 
 private void buttonSeven4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven4ActionPerformed

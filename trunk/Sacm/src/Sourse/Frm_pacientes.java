@@ -143,11 +143,6 @@ public class Frm_pacientes extends javax.swing.JFrame {
 
         dtxf_nombre.setCampo("Nombre");
         dtxf_nombre.setData(dataSource1);
-        dtxf_nombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dtxf_nombreActionPerformed(evt);
-            }
-        });
         dtxf_nombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 dtxf_nombreKeyTyped(evt);
@@ -212,11 +207,6 @@ public class Frm_pacientes extends javax.swing.JFrame {
 
         dmtxf_telefono.setCampo("Telefono");
         dmtxf_telefono.setData(dataSource1);
-        dmtxf_telefono.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dmtxf_telefonoActionPerformed(evt);
-            }
-        });
         dmtxf_telefono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 dmtxf_telefonoKeyTyped(evt);
@@ -328,11 +318,6 @@ public class Frm_pacientes extends javax.swing.JFrame {
         dataCheckBox1.setCampo("Estatus");
         dataCheckBox1.setData(dataSource1);
         dataCheckBox1.setFont(new java.awt.Font("Tahoma", 1, 15));
-        dataCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dataCheckBox1ActionPerformed(evt);
-            }
-        });
 
         tbn_salir1.setBackground(new java.awt.Color(255, 0, 0));
         tbn_salir1.setText("X");
@@ -513,10 +498,6 @@ public class Frm_pacientes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void dmtxf_telefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dmtxf_telefonoActionPerformed
-        
-    }//GEN-LAST:event_dmtxf_telefonoActionPerformed
-
     private void buttonSeven1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven1ActionPerformed
         JFileChooser dlg = new JFileChooser();
         //Abre la ventana de dialogo
@@ -583,10 +564,6 @@ private void JDtChFechaOnCommit(datechooser.events.CommitEvent evt) {//GEN-FIRST
         JTxtFechaPacientes.setText(Dia+"-" + Mes + "-"+ Ano); 
 }//GEN-LAST:event_JDtChFechaOnCommit
 
-private void dataCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataCheckBox1ActionPerformed
-
-}//GEN-LAST:event_dataCheckBox1ActionPerformed
-
 private void tbn_salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salir1ActionPerformed
         Frm_menu log=new Frm_menu(id,t);
         log.setVisible(true);
@@ -600,22 +577,13 @@ if(letra>='0' && letra<='9'||letra>='a' && letra<='Z' )
       {
           evt.consume();
       }
-if(letra==10)
-      {
-          evt.consume();
-      }
-      if(letra==10)
-      {
-        desactivar();
-        this.dtxf_apellido_p.setEnabled(true);
+if(letra==10){ desactivar();
+this.dtxf_apellido_p.setEnabled(true);
         this.dtxf_nombre.setEnabled(true);
         this.dtxf_apellido_p.requestFocus();
+          evt.consume();
       }
 }//GEN-LAST:event_dtxf_nombreKeyTyped
-
-private void dtxf_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dtxf_nombreActionPerformed
-       
-}//GEN-LAST:event_dtxf_nombreActionPerformed
 
 private void dtxf_apellido_pKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dtxf_apellido_pKeyTyped
    
@@ -624,19 +592,13 @@ if(letra>='0' && letra<='9'|| (letra>='a' && letra<='Z') )
       {
           evt.consume();
       }
-if(letra==10)
-      {
-          evt.consume();
-      }
-      if(letra==10)
-      {
-        desactivar();
+if(letra==10){ desactivar();
         this.dtxf_apellido_m.setEnabled(true);
         this.dtxf_apellido_p.setEnabled(true);
         this.dtxf_nombre.setEnabled(true); 
         this.dtxf_apellido_m.requestFocus();
-        evt.consume();  
-      }
+          evt.consume();
+      }     
 }//GEN-LAST:event_dtxf_apellido_pKeyTyped
 
 private void dtxf_apellido_mKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dtxf_apellido_mKeyTyped
@@ -646,22 +608,15 @@ if(letra>='0' && letra<='9'||letra>='a' && letra<='Z' )
           evt.consume();
       }
 if(letra==10)
-      {
-          evt.consume();
-      }
-      if(letra==10)
-      {
-        activar();
-        this.JTxtFechaPacientes.setEnabled(false);
-      }
+      {activar();
+this.JTxtFechaPacientes.setEnabled(false);
+          evt.consume();}
 }//GEN-LAST:event_dtxf_apellido_mKeyTyped
 
 private void dtxf_direccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dtxf_direccionKeyTyped
 char letra=  evt.getKeyChar();
 if(letra==10)
-      {
-          evt.consume();
-      }
+      {evt.consume();}
       if(letra==10)
       {
     this.dmtxf_telefono.requestFocus();
