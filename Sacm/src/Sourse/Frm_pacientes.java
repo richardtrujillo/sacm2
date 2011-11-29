@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
 public class Frm_pacientes extends javax.swing.JFrame {
 
     /** Creates new form Frm_pacientes */
-    String id="";
+    String id=" ";
     int t=0;
     public Frm_pacientes(String id_empleado,int tipo) {
         initComponents();
@@ -42,6 +42,7 @@ public class Frm_pacientes extends javax.swing.JFrame {
         if (frameSize.width > screenSize.width) {
             frameSize.width = screenSize.width;
         }
+        
         this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
         this.dtxf_nombre.setDocument(new DataTextFieldLimit(20));
         this.dtxf_apellido_p.setDocument(new DataTextFieldLimit(20));
@@ -50,12 +51,23 @@ public class Frm_pacientes extends javax.swing.JFrame {
         this.buttonSeven3.setEnabled(false);
         this.buttonSeven4.setEnabled(false);
         desactivar();
+        
+        if(t==2){
         try{
             System.out.println("id empleado:"+id_empleado);
             this.dataSource1.setCodigosql("select * from tbl_pacientes where id_paciente = any(select id_paciente from tbl_medico_paciente where id_empleado="+id_empleado+" or id_empleado_temporal="+id_empleado+");");
             this.dataSource1.consulta();
         }catch(Exception e){
             JOptionPane.showMessageDialog(this,"Conexion a la base de datos no establecida","Conexion",JOptionPane.ERROR_MESSAGE); 
+        }}
+        else{
+        try{
+            System.out.println("id empleado:"+id_empleado);
+            this.dataSource1.setCodigosql("select * from tbl_pacientes;");;
+            this.dataSource1.consulta();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this,"Conexion a la base de datos no establecida","Conexion",JOptionPane.ERROR_MESSAGE); 
+        }
         }
     }
     @SuppressWarnings("unchecked")

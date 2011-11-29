@@ -59,13 +59,15 @@ public class Frm_reportes extends javax.swing.JFrame {
             modelo.addColumn("Descripcion");
             modelo.addColumn("Medicacion");
             modelo.addColumn("F_nac");
-        while (this.dataSource1.rs.next())
+       
+         do
         {                
                Object [] fila = new Object[5];
                for (int i=0;i<5;i++)
                fila[i] =this.dataSource1.rs.getObject(i+1); 
-               modelo.addRow(fila);    
-        }
+               modelo.addRow(fila);  
+        }while (this.dataSource1.rs.next());
+        
         
         jTable1.setModel(modelo); 
     }
@@ -161,11 +163,11 @@ public class Frm_reportes extends javax.swing.JFrame {
             panel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(panel1Layout.createSequentialGroup()
                 .add(tbn_salir, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 555, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 575, Short.MAX_VALUE)
                 .add(jLabel1)
                 .add(32, 32, 32))
             .add(org.jdesktop.layout.GroupLayout.TRAILING, panel1Layout.createSequentialGroup()
-                .addContainerGap(178, Short.MAX_VALUE)
+                .addContainerGap(198, Short.MAX_VALUE)
                 .add(bt, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 81, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
                 .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 131, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)

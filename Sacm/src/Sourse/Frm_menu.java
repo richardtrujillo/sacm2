@@ -153,7 +153,7 @@ public final class Frm_menu extends javax.swing.JFrame {
         tbn_salir.setBounds(0, 0, 30, 20);
 
         clockDigital1.setForeground(new java.awt.Color(0, 51, 51));
-        clockDigital1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        clockDigital1.setFont(new java.awt.Font("Tahoma", 1, 14));
         panelCurves1.add(clockDigital1);
         clockDigital1.setBounds(10, 320, 110, 34);
 
@@ -235,7 +235,7 @@ public final class Frm_menu extends javax.swing.JFrame {
         dlbl_nombre.setText("Aqui aparecera el nombre del empleado logeado");
         dlbl_nombre.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         panelCurves1.add(dlbl_nombre);
-        dlbl_nombre.setBounds(10, 58, 300, 31);
+        dlbl_nombre.setBounds(10, 49, 300, 40);
 
         buttonTask8.setForeground(new java.awt.Color(0, 57, 85));
         buttonTask8.setText("Agenda");
