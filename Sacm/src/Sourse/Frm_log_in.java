@@ -68,7 +68,7 @@ public class Frm_log_in extends javax.swing.JFrame {
         dataSource1.setCodigosql("select * from tbl_usuarios");
         dataSource1.setDb("SACM");
         dataSource1.setIp("localhost");
-        dataSource1.setPassword("3mbl3ma");
+        dataSource1.setPassword("");
         dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);

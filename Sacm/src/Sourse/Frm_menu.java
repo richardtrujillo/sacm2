@@ -28,9 +28,8 @@ public final class Frm_menu extends javax.swing.JFrame {
         id_t=id;
         t=tipo;
         try{
-        this.dataSource1.setCodigosql("select concat(concat(concat(nombre,' '),' '),apellido_p) as name from empleados where id_empleado='"+id+"';");
+        this.dlbl_nombre.setText(this.dataSource1.consultaSN("select concat(concat(concat(nombre,' '),' '),apellido_p) as name from empleados where id_empleado='"+id+"';").getString("name"));
         this.dataSource1.consulta();
-        this.dlbl_nombre.setText(this.dataSource1.rs.getString("name"));
         }catch(Exception e){
             System.out.println("no se pudo encontrar el nombre");
         }
@@ -118,7 +117,7 @@ public final class Frm_menu extends javax.swing.JFrame {
         dataSource1.setCodigosql("select * from empleados");
         dataSource1.setDb("sacm");
         dataSource1.setIp("localhost");
-        dataSource1.setPassword("3mbl3ma");
+        dataSource1.setPassword("");
         dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -130,6 +129,8 @@ public final class Frm_menu extends javax.swing.JFrame {
         panel1.setColorSecundario(new java.awt.Color(0, 153, 153));
         panel1.setPreferredSize(new java.awt.Dimension(752, 393));
 
+        panelCurves1.setLayout(null);
+
         buttonTask1.setForeground(new java.awt.Color(0, 57, 85));
         buttonTask1.setText("Empleados");
         buttonTask1.setDescription("Catalogo Empleados");
@@ -138,6 +139,8 @@ public final class Frm_menu extends javax.swing.JFrame {
                 buttonTask1ActionPerformed(evt);
             }
         });
+        panelCurves1.add(buttonTask1);
+        buttonTask1.setBounds(490, 190, 208, 64);
 
         tbn_salir.setBackground(new java.awt.Color(255, 0, 0));
         tbn_salir.setText("X");
@@ -146,9 +149,13 @@ public final class Frm_menu extends javax.swing.JFrame {
                 tbn_salirActionPerformed(evt);
             }
         });
+        panelCurves1.add(tbn_salir);
+        tbn_salir.setBounds(0, 0, 30, 20);
 
         clockDigital1.setForeground(new java.awt.Color(0, 51, 51));
-        clockDigital1.setFont(new java.awt.Font("Tahoma", 1, 14));
+        clockDigital1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        panelCurves1.add(clockDigital1);
+        clockDigital1.setBounds(10, 320, 110, 34);
 
         buttonTask5.setForeground(new java.awt.Color(0, 57, 85));
         buttonTask5.setText("Reportes");
@@ -158,10 +165,14 @@ public final class Frm_menu extends javax.swing.JFrame {
                 buttonTask5ActionPerformed(evt);
             }
         });
+        panelCurves1.add(buttonTask5);
+        buttonTask5.setBounds(250, 180, 221, 58);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24));
         jLabel1.setForeground(new java.awt.Color(0, 57, 85));
         jLabel1.setText("Bienvenido:");
+        panelCurves1.add(jLabel1);
+        jLabel1.setBounds(37, 11, 141, 29);
 
         buttonTask2.setForeground(new java.awt.Color(0, 57, 85));
         buttonTask2.setText("Pacientes");
@@ -171,6 +182,8 @@ public final class Frm_menu extends javax.swing.JFrame {
                 buttonTask2ActionPerformed(evt);
             }
         });
+        panelCurves1.add(buttonTask2);
+        buttonTask2.setBounds(10, 246, 259, 64);
 
         buttonTask3.setForeground(new java.awt.Color(0, 57, 85));
         buttonTask3.setText("Expedientes");
@@ -180,6 +193,8 @@ public final class Frm_menu extends javax.swing.JFrame {
                 buttonTask3ActionPerformed(evt);
             }
         });
+        panelCurves1.add(buttonTask3);
+        buttonTask3.setBounds(250, 240, 238, 64);
 
         buttonTask4.setForeground(new java.awt.Color(0, 57, 85));
         buttonTask4.setText("Citas");
@@ -190,6 +205,8 @@ public final class Frm_menu extends javax.swing.JFrame {
                 buttonTask4ActionPerformed(evt);
             }
         });
+        panelCurves1.add(buttonTask4);
+        buttonTask4.setBounds(10, 118, 259, 58);
 
         buttonTask6.setForeground(new java.awt.Color(0, 57, 85));
         buttonTask6.setText("Bitacora");
@@ -199,6 +216,8 @@ public final class Frm_menu extends javax.swing.JFrame {
                 buttonTask6ActionPerformed(evt);
             }
         });
+        panelCurves1.add(buttonTask6);
+        buttonTask6.setBounds(480, 120, 208, 64);
 
         buttonTask7.setForeground(new java.awt.Color(0, 57, 85));
         buttonTask7.setText("Diagnostico");
@@ -209,8 +228,14 @@ public final class Frm_menu extends javax.swing.JFrame {
                 buttonTask7ActionPerformed(evt);
             }
         });
+        panelCurves1.add(buttonTask7);
+        buttonTask7.setBounds(250, 120, 221, 50);
 
+        dlbl_nombre.setForeground(new java.awt.Color(0, 102, 102));
         dlbl_nombre.setText("Aqui aparecera el nombre del empleado logeado");
+        dlbl_nombre.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        panelCurves1.add(dlbl_nombre);
+        dlbl_nombre.setBounds(10, 58, 300, 31);
 
         buttonTask8.setForeground(new java.awt.Color(0, 57, 85));
         buttonTask8.setText("Agenda");
@@ -221,73 +246,8 @@ public final class Frm_menu extends javax.swing.JFrame {
                 buttonTask8ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout panelCurves1Layout = new javax.swing.GroupLayout(panelCurves1);
-        panelCurves1.setLayout(panelCurves1Layout);
-        panelCurves1Layout.setHorizontalGroup(
-            panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelCurves1Layout.createSequentialGroup()
-                    .addGap(37, 37, 37)
-                    .addComponent(jLabel1))
-                .addComponent(tbn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCurves1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCurves1Layout.createSequentialGroup()
-                            .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(buttonTask4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(buttonTask8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(buttonTask2, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(buttonTask3, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(buttonTask5, javax.swing.GroupLayout.Alignment.LEADING, 0, 0, Short.MAX_VALUE)
-                                    .addComponent(buttonTask7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(buttonTask6, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(buttonTask1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(panelCurves1Layout.createSequentialGroup()
-                            .addComponent(dlbl_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap()))))
-            .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        panelCurves1Layout.setVerticalGroup(
-            panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCurves1Layout.createSequentialGroup()
-                .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tbn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelCurves1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)))
-                .addGap(18, 18, 18)
-                .addComponent(dlbl_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonTask7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCurves1Layout.createSequentialGroup()
-                        .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelCurves1Layout.createSequentialGroup()
-                                .addGap(66, 66, 66)
-                                .addComponent(buttonTask6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(buttonTask3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(buttonTask1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(panelCurves1Layout.createSequentialGroup()
-                                .addComponent(buttonTask4, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panelCurves1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(buttonTask8, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(buttonTask5, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buttonTask2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(31, 31, 31)
-                        .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-        );
+        panelCurves1.add(buttonTask8);
+        buttonTask8.setBounds(10, 182, 259, 53);
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -297,7 +257,7 @@ public final class Frm_menu extends javax.swing.JFrame {
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelCurves1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelCurves1, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -352,7 +312,7 @@ public final class Frm_menu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonTask4ActionPerformed
 
     private void buttonTask7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask7ActionPerformed
-       Frm_Diagnostico dia=new Frm_Diagnostico();
+       Frm_Diagnostico dia=new Frm_Diagnostico(id_t,t);
        dia.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_buttonTask7ActionPerformed

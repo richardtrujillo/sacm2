@@ -13,10 +13,9 @@ package Sourse;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.sql.SQLException;
 import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -49,9 +48,14 @@ public class Frm_citas extends javax.swing.JFrame {
             frameSize.width = screenSize.width;
         }
         this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
+        this.buttonSeven2.setEnabled(false);
         this.buttonSeven3.setEnabled(false);
         this.buttonSeven4.setEnabled(false);
         this.buttonSeven5.setEnabled(false);
+        this.JTxtFechaCitas.setEnabled(false);
+        this.dataTextField2.setEnabled(false);
+        this.JDtChFecha.setEnabled(false);
+        this.dataCombobox1.setEnabled(false);       
         }
 
     /** This method is called from within the constructor to
@@ -91,7 +95,7 @@ public class Frm_citas extends javax.swing.JFrame {
         dataSource1.setCodigosql("select * from tbl_citas");
         dataSource1.setDb("sacm");
         dataSource1.setIp("localhost");
-        dataSource1.setPassword("3mbl3ma");
+        dataSource1.setPassword("");
         dataSource1.setUsuario("root");
 
         tbn_salir1.setBackground(new java.awt.Color(255, 0, 0));
@@ -105,7 +109,7 @@ public class Frm_citas extends javax.swing.JFrame {
         dataSource2.setCodigosql("select * from tbl_citas");
         dataSource2.setDb("sacm");
         dataSource2.setIp("localhost");
-        dataSource2.setPassword("3mbl3ma");
+        dataSource2.setPassword("");
         dataSource2.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -129,6 +133,11 @@ public class Frm_citas extends javax.swing.JFrame {
 
         buttonSeven4.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven4.setText("Cancelar");
+        buttonSeven4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSeven4ActionPerformed(evt);
+            }
+        });
         panel1.add(buttonSeven4);
         buttonSeven4.setBounds(510, 150, 95, 35);
 
@@ -202,9 +211,9 @@ public class Frm_citas extends javax.swing.JFrame {
         dataTextField1.setBounds(100, 90, 230, 20);
 
         JTxtFechaCitas.setCampo("fecha");
-        JTxtFechaCitas.setData(dataSource2);
+        JTxtFechaCitas.setData(dataSource1);
         panel1.add(JTxtFechaCitas);
-        JTxtFechaCitas.setBounds(100, 180, 148, 20);
+        JTxtFechaCitas.setBounds(100, 180, 130, 20);
 
         tbn_salir.setBackground(new java.awt.Color(255, 0, 0));
         tbn_salir.setText("X");
@@ -228,9 +237,9 @@ public class Frm_citas extends javax.swing.JFrame {
 
         dataCombobox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00" }));
         dataCombobox1.setCampo("hora");
-        dataCombobox1.setData(dataSource2);
+        dataCombobox1.setData(dataSource1);
         panel1.add(dataCombobox1);
-        dataCombobox1.setBounds(290, 180, 83, 20);
+        dataCombobox1.setBounds(270, 180, 60, 20);
 
         JDtChFecha.addCommitListener(new datechooser.events.CommitListener() {
             public void onCommit(datechooser.events.CommitEvent evt) {
@@ -238,7 +247,7 @@ public class Frm_citas extends javax.swing.JFrame {
             }
         });
         panel1.add(JDtChFecha);
-        JDtChFecha.setBounds(260, 180, 24, 20);
+        JDtChFecha.setBounds(240, 180, 24, 20);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 3, 24));
         jLabel5.setForeground(new java.awt.Color(0, 57, 85));
@@ -247,7 +256,7 @@ public class Frm_citas extends javax.swing.JFrame {
         jLabel5.setBounds(524, 11, 67, 29);
 
         dataTextField2.setCampo("descripcion");
-        dataTextField2.setData(dataSource2);
+        dataTextField2.setData(dataSource1);
         panel1.add(dataTextField2);
         dataTextField2.setBounds(100, 230, 230, 20);
 
@@ -282,15 +291,21 @@ public class Frm_citas extends javax.swing.JFrame {
 }//GEN-LAST:event_buttonSeven5ActionPerformed
         
     private void buttonSeven2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven2ActionPerformed
+       this.dataTextField1.setEnabled(false);
+       this.buttonSeven6.setEnabled(false);
        this.buttonSeven2.setEnabled(false);
        this.buttonSeven3.setEnabled(true);
        this.buttonSeven4.setEnabled(true);
-       this.buttonSeven5.setEnabled(false);  
+       this.buttonSeven5.setEnabled(false);
+       this.JTxtFechaCitas.setEnabled(true);
+       this.dataTextField2.setEnabled(true);
+       this.JDtChFecha.setEnabled(true);
+       this.dataCombobox1.setEnabled(true);
 }//GEN-LAST:event_buttonSeven2ActionPerformed
 
     private void tbn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salirActionPerformed
-        Frm_menu men=new Frm_menu("",0);
-        men.setVisible(true);
+        Frm_menu log=new Frm_menu(id,t);
+        log.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_tbn_salirActionPerformed
  //Campo fecha
@@ -325,7 +340,7 @@ private void dataTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GE
 
 private void dataTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dataTextField1KeyTyped
 char letra=  evt.getKeyChar();
-if(letra>='0' && letra<='9'||letra>='a' && letra<='Z' )
+if(letra<='0' && letra>='9')
       {
           evt.consume();
       }
@@ -333,20 +348,16 @@ if(letra>='0' && letra<='9'||letra>='a' && letra<='Z' )
 
 private void buttonSeven6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven6ActionPerformed
         try{ 
-            this.dataSource1.setCodigosql("select id_asignacion from tbl_medico_paciente where id_paciente="+Integer.parseInt(this.dataTextField1.getText())+";");
-            this.dataSource1.consulta();
-            id_a=this.dataSource1.rs.getString(1);
+            id_a=this.dataSource1.consultaSN("select id_asignacion from tbl_medico_paciente where id_paciente="+Integer.parseInt(this.dataTextField1.getText())+";").getString(1);
+            System.out.println(""+id_a);
         } catch (Exception ex) {
             System.out.println("no pude hacer la consulta");
         }try{
-            this.dataSource2.setCodigosql("select * tbl_citas where id_asignacion='"+id_a+"';");
-            this.dataSource2.consulta();
-            System.out.println(""+this.dataSource2.consulta().getRow());
+            this.dataSource1.setCodigosql("select * tbl_citas where id_asignacion='"+id_a+"';");
+            this.dataSource1.consulta();
         }catch(Exception e){
             System.out.println("algo paso");
         }
-            
-        
         this.buttonSeven2.setEnabled(true);
         this.buttonSeven3.setEnabled(false);
         this.buttonSeven4.setEnabled(false);
@@ -356,26 +367,43 @@ private void buttonSeven6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 private void buttonSeven3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven3ActionPerformed
       try{
           this.dataSource1.consulta("insert into tbl_citas values('"+this.JTxtFechaCitas.getText()+"','"+(this.dataCombobox1.getSelectedItem()+":00")+"','"+this.dataTextField2.getText()+"','"+id_a+"');");
+          JOptionPane.showMessageDialog(this,"Cita Registrada","Confirmación",JOptionPane.ERROR_MESSAGE);
       }catch(Exception e){
-          System.out.println("No pude registrar la cita");
+          JOptionPane.showMessageDialog(this,"La Cita no se registro","Confirmación",JOptionPane.ERROR_MESSAGE);
       }
+      this.buttonSeven2.setEnabled(true);
+      this.buttonSeven3.setEnabled(false);
+      this.buttonSeven4.setEnabled(false);
+      this.buttonSeven5.setEnabled(false);
+      this.JTxtFechaCitas.setEnabled(false);
+      this.dataTextField2.setEnabled(false);
+      this.JDtChFecha.setEnabled(false);
+      this.dataCombobox1.setEnabled(false); 
+      this.dataTextField1.setEnabled(true);
+      this.buttonSeven6.setEnabled(true);
 }//GEN-LAST:event_buttonSeven3ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+private void buttonSeven4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven4ActionPerformed
+      this.buttonSeven2.setEnabled(false);
+      this.buttonSeven3.setEnabled(false);
+      this.buttonSeven4.setEnabled(false);
+      this.buttonSeven5.setEnabled(false);
+      this.JTxtFechaCitas.setEnabled(false);
+      this.dataTextField2.setEnabled(false);
+      this.JDtChFecha.setEnabled(false);
+      this.dataCombobox1.setEnabled(false); 
+      this.dataTextField1.setEnabled(true);
+      this.buttonSeven6.setEnabled(true);
+}//GEN-LAST:event_buttonSeven4ActionPerformed
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
                 getImage(ClassLoader.getSystemResource("images/icono.png"));
-
-
         return retValue;
     }
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
-
             @Override
             public void run() {
                 new Frm_citas(null,0).setVisible(true);
