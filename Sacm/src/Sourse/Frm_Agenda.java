@@ -245,7 +245,7 @@ this.JTxtBuscar.requestFocus();
                     {
                         try
                         {
-                            sorter.setRowFilter(RowFilter.regexFilter("^" + Fecha, 0));
+                            sorter.setRowFilter(RowFilter.regexFilter("^" + Fecha, 1));
                         }
                         catch (Exception ex)
                         {

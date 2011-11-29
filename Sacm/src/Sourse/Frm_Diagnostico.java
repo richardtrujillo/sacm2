@@ -188,7 +188,7 @@ private void dtf_idpacKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_d
 private void buttonSeven3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven3ActionPerformed
     activar();
     this.dataSource1.consulta("insert into tbl_expedientes (id_paciente,Fecha,descripcion,medicacion ) values('"+this.dtf_idpac.getText()+"',CURDATE(),'"+this.dtxf_desc.getText()+"','"+this.dtxf_med.getText()+"');");
-    JOptionPane.showMessageDialog(this,"Paciente agregado correctamente","Validacion Campos",JOptionPane.ERROR_MESSAGE);
+    JOptionPane.showMessageDialog(this,"Diagnostico registrado","Validacion Campos",JOptionPane.ERROR_MESSAGE);
     limpiarcampos();
 
 }//GEN-LAST:event_buttonSeven3ActionPerformed

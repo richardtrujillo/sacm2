@@ -36,34 +36,34 @@ public final class Frm_menu extends javax.swing.JFrame {
         switch(tipo){
             case 1:
                         //Caso Jefe clinico
-                        this.setSize(760, 360);
+                        this.setSize(735, 390);
                         this.datahabilitador1.habilitaredison(panel1, this.buttonTask1);
                 break;
             case 2:
                         //Caso Medico
-                        this.setSize(660, 360);
-                        this.tbn_salir.setLocation(480, 350);
+                        this.setSize(660, 390);
+                        this.tbn_salir.setLocation(0, 0);
                         this.buttonTask1.setVisible(false);
                         this.buttonTask2.setVisible(true);
                         this.buttonTask3.setVisible(true);
                         this.buttonTask4.setVisible(true);
                         this.buttonTask5.setVisible(false);
-                        this.buttonTask6.setVisible(false);
                         this.buttonTask7.setVisible(true);
+                        this.buttonTask8.setVisible(true);
                         this.buttonTask8.setVisible(true);
                         break;
             case 3:
                         //Caso Recepcion
-                        this.setSize(350, 360);
-                        this.tbn_salir.setLocation(200, 250);
+                        this.setSize(350, 390);
+                        this.tbn_salir.setLocation(00, 00);
                         this.buttonTask1.setVisible(false);
                         this.buttonTask2.setVisible(true);
                         this.buttonTask3.setVisible(false);
                         this.buttonTask4.setVisible(true);
                         this.buttonTask5.setVisible(false);
-                        this.buttonTask6.setVisible(false);
                         this.buttonTask7.setVisible(false);
                         this.buttonTask8.setVisible(true);
+                        this.buttonTask9.setVisible(false);
                         break;
             default:
                         this.buttonTask1.setVisible(true);
@@ -71,9 +71,9 @@ public final class Frm_menu extends javax.swing.JFrame {
                         this.buttonTask3.setVisible(true);
                         this.buttonTask4.setVisible(true);
                         this.buttonTask5.setVisible(true);
-                        this.buttonTask6.setVisible(true);
                         this.buttonTask7.setVisible(true);
                         this.buttonTask8.setVisible(true);
+                        
                 break;
         }
         //algoritmo para centrar el formulario
@@ -109,10 +109,10 @@ public final class Frm_menu extends javax.swing.JFrame {
         buttonTask2 = new org.edisoncor.gui.button.ButtonTask();
         buttonTask3 = new org.edisoncor.gui.button.ButtonTask();
         buttonTask4 = new org.edisoncor.gui.button.ButtonTask();
-        buttonTask6 = new org.edisoncor.gui.button.ButtonTask();
         buttonTask7 = new org.edisoncor.gui.button.ButtonTask();
         dlbl_nombre = new FuenteDeDatos.DataLabel();
         buttonTask8 = new org.edisoncor.gui.button.ButtonTask();
+        buttonTask9 = new org.edisoncor.gui.button.ButtonTask();
 
         dataSource1.setCodigosql("select * from empleados");
         dataSource1.setDb("sacm");
@@ -128,6 +128,7 @@ public final class Frm_menu extends javax.swing.JFrame {
         panel1.setColorPrimario(new java.awt.Color(255, 255, 255));
         panel1.setColorSecundario(new java.awt.Color(0, 153, 153));
         panel1.setPreferredSize(new java.awt.Dimension(752, 393));
+        panel1.setLayout(null);
 
         panelCurves1.setLayout(null);
 
@@ -140,7 +141,7 @@ public final class Frm_menu extends javax.swing.JFrame {
             }
         });
         panelCurves1.add(buttonTask1);
-        buttonTask1.setBounds(490, 190, 208, 64);
+        buttonTask1.setBounds(490, 180, 208, 64);
 
         tbn_salir.setBackground(new java.awt.Color(255, 0, 0));
         tbn_salir.setText("X");
@@ -166,7 +167,7 @@ public final class Frm_menu extends javax.swing.JFrame {
             }
         });
         panelCurves1.add(buttonTask5);
-        buttonTask5.setBounds(250, 180, 221, 58);
+        buttonTask5.setBounds(490, 240, 221, 58);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24));
         jLabel1.setForeground(new java.awt.Color(0, 57, 85));
@@ -208,17 +209,6 @@ public final class Frm_menu extends javax.swing.JFrame {
         panelCurves1.add(buttonTask4);
         buttonTask4.setBounds(10, 118, 259, 58);
 
-        buttonTask6.setForeground(new java.awt.Color(0, 57, 85));
-        buttonTask6.setText("Bitacora");
-        buttonTask6.setDescription("Consulta de Bitacora");
-        buttonTask6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonTask6ActionPerformed(evt);
-            }
-        });
-        panelCurves1.add(buttonTask6);
-        buttonTask6.setBounds(480, 120, 208, 64);
-
         buttonTask7.setForeground(new java.awt.Color(0, 57, 85));
         buttonTask7.setText("Diagnostico");
         buttonTask7.setDefaultCapable(false);
@@ -233,7 +223,7 @@ public final class Frm_menu extends javax.swing.JFrame {
 
         dlbl_nombre.setForeground(new java.awt.Color(0, 102, 102));
         dlbl_nombre.setText("Aqui aparecera el nombre del empleado logeado");
-        dlbl_nombre.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        dlbl_nombre.setFont(new java.awt.Font("Tahoma", 3, 12));
         panelCurves1.add(dlbl_nombre);
         dlbl_nombre.setBounds(10, 49, 300, 40);
 
@@ -249,16 +239,20 @@ public final class Frm_menu extends javax.swing.JFrame {
         panelCurves1.add(buttonTask8);
         buttonTask8.setBounds(10, 182, 259, 53);
 
-        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
-        panel1.setLayout(panel1Layout);
-        panel1Layout.setHorizontalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelCurves1, javax.swing.GroupLayout.DEFAULT_SIZE, 737, Short.MAX_VALUE)
-        );
-        panel1Layout.setVerticalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelCurves1, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
-        );
+        buttonTask9.setForeground(new java.awt.Color(0, 57, 85));
+        buttonTask9.setText("Permisos");
+        buttonTask9.setActionCommand("Permisos");
+        buttonTask9.setDescription("Control de permisos");
+        buttonTask9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTask9ActionPerformed(evt);
+            }
+        });
+        panelCurves1.add(buttonTask9);
+        buttonTask9.setBounds(250, 180, 221, 58);
+
+        panel1.add(panelCurves1);
+        panelCurves1.setBounds(0, 0, 737, 399);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -287,16 +281,8 @@ public final class Frm_menu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonTask5ActionPerformed
 
     private void tbn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_salirActionPerformed
-        Frm_log_in log=new Frm_log_in();
-        log.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_tbn_salirActionPerformed
-
-    private void buttonTask6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask6ActionPerformed
-        Frm_bitacora bit=new Frm_bitacora(id_t,t);
-        bit.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_buttonTask6ActionPerformed
 
     private void buttonTask1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask1ActionPerformed
         System.out.println("Aqui tiene que ir a mostrar el Frm_empleados");
@@ -308,13 +294,11 @@ public final class Frm_menu extends javax.swing.JFrame {
     private void buttonTask4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask4ActionPerformed
         Frm_citas cit=new Frm_citas(id_t,t);
         cit.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_buttonTask4ActionPerformed
 
     private void buttonTask7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask7ActionPerformed
        Frm_Diagnostico dia=new Frm_Diagnostico(id_t,t);
        dia.setVisible(true);
-       this.dispose();
     }//GEN-LAST:event_buttonTask7ActionPerformed
 
     private void buttonTask8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask8ActionPerformed
@@ -328,6 +312,12 @@ private void buttonTask3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         ex.setVisible(true);
         this.dispose();
 }//GEN-LAST:event_buttonTask3ActionPerformed
+
+private void buttonTask9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask9ActionPerformed
+        Frm_permisos per=new Frm_permisos(id_t,t);
+        per.setVisible(true);
+        this.dispose();
+}//GEN-LAST:event_buttonTask9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -354,9 +344,9 @@ private void buttonTask3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private org.edisoncor.gui.button.ButtonTask buttonTask3;
     private org.edisoncor.gui.button.ButtonTask buttonTask4;
     private org.edisoncor.gui.button.ButtonTask buttonTask5;
-    private org.edisoncor.gui.button.ButtonTask buttonTask6;
     private org.edisoncor.gui.button.ButtonTask buttonTask7;
     private org.edisoncor.gui.button.ButtonTask buttonTask8;
+    private org.edisoncor.gui.button.ButtonTask buttonTask9;
     private org.edisoncor.gui.varios.ClockDigital clockDigital1;
     private FuenteDeDatos.DataSource dataSource1;
     private FuenteDeDatos.Datahabilitador datahabilitador1;

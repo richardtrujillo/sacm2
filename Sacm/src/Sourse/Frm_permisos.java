@@ -38,14 +38,23 @@ public class Frm_permisos extends javax.swing.JFrame {
         }
         this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
         jTable1.setModel(modelo);
+        if(t==2){
+        this.dataSource1.setCodigosql("select * from tbl_medico_paciente where id_empleado="+id+" or id_empleado_temporal="+id+";");
         this.dataSource1.consulta();
         try{
             this.dataSource1.consulta();
-            System.out.println(""+this.dataSource1.consulta()+"_nos lanza_"+this.dataSource1.consulta().getRow()+"_registros");
         }
         catch(Exception e){
             System.out.println("no se pudo realizar la consulta");
         }
+        }else{
+        this.dataSource1.consulta();
+        try{
+            this.dataSource1.consulta();
+        }
+        catch(Exception e){
+            System.out.println("no se pudo realizar la consulta");
+        }}
         modelo.addColumn("id_asignacion");
         modelo.addColumn("id_paciente");
         modelo.addColumn("id_empleado");

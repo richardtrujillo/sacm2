@@ -30,6 +30,7 @@ public class Frm_log_in extends javax.swing.JFrame {
     String pass="";
     public Frm_log_in() {
         initComponents();
+        this.setEnabled(true);
         //algoritmoara centrar el formulario
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension frameSize = this.getSize();
