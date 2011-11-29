@@ -75,11 +75,9 @@ public class Frm_citas extends javax.swing.JFrame {
         buttonSeven4 = new org.edisoncor.gui.button.ButtonSeven();
         buttonSeven3 = new org.edisoncor.gui.button.ButtonSeven();
         buttonSeven2 = new org.edisoncor.gui.button.ButtonSeven();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         buttonSeven6 = new org.edisoncor.gui.button.ButtonSeven();
-        dataLabel1 = new FuenteDeDatos.DataLabel();
         dataTextField1 = new FuenteDeDatos.DataTextField();
         JTxtFechaCitas = new FuenteDeDatos.DataTextField();
         tbn_salir = new org.edisoncor.gui.button.ButtonSeven();
@@ -161,17 +159,11 @@ public class Frm_citas extends javax.swing.JFrame {
         panel1.add(buttonSeven2);
         buttonSeven2.setBounds(510, 110, 94, 35);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 17));
-        jLabel1.setForeground(new java.awt.Color(0, 57, 85));
-        jLabel1.setText("Numero de cita:");
-        panel1.add(jLabel1);
-        jLabel1.setBounds(10, 30, 140, 21);
-
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel2.setForeground(new java.awt.Color(0, 57, 85));
         jLabel2.setText("Paciente:");
         panel1.add(jLabel2);
-        jLabel2.setBounds(30, 90, 64, 17);
+        jLabel2.setBounds(30, 90, 63, 17);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel4.setForeground(new java.awt.Color(0, 57, 85));
@@ -189,12 +181,6 @@ public class Frm_citas extends javax.swing.JFrame {
         panel1.add(buttonSeven6);
         buttonSeven6.setBounds(140, 120, 160, 30);
 
-        dataLabel1.setText("Aqui aparece el No.Cita");
-        dataLabel1.setCampo("id_cita");
-        dataLabel1.setData(dataSource1);
-        panel1.add(dataLabel1);
-        dataLabel1.setBounds(160, 40, 280, 16);
-
         dataTextField1.setCampo("");
         dataTextField1.setData(dataSource1);
         dataTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -208,7 +194,7 @@ public class Frm_citas extends javax.swing.JFrame {
             }
         });
         panel1.add(dataTextField1);
-        dataTextField1.setBounds(100, 90, 230, 28);
+        dataTextField1.setBounds(100, 90, 230, 20);
 
         JTxtFechaCitas.setCampo("fecha");
         JTxtFechaCitas.setData(dataSource1);
@@ -227,7 +213,7 @@ public class Frm_citas extends javax.swing.JFrame {
 
         clockDigital1.setForeground(new java.awt.Color(0, 102, 102));
         panel1.add(clockDigital1);
-        clockDigital1.setBounds(490, 40, 107, 49);
+        clockDigital1.setBounds(500, 40, 107, 49);
 
         F_cita.setFont(new java.awt.Font("Tahoma", 1, 14));
         F_cita.setForeground(new java.awt.Color(0, 57, 85));
@@ -258,7 +244,7 @@ public class Frm_citas extends javax.swing.JFrame {
         dataTextField2.setCampo("descripcion");
         dataTextField2.setData(dataSource1);
         panel1.add(dataTextField2);
-        dataTextField2.setBounds(100, 230, 230, 28);
+        dataTextField2.setBounds(100, 230, 230, 20);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel6.setForeground(new java.awt.Color(0, 57, 85));
@@ -421,13 +407,11 @@ private void buttonSeven4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private org.edisoncor.gui.button.ButtonSeven buttonSeven6;
     private org.edisoncor.gui.varios.ClockDigital clockDigital1;
     private FuenteDeDatos.DataCombobox dataCombobox1;
-    private FuenteDeDatos.DataLabel dataLabel1;
     private FuenteDeDatos.DataLabel dataLabel2;
     private FuenteDeDatos.DataSource dataSource1;
     private FuenteDeDatos.DataSource dataSource2;
     private FuenteDeDatos.DataTextField dataTextField1;
     private FuenteDeDatos.DataTextField dataTextField2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

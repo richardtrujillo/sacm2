@@ -53,7 +53,6 @@ public class Frm_empleados extends javax.swing.JFrame {
                     this.dtxf_apellido_m.setEnabled(false);
                     this.dtxf_apellido_p.setEnabled(false);
                     this.dtxf_nombre.setEnabled(false);
-                    this.dtxf_id_empleado.setEnabled(false);
                     this.buttonSeven3.setEnabled(false);
                     this.buttonSeven4.setEnabled(false);
         }else{
@@ -63,7 +62,6 @@ public class Frm_empleados extends javax.swing.JFrame {
                     this.dtxf_apellido_m.setEnabled(false);
                     this.dtxf_apellido_p.setEnabled(false);
                     this.dtxf_nombre.setEnabled(false);
-                    this.dtxf_id_empleado.setEnabled(true);
                     this.buttonSeven2.setEnabled(false);
                     this.buttonSeven5.setEnabled(false);
                     this.buttonSeven6.setEnabled(false);
@@ -100,8 +98,8 @@ public class Frm_empleados extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         dtxf_id_usuario = new FuenteDeDatos.DataTextField();
-        dtxf_id_empleado = new FuenteDeDatos.DataTextField();
         tbn_salir = new org.edisoncor.gui.button.ButtonSeven();
+        dataLabel1 = new FuenteDeDatos.DataLabel();
 
         dataSource1.setCodigosql("select * from empleados");
         dataSource1.setDb("sacm");
@@ -165,6 +163,11 @@ public class Frm_empleados extends javax.swing.JFrame {
 
         buttonSeven4.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven4.setText("Cancelar");
+        buttonSeven4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSeven4ActionPerformed(evt);
+            }
+        });
 
         buttonSeven3.setBackground(new java.awt.Color(0, 57, 85));
         buttonSeven3.setText("Guardar");
@@ -265,14 +268,6 @@ public class Frm_empleados extends javax.swing.JFrame {
         dtxf_id_usuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         dtxf_id_usuario.setData(dataSource1);
 
-        dtxf_id_empleado.setCampo("id_empleado");
-        dtxf_id_empleado.setData(dataSource1);
-        dtxf_id_empleado.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                dtxf_id_empleadoKeyPressed(evt);
-            }
-        });
-
         tbn_salir.setBackground(new java.awt.Color(255, 0, 0));
         tbn_salir.setText("X");
         tbn_salir.addActionListener(new java.awt.event.ActionListener() {
@@ -280,6 +275,10 @@ public class Frm_empleados extends javax.swing.JFrame {
                 tbn_salirActionPerformed(evt);
             }
         });
+
+        dataLabel1.setCampo("id_empleado");
+        dataLabel1.setData(dataSource1);
+        dataLabel1.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -299,15 +298,15 @@ public class Frm_empleados extends javax.swing.JFrame {
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dtxf_id_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                    .addComponent(dataLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                    .addComponent(dtxf_id_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                         .addComponent(JTxtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                         .addComponent(JDtChFechaDel, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(dtxf_apellido_p, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                    .addComponent(dtxf_apellido_m, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                    .addComponent(dtxf_id_empleado, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                    .addComponent(dtxf_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))
+                    .addComponent(dtxf_apellido_p, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                    .addComponent(dtxf_apellido_m, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                    .addComponent(dtxf_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE))
                 .addGap(73, 73, 73)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
@@ -367,7 +366,7 @@ public class Frm_empleados extends javax.swing.JFrame {
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(dtxf_id_empleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(dataLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(dtxf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -461,7 +460,9 @@ public class Frm_empleados extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonSeven5ActionPerformed
 
     private void buttonSeven6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven6ActionPerformed
-        // TODO add your handling code here:
+        Frm_permisos per=new Frm_permisos(id,t);
+        per.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_buttonSeven6ActionPerformed
 
     //Campo fecha 
@@ -497,6 +498,7 @@ private void buttonSeven3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         this.btn_primero.setEnabled(false);
         this.btn_ultimo.setEnabled(false);
         this.btn_siguiente.setEnabled(false);
+        this.dataLabel1.setText("");
         try{
             this.dataSource1.consulta("insert into empleados (nombre,apellido_p,apellido_m,f_nac,id_usuario,foto) values('"+this.dtxf_nombre.getText()+"','"+this.dtxf_apellido_p.getText()+"','"+this.dtxf_apellido_m.getText()+"','"+this.JTxtFecha.getText()+"','"+this.dtxf_id_usuario.getText()+"',null)");
             JOptionPane.showMessageDialog(this,"Empleado Agregado Correctamente","Confirmación",JOptionPane.ERROR_MESSAGE);
@@ -509,12 +511,10 @@ private void buttonSeven3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
             this.dtxf_apellido_m.setEnabled(false);
             this.dtxf_apellido_p.setEnabled(false);
             this.dtxf_nombre.setEnabled(false);
-            this.dtxf_id_empleado.setEnabled(true);
             this.buttonSeven2.setEnabled(false);
             this.buttonSeven5.setEnabled(false);
             this.buttonSeven6.setEnabled(false);
             
-            this.dtxf_id_empleado.setText("");
             this.dtxf_nombre.setText("");
             this.dtxf_apellido_p.setText("");
             this.dtxf_apellido_m.setText("");
@@ -528,25 +528,6 @@ private void buttonSeven3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         
 }//GEN-LAST:event_buttonSeven3ActionPerformed
 
-private void dtxf_id_empleadoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dtxf_id_empleadoKeyPressed
-char letra=  evt.getKeyChar();
-if(letra==10)
-      {
-          evt.consume();
-      }
-      if(letra==10)
-      {
-          this.dtxf_id_empleado.setEnabled(true);
-          this.dtxf_nombre.setEnabled(true);
-          this.dtxf_apellido_p.setEnabled(false);
-          this.dtxf_apellido_m.setEnabled(false);
-          this.dtxf_id_usuario.setEnabled(false);
-          this.JDtChFechaDel.setEnabled(false);
-          this.JTxtFecha.setEnabled(false);
-          this.dtxf_nombre.requestFocus();
-      }
-}//GEN-LAST:event_dtxf_id_empleadoKeyPressed
-
 private void dtxf_nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dtxf_nombreKeyTyped
 char letra=  evt.getKeyChar();
 if(letra>='0' && letra<='9'||letra>='a' && letra<='Z' )
@@ -559,7 +540,6 @@ if(letra==10)
       }
       if(letra==10)
       {
-          this.dtxf_id_empleado.setEnabled(true);
           this.dtxf_nombre.setEnabled(true);
           this.dtxf_apellido_p.setEnabled(true);
           this.dtxf_apellido_m.setEnabled(false);
@@ -582,7 +562,6 @@ if(letra==10)
       }
       if(letra==10)
       {
-          this.dtxf_id_empleado.setEnabled(true);
           this.dtxf_nombre.setEnabled(true);
           this.dtxf_apellido_p.setEnabled(true);
           this.dtxf_apellido_m.setEnabled(true);
@@ -605,7 +584,6 @@ if(letra==10)
       }
       if(letra==10)
       {
-          this.dtxf_id_empleado.setEnabled(true);
           this.dtxf_nombre.setEnabled(true);
           this.dtxf_apellido_p.setEnabled(true);
           this.dtxf_apellido_m.setEnabled(true);
@@ -615,6 +593,21 @@ if(letra==10)
           this.JTxtFecha.requestFocus();
       }
 }//GEN-LAST:event_dtxf_apellido_mKeyTyped
+
+private void buttonSeven4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSeven4ActionPerformed
+                    this.JDtChFechaDel.setEnabled(false);
+                    this.JTxtFecha.setEnabled(false);
+                    this.dtxf_id_usuario.setEnabled(false);
+                    this.dtxf_apellido_m.setEnabled(false);
+                    this.dtxf_apellido_p.setEnabled(false);
+                    this.dtxf_nombre.setEnabled(false);
+                    this.buttonSeven3.setEnabled(false);
+                    this.buttonSeven4.setEnabled(false);
+                    this.buttonSeven2.setEnabled(true);
+                    this.buttonSeven5.setEnabled(true);
+                    this.buttonSeven6.setEnabled(true);
+                    this.dataSource1.consulta();
+}//GEN-LAST:event_buttonSeven4ActionPerformed
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
@@ -645,10 +638,10 @@ if(letra==10)
     private org.edisoncor.gui.button.ButtonSeven buttonSeven4;
     private org.edisoncor.gui.button.ButtonSeven buttonSeven5;
     private org.edisoncor.gui.button.ButtonSeven buttonSeven6;
+    private FuenteDeDatos.DataLabel dataLabel1;
     private FuenteDeDatos.DataSource dataSource1;
     private FuenteDeDatos.DataTextField dtxf_apellido_m;
     private FuenteDeDatos.DataTextField dtxf_apellido_p;
-    private FuenteDeDatos.DataTextField dtxf_id_empleado;
     private FuenteDeDatos.DataTextField dtxf_id_usuario;
     private FuenteDeDatos.DataTextField dtxf_nombre;
     private javax.swing.JLabel jLabel1;
