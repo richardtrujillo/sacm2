@@ -38,10 +38,17 @@ public class Frm_Agenda extends javax.swing.JFrame {
             frameSize.width = screenSize.width;
         }
         this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
+        if(t==2){
         try{
             r2=this.dataSource1.consultaSN("select * from vw_agenda_medico where id_empleado="+this.id+";").getRow();
         }catch(Exception e){
            System.out.println("no me conecte");
+        }}else{
+        try{
+            r2=this.dataSource1.consultaSN("select * from vw_agenda_medico;").getRow();
+        }catch(Exception e){
+           System.out.println("no me conecte");
+        }
         }
         int r;
        
@@ -142,7 +149,7 @@ public class Frm_Agenda extends javax.swing.JFrame {
             }
         });
         panel1.add(JTxtBuscar);
-        JTxtBuscar.setBounds(30, 180, 130, 21);
+        JTxtBuscar.setBounds(30, 180, 130, 27);
 
         bt.setBackground(new java.awt.Color(0, 57, 85));
         bt.setText("Buscar");
@@ -157,7 +164,7 @@ public class Frm_Agenda extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel2.setText("Año-Mes-Dia");
         panel1.add(jLabel2);
-        jLabel2.setBounds(50, 200, 88, 27);
+        jLabel2.setBounds(50, 200, 91, 27);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

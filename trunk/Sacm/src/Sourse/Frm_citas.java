@@ -171,7 +171,7 @@ public class Frm_citas extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 57, 85));
         jLabel2.setText("Paciente:");
         panel1.add(jLabel2);
-        jLabel2.setBounds(30, 90, 63, 17);
+        jLabel2.setBounds(30, 90, 64, 17);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel4.setForeground(new java.awt.Color(0, 57, 85));
@@ -193,7 +193,7 @@ public class Frm_citas extends javax.swing.JFrame {
         dataLabel1.setCampo("id_cita");
         dataLabel1.setData(dataSource1);
         panel1.add(dataLabel1);
-        dataLabel1.setBounds(160, 40, 280, 14);
+        dataLabel1.setBounds(160, 40, 280, 16);
 
         dataTextField1.setCampo("");
         dataTextField1.setData(dataSource1);
@@ -208,7 +208,7 @@ public class Frm_citas extends javax.swing.JFrame {
             }
         });
         panel1.add(dataTextField1);
-        dataTextField1.setBounds(100, 90, 230, 20);
+        dataTextField1.setBounds(100, 90, 230, 28);
 
         JTxtFechaCitas.setCampo("fecha");
         JTxtFechaCitas.setData(dataSource1);
@@ -258,7 +258,7 @@ public class Frm_citas extends javax.swing.JFrame {
         dataTextField2.setCampo("descripcion");
         dataTextField2.setData(dataSource1);
         panel1.add(dataTextField2);
-        dataTextField2.setBounds(100, 230, 230, 20);
+        dataTextField2.setBounds(100, 230, 230, 28);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel6.setForeground(new java.awt.Color(0, 57, 85));

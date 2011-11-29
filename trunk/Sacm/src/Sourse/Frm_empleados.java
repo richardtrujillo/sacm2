@@ -287,7 +287,7 @@ public class Frm_empleados extends javax.swing.JFrame {
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addComponent(tbn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(721, Short.MAX_VALUE))
+                .addContainerGap(733, Short.MAX_VALUE))
             .addGroup(panel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
