@@ -68,10 +68,7 @@ public class Frm_empleados extends javax.swing.JFrame {
                     this.buttonSeven5.setEnabled(false);
                     this.buttonSeven6.setEnabled(false);
         }
-        
     }
-
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -109,7 +106,7 @@ public class Frm_empleados extends javax.swing.JFrame {
         dataSource1.setCodigosql("select * from empleados");
         dataSource1.setDb("sacm");
         dataSource1.setIp("localhost");
-        dataSource1.setPassword("3mbl3ma");
+        dataSource1.setPassword("");
         dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -546,7 +543,7 @@ if(letra==10)
           this.dtxf_id_usuario.setEnabled(false);
           this.JDtChFechaDel.setEnabled(false);
           this.JTxtFecha.setEnabled(false);
-    this.dtxf_nombre.requestFocus();
+          this.dtxf_nombre.requestFocus();
       }
 }//GEN-LAST:event_dtxf_id_empleadoKeyPressed
 
@@ -618,16 +615,10 @@ if(letra==10)
           this.JTxtFecha.requestFocus();
       }
 }//GEN-LAST:event_dtxf_apellido_mKeyTyped
-   
-    /**
-     * @param args the command line arguments
-     */
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
                 getImage(ClassLoader.getSystemResource("images/icono.png"));
-
-
         return retValue;
     }
 

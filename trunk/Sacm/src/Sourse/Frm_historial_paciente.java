@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Frm_historial_paciente extends javax.swing.JFrame {
 
-     String id="";
+    String id="";
     int t=0;
     DefaultTableModel modelo = new DefaultTableModel();
     public Frm_historial_paciente(String id_m,int tip){
@@ -38,8 +38,10 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
         }
         this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
         jTable1.setModel(modelo);
-        this.dataSource1.setCodigosql("select id_paciente,fecha,descripcion,medicacion from tbl_expedientes natural join tbl_pacientes where id_paciente = any("+
-        "select id_paciente from tbl_medico_paciente where id_empleado="+"(select id_empleado from empleados where id_usuario='"+this.id+"'));");
+        this.dataSource1.setCodigosql(
+        "select id_paciente,fecha,descripcion,medicacion from tbl_expedientes natural join tbl_pacientes where id_paciente = any("+
+        "select id_paciente from tbl_medico_paciente where id_empleado="+this.id+" or id_empleado_temporal="+this.id+") order by id_paciente;"
+        );
         try{
             this.dataSource1.consulta();
             System.out.println(""+this.dataSource1.consulta()+"_nos lanza_"+this.dataSource1.consulta().getRow()+"_registros");
@@ -63,7 +65,6 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
                 System.out.println("no se porque no llene la tabla");
         }
         jTable1.setModel(modelo); 
-        this.Lbl_catalogo_pacientes.setText("historial completo del paciente: ");
         }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -79,7 +80,7 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
         dataSource1.setCodigosql("select * from tbl_expedientes");
         dataSource1.setDb("sacm");
         dataSource1.setIp("localhost");
-        dataSource1.setPassword("3mbl3ma");
+        dataSource1.setPassword("");
         dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -98,9 +99,9 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
             }
         });
 
-        Lbl_catalogo_pacientes.setFont(new java.awt.Font("Tahoma", 1, 24));
+        Lbl_catalogo_pacientes.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         Lbl_catalogo_pacientes.setForeground(new java.awt.Color(0, 57, 85));
-        Lbl_catalogo_pacientes.setText("Aqui aparece el id del paciente");
+        Lbl_catalogo_pacientes.setText("Expediente de mis pacientes");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -127,7 +128,7 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addComponent(tbn_salir5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
                         .addComponent(Lbl_catalogo_pacientes)
                         .addGap(23, 23, 23))))
         );
@@ -139,7 +140,7 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
                     .addComponent(Lbl_catalogo_pacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tbn_salir5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -163,12 +164,10 @@ public class Frm_historial_paciente extends javax.swing.JFrame {
         this.dispose(); 
 }//GEN-LAST:event_tbn_salir5ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
+            @Override
             public void run() {
                 new Frm_historial_paciente(null,0).setVisible(true);
             }

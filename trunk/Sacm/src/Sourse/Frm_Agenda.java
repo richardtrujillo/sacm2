@@ -26,6 +26,7 @@ public class Frm_Agenda extends javax.swing.JFrame {
     public Frm_Agenda(String id_m,int tip) {
         id=id_m;
         t=tip;
+        int r2=0;
         initComponents();
         this.JTxtBuscar.setEnabled(false);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -38,25 +39,28 @@ public class Frm_Agenda extends javax.swing.JFrame {
         }
         this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
         try{
-            this.dataSource1.setCodigosql("select * from vw_agenda_medico where id_empleado='"+id+"';");
-            this.dataSource1.consulta();
+            r2=this.dataSource1.consultaSN("select * from vw_agenda_medico where id_empleado="+this.id+";").getRow();
         }catch(Exception e){
            System.out.println("no me conecte");
         }
+        int r;
+       
         try {
+         if(r2==0){
+             System.out.println("no tiene campos");
+         }else{    
+            modelo.addColumn("nombre");
             modelo.addColumn("fecha");
             modelo.addColumn("hora");
-            modelo.addColumn("id_paciente");
-            modelo.addColumn("nombre");
-            modelo.addColumn("apellido_p");
-            modelo.addColumn("apellido_m");
+            modelo.addColumn("descripcion");
+            modelo.addColumn("id_empleado");
         do
         {                
-               Object [] fila = new Object[6];
-               for (int i=0;i<6;i++)
+               Object [] fila = new Object[5];
+               for (int i=0;i<5;i++)
                fila[i] =this.dataSource1.rs.getObject(i+1); 
-               modelo.addRow(fila);    
-        }while (this.dataSource1.rs.next());
+               modelo.addRow(fila);
+        }while (this.dataSource1.rs.next());}
         }catch (SQLException ex) {
                 System.out.println("no se porque no llene la tabla");
         }
@@ -81,7 +85,7 @@ public class Frm_Agenda extends javax.swing.JFrame {
         dataSource1.setCodigosql("select * from vw_agenda_medico");
         dataSource1.setDb("sacm");
         dataSource1.setIp("localhost");
-        dataSource1.setPassword("3mbl3ma");
+        dataSource1.setPassword("");
         dataSource1.setUsuario("root");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
